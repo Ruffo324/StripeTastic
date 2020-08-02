@@ -4,5 +4,9 @@
 			"path": "StripeTastic"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"functional": "cpp"
+		}
+	}
 }

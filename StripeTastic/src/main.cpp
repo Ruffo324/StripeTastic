@@ -1,74 +1,93 @@
-#include <Arduino.h>
-#ifdef ESP32
-#include <WiFi.h>
-#include <AsyncTCP.h>
-#elif defined(ESP8266)
-#include <ESP8266WiFi.h>
-#include <ESPAsyncTCP.h>
-#endif
-#include <ESPAsyncWebServer.h>
+/*********
+  Rui Santos
+  Complete project details at https://randomnerdtutorials.com  
+*********/
 
-AsyncWebServer server(80);
+// Import required libraries
+#include "WiFi.h"
+#include "ESPAsyncWebServer.h"
+#include "SPIFFS.h"
 
+// Replace with your network credentials
 const char *ssid = "***REMOVED***";
 const char *password = "***REMOVED***";
 
-const char *PARAM_MESSAGE = "message";
+// Set LED GPIO
+const int ledPin = 2;
+// Stores LED state
+String ledState;
 
-void notFound(AsyncWebServerRequest *request)
+// Create AsyncWebServer object on port 80
+AsyncWebServer server(80);
+
+// Replaces placeholder with LED state value
+String processor(const String &var)
 {
-  request->send(404, "text/plain", "Not found");
+  Serial.println(var);
+  if (var == "STATE")
+  {
+    if (digitalRead(ledPin))
+    {
+      ledState = "ON";
+    }
+    else
+    {
+      ledState = "OFF";
+    }
+    Serial.print(ledState);
+    return ledState;
+  }
+  return String();
 }
 
 void setup()
 {
-
+  // Serial port for debugging purposes
   Serial.begin(115200);
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(ssid, password);
-  if (WiFi.waitForConnectResult() != WL_CONNECTED)
+  pinMode(ledPin, OUTPUT);
+
+  // Initialize SPIFFS
+  if (!SPIFFS.begin(true))
   {
-    Serial.printf("WiFi Failed!\n");
+    Serial.println("An Error has occurred while mounting SPIFFS");
     return;
   }
 
-  Serial.print("IP Address: ");
+  // Connect to Wi-Fi
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    delay(1000);
+    Serial.println("Connecting to WiFi..");
+  }
+
+  // Print ESP32 Local IP Address
   Serial.println(WiFi.localIP());
 
+  // Route for root / web page
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
-    request->send(200, "text/plain", "Hello, world");
+    Serial.println(SPIFFS.exists("/index.html"));
+    request->send(SPIFFS, "/index.html", String(), false, processor);
   });
 
-  // Send a GET request to <IP>/get?message=<message>
-  server.on("/get", HTTP_GET, [](AsyncWebServerRequest *request) {
-    String message;
-    if (request->hasParam(PARAM_MESSAGE))
-    {
-      message = request->getParam(PARAM_MESSAGE)->value();
-    }
-    else
-    {
-      message = "No message sent";
-    }
-    request->send(200, "text/plain", "Hello, GET: " + message);
+  // Route to load style.css file
+  server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request) {
+    request->send(SPIFFS, "/style.css", "text/css");
   });
 
-  // Send a POST request to <IP>/post with a form field message set to <message>
-  server.on("/post", HTTP_POST, [](AsyncWebServerRequest *request) {
-    String message;
-    if (request->hasParam(PARAM_MESSAGE, true))
-    {
-      message = request->getParam(PARAM_MESSAGE, true)->value();
-    }
-    else
-    {
-      message = "No message sent";
-    }
-    request->send(200, "text/plain", "Hello, POST: " + message);
+  // Route to set GPIO to HIGH
+  server.on("/on", HTTP_GET, [](AsyncWebServerRequest *request) {
+    digitalWrite(ledPin, HIGH);
+    request->send(SPIFFS, "/index.html", String(), false, processor);
   });
 
-  server.onNotFound(notFound);
+  // Route to set GPIO to LOW
+  server.on("/off", HTTP_GET, [](AsyncWebServerRequest *request) {
+    digitalWrite(ledPin, LOW);
+    request->send(SPIFFS, "/index.html", String(), false, processor);
+  });
 
+  // Start server
   server.begin();
 }
 
