@@ -2,17 +2,81 @@
 <html>
 
 <head>
-    <title>ESP32 Web Server</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="data:,">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="vendor/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="icon" href="data:,">
+    <title>ESP32 Web Server</title>
 </head>
 
 <body>
-    <h1>ESP32 Web Server</h1>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-sm-12 col-4">
+                <div class="alert alert-primary" role="alert">
+                    A simple primary alert—check it out!
+                </div>
+                <div class="alert alert-secondary" role="alert">
+                    A simple secondary alert—check it out!
+                </div>
+                <div class="alert alert-success" role="alert">
+                    A simple success alert—check it out!
+                </div>
+                <div class="alert alert-danger" role="alert">
+                    A simple danger alert—check it out!
+                </div>
+                <div class="alert alert-warning" role="alert">
+                    A simple warning alert—check it out!
+                </div>
+                <div class="alert alert-info" role="alert">
+                    A simple info alert—check it out!
+                </div>
+                <div class="alert alert-light" role="alert">
+                    A simple light alert—check it out!
+                </div>
+                <div class="alert alert-dark" role="alert">
+                    A simple dark alert—check it out!
+                </div>
+            </div>
+            <div class="col-sm-12 col-4">
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-secondary">Secondary</button>
+                <button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-danger">Danger</button>
+                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" class="btn btn-info">Info</button>
+                <button type="button" class="btn btn-light">Light</button>
+                <button type="button" class="btn btn-dark">Dark</button>
+
+                <button type="button" class="btn btn-link">Link</button>
+            </div>
+            <div class="col-sm-12 col-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- simple webserver example code. -->
+    <!-- <h1>ESP32 Web Server</h1>
     <p>GPIO state: <strong> %STATE%</strong></p>
     <p><a href="/on"><button class="button">ON</button></a></p>
-    <p><a href="/off"><button class="button button2">OFF</button></a></p>
+    <p><a href="/off"><button class="button button2">OFF</button></a></p> -->
+
+    <!-- Jquery and Bootstrap -->
+    <script src="vendor/js/jquery.js"></script>
+    <script src="vendor/js/bootstrap.js"></script>
 </body>
 
 </html>

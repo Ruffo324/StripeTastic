@@ -71,8 +71,19 @@ void setup()
   });
 
   // Route to load style.css file
+  // TODO: Move to routemapping.cpp
   server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request) {
     request->send(SPIFFS, "/style.css", "text/css");
+  });
+
+  server.on("/vendor/js/jquery.js", HTTP_GET, [](AsyncWebServerRequest *request) {
+    request->send(SPIFFS, "/vendor/js/jquery.js", "application/script");
+  });
+  server.on("/vendor/js/bootstrap.js", HTTP_GET, [](AsyncWebServerRequest *request) {
+    request->send(SPIFFS, "/vendor/js/bootstrap.js", "application/script");
+  });
+  server.on("/vendor/css/bootstrap.css", HTTP_GET, [](AsyncWebServerRequest *request) {
+    request->send(SPIFFS, "/vendor/css/bootstrap.css", "text/css");
   });
 
   // Route to set GPIO to HIGH
