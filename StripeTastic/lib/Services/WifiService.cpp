@@ -29,13 +29,14 @@ namespace Services
 
     bool WifiService::Connect(const String ssid, const String password)
     {
+        const int connectionCheckDelayMs = 500;
         _logger->Log(_loggerTag, "Connecting to \"" + ssid + "\" ...");
 
         WiFi.begin(ssid.c_str(), password.c_str());
         while (WiFi.status() != WL_CONNECTED)
         {
             _logger->Log(".");
-            delay(1000);
+            delay(connectionCheckDelayMs);
 
             if (WiFi.status() == WL_CONNECT_FAILED)
             {
@@ -45,9 +46,14 @@ namespace Services
             }
         }
         _logger->Linebreak();
-        _logger->Logln(_loggerTag, "Connected to \"" + ssid + "\".");
-        _logger->Logln(_loggerTag, "Local IPAddress: \"" + WiFi.localIP().toString() + "\"");
-        _logger->Logln(_loggerTag, "Gateway: \"" + WiFi.gatewayIP().toString() + "\"");
+
+        Services::LoggerTable logTable = {
+            {"Connected with", ssid},
+            {"Password", password},
+            {"Local IP", WiFi.localIP().toString()},
+            {"Gateway", WiFi.gatewayIP().toString()},
+        };
+        _logger->LogTable(_loggerTag, logTable);
         return true;
     }
 
@@ -67,11 +73,14 @@ namespace Services
         _loopService->Register(_dnsLoopKey, [this]() { _dnsServer.processNextRequest(); });
 
         _logger->Logln(_loggerTag, "Access point should now be connectable.");
-        _logger->Logln(_loggerTag, "SSID: \"" + ssid + "\"");
-        _logger->Logln(_loggerTag, "Password: \"" + password + "\"");
-        _logger->Logln(_loggerTag, "Gateway: \"" + WiFi.gatewayIP().toString() + "\"");
-        _logger->Logln(_loggerTag, "DNS port: \"" + String(dnsServerPort) + "\"");
-        _logger->Logln(_loggerTag, "Local IPAddress: \"" + WiFi.localIP().toString() + "\"");
+        Services::LoggerTable logTable = {
+            {"SSID", ssid},
+            {"Password", password},
+            {"Gateway", WiFi.gatewayIP().toString()},
+            {"DNS port", String(dnsServerPort)},
+            {"Local IP", WiFi.localIP().toString()},
+        };
+        _logger->LogTable(_loggerTag, logTable);
     }
 
     String WifiService::getMacSuffix()

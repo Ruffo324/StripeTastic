@@ -11,11 +11,7 @@ namespace Services
 
     LoopService *LoopService::GetInstance()
     {
-        if (_instance == 0)
-            _instance = new LoopService();
-
-        // return _instance == 0 ? _instance = new LoopService() : _instance;
-        return _instance;
+        return _instance == 0 ? _instance = new LoopService() : _instance;
     }
 
     void LoopService::InvokeLoop()
@@ -29,9 +25,7 @@ namespace Services
 
     void LoopService::Register(String key, std::function<void()> function)
     {
-        auto addPair = std::pair<String, std::function<void()>>(key, function);
-        _registeredFunctions.emplace(addPair);
-        // _registeredFunctions[key] = function;
+        _registeredFunctions[key] = function;
     }
 
     void LoopService::Unregister(String key)
