@@ -32,6 +32,7 @@ namespace Services
         Logger();
         static Logger *_instance;
         String TagToPrefix(const String tag);
+        String RepeatChar(const int length, const char padChar = ' ');
         const int LineLength = 20;
         const String UnknownTag = "UNKNW";
         const String WarningTag = "WARN";

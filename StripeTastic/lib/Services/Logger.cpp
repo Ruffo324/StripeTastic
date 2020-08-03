@@ -23,9 +23,9 @@ namespace Services
         Serial.println();
     }
 
-    void Logger::Logln(const string message)
+    void Logger::Logln(const String message)
     {
-        this->Logln(UnknownTag, message);
+        Logln(UnknownTag, message);
     }
 
     void Logger::Log(const String message)
@@ -58,7 +58,8 @@ namespace Services
     {
         using namespace ArduinoLinq;
         // TODO: Rewrite function using boolinq, when isssue is resoolved. https://github.com/k06a/boolinq/issues/45
-        // Invalid data -> stop here.
+
+        // Invalid data -> stop.
         if (data.empty() || data.at(0).empty())
         {
             Error("Logger::LogTable: Paramert data is not allowed to be empty.");
@@ -67,10 +68,7 @@ namespace Services
 
         // Get for each column the longest content.
         auto columnsPerRow = data.at(0).size();
-        Debug("columnsPerRow " + String(columnsPerRow));
-
         auto columnTextLengths = vector<int>(columnsPerRow, 0);
-
         for (auto &row : data)
             for (size_t i = 0; i < row.size(); i++)
             {
@@ -78,9 +76,7 @@ namespace Services
                     columnTextLengths[i] = row[i].length();
             }
 
-        auto tableWidth = (from(columnTextLengths) >> sum()) + columnsPerRow * 2 + 1; // " |" per col.
-        Debug("tableWidth " + String(tableWidth));
-        // auto tableWidth = boolinq::from(columnTextLengths).sum() + columnsPerRow * 2 + 1;
+        auto tableWidth = (from(columnTextLengths) >> sum()) + columnsPerRow * 3 + 1; // "| |" per col.
 
         // Now print the data.
         PrintLine(tag, tableWidth);
@@ -90,7 +86,7 @@ namespace Services
             for (size_t i = 0; i < row.size(); i++)
             {
                 auto missingSpaces = columnTextLengths[i] - row[i].length();
-                rowStr += " " + row[i] + String(missingSpaces, ' ') + "|";
+                rowStr += " " + row[i] + RepeatChar(missingSpaces, ' ') + " |";
             }
             Logln(tag, rowStr);
         }
@@ -99,15 +95,23 @@ namespace Services
 
     void Logger::PrintLine(const String tag, const int length)
     {
-        // TODO: REmove debug.
-        auto x = std::string(length, '-');
-        Debug(x);
-        Logln(tag, x);
+        Logln(tag, RepeatChar(length, '-'));
+    }
+
+    String Logger::RepeatChar(const int length, const char padChar)
+    {
+        // TODO: Rebuild this function. Not satisfied with it.
+        String string = "";
+        for (int i = 0; i < length; i++)
+        {
+            string += padChar;
+        }
+        return string;
     }
 
     void Logger::PrintLine(const String tag)
     {
-        Logln(tag, String(LineLength, '-'));
+        Logln(tag, RepeatChar(LineLength, '-'));
     }
 
     void Logger::PrintLine()
