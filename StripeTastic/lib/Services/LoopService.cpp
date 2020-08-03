@@ -3,6 +3,7 @@
 namespace Services
 {
     LoopService *LoopService::_instance = 0;
+    std::map<String, std::function<void()>> _registeredFunctions;
 
     LoopService::LoopService()
     {
@@ -10,7 +11,7 @@ namespace Services
 
     LoopService *LoopService::GetInstance()
     {
-        if (!_instance == 0)
+        if (_instance == 0)
             _instance = new LoopService();
 
         // return _instance == 0 ? _instance = new LoopService() : _instance;
@@ -19,20 +20,23 @@ namespace Services
 
     void LoopService::InvokeLoop()
     {
-        for (auto loopFunction : _registeredFunctions)
+        for (auto &loopFunction : _registeredFunctions)
         {
-            loopFunction();
+            loopFunction.second();
         }
+        delay(LoopDelayMs);
     }
 
-    void LoopService::RegisterFunction(std::function<void()> function)
+    void LoopService::Register(String key, std::function<void()> function)
     {
-        _registeredFunctions.push_back(function);
+        auto addPair = std::pair<String, std::function<void()>>(key, function);
+        _registeredFunctions.emplace(addPair);
+        // _registeredFunctions[key] = function;
     }
 
-    void LoopService::UnregisterFunction(std::function<void()> function)
+    void LoopService::Unregister(String key)
     {
-        auto position = std::find(_registeredFunctions.begin(), _registeredFunctions.end(), function);
+        auto position = _registeredFunctions.find(key);
         if (position != _registeredFunctions.end())
             _registeredFunctions.erase(position);
     }

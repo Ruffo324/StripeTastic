@@ -1,6 +1,8 @@
 #include <Arduino.h>
 #include <functional>
-#include "LoopService.h"
+#include <LoopService.h>
+#include <Logger.h>
+#include <DNSServer.h>
 
 namespace Services
 {
@@ -15,9 +17,11 @@ namespace Services
         void Reset();
 
     private:
-        std::function<void()> _processDnsFunction; // TODO: cleaner way, then store the lambad in an varible.
         bool _accesPointMode;
         LoopService *_loopService;
-        void processDns();
+        Logger *_logger;
+        DNSServer _dnsServer;
+        void setHostname();
+        String getMacSuffix();
     };
 } // namespace Services

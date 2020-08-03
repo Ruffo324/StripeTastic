@@ -4,6 +4,10 @@
 *********/
 
 // Import required libraries
+#include <Configuration.h>
+#include <Logger.h>
+#include <WifiService.h>
+
 #include "WiFi.h"
 #include "ESPAsyncWebServer.h"
 #include "SPIFFS.h"
@@ -19,89 +23,92 @@ String ledState;
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
+Services::WifiService *_wifiService;
+Services::LoopService *_loopService;
 
 // Replaces placeholder with LED state value
 String processor(const String &var)
 {
-  Serial.println(var);
-  if (var == "STATE")
-  {
-    if (digitalRead(ledPin))
+    Serial.println(var);
+    if (var == "STATE")
     {
-      ledState = "ON";
+        if (digitalRead(ledPin))
+        {
+            ledState = "ON";
+        }
+        else
+        {
+            ledState = "OFF";
+        }
+        Serial.print(ledState);
+        return ledState;
     }
-    else
-    {
-      ledState = "OFF";
-    }
-    Serial.print(ledState);
-    return ledState;
-  }
-  return String();
+    return String();
 }
 
 void setup()
 {
-  // Serial port for debugging purposes
-  Serial.begin(115200);
-  pinMode(ledPin, OUTPUT);
+    // Setup logger.
+    auto logger = Services::Logger::GetInstance();
+    logger->Setup(Configuration::Baudrate);
 
-  // Initialize SPIFFS
-  if (!SPIFFS.begin(true))
-  {
-    Serial.println("An Error has occurred while mounting SPIFFS");
-    return;
-  }
+    // Setup loop service, and set loop delay.
+    _loopService = Services::LoopService::GetInstance();
+    _loopService->LoopDelayMs = Configuration::LoopDelayMs;
 
-  // Connect to Wi-Fi
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED)
-  {
-    delay(1000);
-    Serial.println("Connecting to WiFi..");
-  }
+    _wifiService = new Services::WifiService();
 
-  // Print ESP32 Local IP Address
-  Serial.println(WiFi.localIP());
+    pinMode(ledPin, OUTPUT);
 
-  // Route for root / web page
-  server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
-    Serial.println(SPIFFS.exists("/index.html"));
-    request->send(SPIFFS, "/index.html", String(), false, processor);
-  });
+    // Initialize SPIFFS
+    if (!SPIFFS.begin(true))
+    {
+        Serial.println("An Error has occurred while mounting SPIFFS");
+        return;
+    }
 
-  // Route to load style.css file
-  // TODO: Move to routemapping.cpp
-  server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request) {
-    request->send(SPIFFS, "/style.css", "text/css");
-  });
+    // Create AP. //TODO: load from UserPreferences.
+    _wifiService->CreateAccessPoint();
 
-  server.on("/vendor/js/jquery.js", HTTP_GET, [](AsyncWebServerRequest *request) {
-    request->send(SPIFFS, "/vendor/js/jquery.js", "application/script");
-  });
-  server.on("/vendor/js/bootstrap.js", HTTP_GET, [](AsyncWebServerRequest *request) {
-    request->send(SPIFFS, "/vendor/js/bootstrap.js", "application/script");
-  });
-  server.on("/vendor/css/bootstrap.css", HTTP_GET, [](AsyncWebServerRequest *request) {
-    request->send(SPIFFS, "/vendor/css/bootstrap.css", "text/css");
-  });
+    // Route for root / web page
+    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
+        Serial.println(SPIFFS.exists("/index.html"));
+        request->send(SPIFFS, "/index.html", String(), false, processor);
+    });
 
-  // Route to set GPIO to HIGH
-  server.on("/on", HTTP_GET, [](AsyncWebServerRequest *request) {
-    digitalWrite(ledPin, HIGH);
-    request->send(SPIFFS, "/index.html", String(), false, processor);
-  });
+    // Route to load style.css file
+    // TODO: Move to routemapping.cpp
+    server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request) {
+        request->send(SPIFFS, "/style.css", "text/css");
+    });
 
-  // Route to set GPIO to LOW
-  server.on("/off", HTTP_GET, [](AsyncWebServerRequest *request) {
-    digitalWrite(ledPin, LOW);
-    request->send(SPIFFS, "/index.html", String(), false, processor);
-  });
+    server.on("/vendor/js/jquery.js", HTTP_GET, [](AsyncWebServerRequest *request) {
+        request->send(SPIFFS, "/vendor/js/jquery.js", "application/script");
+    });
+    server.on("/vendor/js/bootstrap.js", HTTP_GET, [](AsyncWebServerRequest *request) {
+        request->send(SPIFFS, "/vendor/js/bootstrap.js", "application/script");
+    });
+    server.on("/vendor/css/bootstrap.css", HTTP_GET, [](AsyncWebServerRequest *request) {
+        request->send(SPIFFS, "/vendor/css/bootstrap.css", "text/css");
+    });
 
-  // Start server
-  server.begin();
+    // Route to set GPIO to HIGH
+    server.on("/on", HTTP_GET, [](AsyncWebServerRequest *request) {
+        digitalWrite(ledPin, HIGH);
+        request->send(SPIFFS, "/index.html", String(), false, processor);
+    });
+
+    // Route to set GPIO to LOW
+    server.on("/off", HTTP_GET, [](AsyncWebServerRequest *request) {
+        digitalWrite(ledPin, LOW);
+        request->send(SPIFFS, "/index.html", String(), false, processor);
+    });
+
+    // Start server
+    server.begin();
 }
 
 void loop()
 {
+    _loopService->InvokeLoop();
 }

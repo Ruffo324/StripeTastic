@@ -1,19 +1,22 @@
+#pragma once
 #include <Arduino.h>
 #include <functional>
+#include <map>
 
 namespace Services
 {
     class LoopService
     {
     public:
+        int LoopDelayMs = 0;
         static LoopService *GetInstance();
         void InvokeLoop();
-        void RegisterFunction(std::function<void()> function);
-        void UnregisterFunction(std::function<void()> function);
+        void Register(String key, std::function<void()> function);
+        void Unregister(String key);
 
     private:
         LoopService();
         static LoopService *_instance;
-        std::vector<std::function<void()>> _registeredFunctions;
+        std::map<String, std::function<void()>> _registeredFunctions;
     };
 } // namespace Services
