@@ -54,11 +54,11 @@ namespace Services
         return "[" + tag + "] ";
     }
 
-    void Logger::LogTable(const String tag, LoggerTable data, bool firstIsHeader)
+    void Logger::LogTable(const String tag, LoggerTable data, bool firstIsHeader, bool topBottomBorder)
     {
         using namespace ArduinoLinq;
         // TODO: Rewrite function using boolinq, when isssue is resoolved. https://github.com/k06a/boolinq/issues/45
-
+        // TODO: Create settings struct instead of parameters with default values.
         // Invalid data -> stop.
         if (data.empty() || data.at(0).empty())
         {
@@ -78,8 +78,10 @@ namespace Services
 
         auto tableWidth = (from(columnTextLengths) >> sum()) + columnsPerRow * 3 + 1; // "| |" per col.
 
+        if (topBottomBorder)
+            PrintLine(tag, tableWidth);
+
         // Now print the data.
-        PrintLine(tag, tableWidth);
         auto headerWritten = false;
         for (auto &row : data)
         {
@@ -98,7 +100,9 @@ namespace Services
                 headerWritten = true;
             }
         }
-        PrintLine(tag, tableWidth);
+
+        if (topBottomBorder)
+            PrintLine(tag, tableWidth);
     }
 
     void Logger::PrintLine(const String tag, const int length)

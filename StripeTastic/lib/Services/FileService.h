@@ -10,6 +10,10 @@ namespace Services
     {
         String path;
         String type;
+        /**
+         * Size of the file in bytes.
+         */
+        int size;
     };
 
     typedef vector<file_fileService> FileList;
@@ -24,5 +28,7 @@ namespace Services
         String fileTypeByExtension(String file);
         Logger *_logger;
         FileList _files;
+        void showFileServiceOverview();
+        String humanizeBytes(int byte);
     };
 } // namespace Services

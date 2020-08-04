@@ -24,20 +24,34 @@ namespace Services
 
         _files.clear();
         while (file = root.openNextFile())
-            _files.push_back({.path = file.name(), .type = fileTypeByExtension(file.name())});
+            _files.push_back({.path = file.name(), .type = fileTypeByExtension(file.name()), .size = file.size()});
 
         _logger->Logln(_loggerTag, "Filesystem scan completed, found " + String(_files.size()) + " files.");
-
-        // Show files in debug mode. // TODO: extra function?
-        using namespace ArduinoLinq;
         if (Configuration::Debug)
-        {
-            LoggerTable data = {{"File path", "web mime type"}};
-            auto filesData = from(_files) >> select([](file_fileService f) { return (LoggerTableRow){f.path, f.type}; }) >> to_vector();
-            data.insert(data.end(), filesData.begin(), filesData.end());
+            showFileServiceOverview();
+    }
 
-            _logger->LogTable(_loggerTag, data, true);
-        }
+    void FileService::showFileServiceOverview()
+    {
+        auto totalMb = humanizeBytes(SPIFFS.totalBytes());
+        auto usedMb = humanizeBytes(SPIFFS.usedBytes());
+        auto freeMb = humanizeBytes(SPIFFS.totalBytes() - SPIFFS.usedBytes());
+
+        LoggerTable spaceOverview = {
+            {"total", "used", "free"},
+            {totalMb, usedMb, freeMb},
+        };
+        _logger->LogTable(_loggerTag, spaceOverview, false, false);
+
+        using namespace ArduinoLinq;
+
+        auto fileToRow = [this](file_fileService f) { return (LoggerTableRow){f.path, f.type, humanizeBytes(f.size)}; };
+
+        LoggerTable data = {{"File path", "web mime type", "size"}};
+        auto filesData = from(_files) >> select(fileToRow) >> to_vector();
+        data.insert(data.end(), filesData.begin(), filesData.end());
+
+        _logger->LogTable(_loggerTag, data, true);
     }
 
     String FileService::fileTypeByExtension(String file)
@@ -59,6 +73,16 @@ namespace Services
                 return mimeMap[1];
 
         return unknown;
+    }
+
+    String FileService::humanizeBytes(int byte)
+    {
+        vector<String> sizes = {"kb", "mb", "gb", "tb", "pt"};
+        double converted = byte;
+        for (size_t i = 0; i < sizes.size(); i++)
+            if ((converted = converted / 1024) < 1)
+                return String(converted, 4) + " " + sizes[i];
+        return "NaN";
     }
 
     FileList FileService::GetAllFiles()
