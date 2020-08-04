@@ -67,7 +67,6 @@ void setup()
     pinMode(ledPin, OUTPUT);
     // Route for root / web page
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
-        Serial.println(SPIFFS.exists("/index.html"));
         request->send(SPIFFS, "/index.html", String(), false, processor);
     });
 

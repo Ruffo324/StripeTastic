@@ -23,7 +23,7 @@ namespace Services
         void Debug(const String message);
         void Linebreak();
 
-        void LogTable(const String tag, LoggerTable data);
+        void LogTable(const String tag, LoggerTable data, bool firstIsHeader = false);
         void PrintLine(const String tag, const int length);
         void PrintLine(const String tag);
         void PrintLine();

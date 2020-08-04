@@ -26,12 +26,18 @@ namespace Services
         while (file = root.openNextFile())
             _files.push_back({.path = file.name(), .type = fileTypeByExtension(file.name())});
 
-        _logger->Logln(_loggerTag, "Filesystem scan completed, found \"" + String(_files.size()) + "\" files.");
+        _logger->Logln(_loggerTag, "Filesystem scan completed, found " + String(_files.size()) + " files.");
 
-        // Show files in debug mode.
+        // Show files in debug mode. // TODO: extra function?
         using namespace ArduinoLinq;
         if (Configuration::Debug)
-            _logger->LogTable(_loggerTag, from(_files) >> select([](file_fileService f) { return (LoggerTableRow){f.path, f.type}; }) >> to_vector());
+        {
+            LoggerTable data = {{"File path", "web mime type"}};
+            auto filesData = from(_files) >> select([](file_fileService f) { return (LoggerTableRow){f.path, f.type}; }) >> to_vector();
+            data.insert(data.end(), filesData.begin(), filesData.end());
+
+            _logger->LogTable(_loggerTag, data, true);
+        }
     }
 
     String FileService::fileTypeByExtension(String file)

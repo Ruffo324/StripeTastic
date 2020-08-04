@@ -54,7 +54,7 @@ namespace Services
         return "[" + tag + "] ";
     }
 
-    void Logger::LogTable(const String tag, LoggerTable data)
+    void Logger::LogTable(const String tag, LoggerTable data, bool firstIsHeader)
     {
         using namespace ArduinoLinq;
         // TODO: Rewrite function using boolinq, when isssue is resoolved. https://github.com/k06a/boolinq/issues/45
@@ -80,6 +80,7 @@ namespace Services
 
         // Now print the data.
         PrintLine(tag, tableWidth);
+        auto headerWritten = false;
         for (auto &row : data)
         {
             String rowStr = "|";
@@ -89,6 +90,13 @@ namespace Services
                 rowStr += " " + row[i] + RepeatChar(missingSpaces, ' ') + " |";
             }
             Logln(tag, rowStr);
+
+            // Write header border if wanted.
+            if (firstIsHeader && !headerWritten)
+            {
+                PrintLine(tag, tableWidth);
+                headerWritten = true;
+            }
         }
         PrintLine(tag, tableWidth);
     }

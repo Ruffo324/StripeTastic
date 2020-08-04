@@ -4,12 +4,12 @@
 
 namespace Services
 {
-    // class WebService
-    // {
-    // public:
-    //     WebService();
+    class WebService
+    {
+    public:
+        WebService();
 
-    // private:
-    //     Logger *_logger;
-    // };
+    private:
+        Logger *_logger;
+    };
 } // namespace Services
