@@ -62,9 +62,18 @@ namespace Services
             return unknown;
 
         const String mapping[][2] = {
-            {".js", "application/script"},
-            {".css", "text/css"},
+            {".htm", "text/html"},
             {".html", "text/html"},
+            {".css", "text/css"},
+            {".js", "application/javascript"},
+            {".png", "image/png"},
+            {".gif", "image/gif"},
+            {".jpg", "image/jpeg"},
+            {".ico", "image/x-icon"},
+            {".xml", "text/xml"},
+            {".pdf", "application/x-pdf"},
+            {".zip", "application/x-zip"},
+            {".gz", "application/x-gzip"},
         };
 
         file.toLowerCase();
@@ -75,7 +84,7 @@ namespace Services
         return unknown;
     }
 
-    String FileService::humanizeBytes(int byte)
+    String FileService::humanizeBytes(size_t byte)
     {
         vector<String> sizes = {"kb", "mb", "gb", "tb", "pt"};
         double converted = byte;

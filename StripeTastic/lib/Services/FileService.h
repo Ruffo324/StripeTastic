@@ -13,7 +13,7 @@ namespace Services
         /**
          * Size of the file in bytes.
          */
-        int size;
+        size_t size;
     };
 
     typedef vector<file_fileService> FileList;
@@ -29,6 +29,6 @@ namespace Services
         Logger *_logger;
         FileList _files;
         void showFileServiceOverview();
-        String humanizeBytes(int byte);
+        String humanizeBytes(size_t byte);
     };
 } // namespace Services
