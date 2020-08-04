@@ -5,8 +5,7 @@
 
 // Import required libraries
 #include <Configuration.h>
-#include <Logger.h>
-#include <WifiService.h>
+#include <Services.h>
 
 #include "WiFi.h"
 #include "ESPAsyncWebServer.h"
@@ -25,6 +24,7 @@ String ledState;
 AsyncWebServer server(80);
 Services::WifiService *_wifiService;
 Services::LoopService *_loopService;
+Services::FileService *_fileService;
 
 // Replaces placeholder with LED state value
 String processor(const String &var)
@@ -52,24 +52,19 @@ void setup()
     auto logger = Services::Logger::GetInstance();
     logger->Setup(Configuration::Baudrate);
 
-    // Setup loop service, and set loop delay.
+    // Setup loop service.
     _loopService = Services::LoopService::GetInstance();
     _loopService->LoopDelayMs = Configuration::LoopDelayMs;
 
+    // Initialize FileService.
+    _fileService = new Services::FileService();
+    _fileService->ScanFileSystem();
+
+    // WifiService, accespoint (later from config)
     _wifiService = new Services::WifiService();
-
-    pinMode(ledPin, OUTPUT);
-
-    // Initialize SPIFFS
-    if (!SPIFFS.begin(true))
-    {
-        Serial.println("An Error has occurred while mounting SPIFFS");
-        return;
-    }
-
-    // Create AP. //TODO: load from UserPreferences.
     _wifiService->CreateAccessPoint();
 
+    pinMode(ledPin, OUTPUT);
     // Route for root / web page
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
         Serial.println(SPIFFS.exists("/index.html"));

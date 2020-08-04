@@ -13,4 +13,6 @@ public:
 
     static int Baudrate;
     static int LoopDelayMs;
+
+    static bool Debug;
 };
