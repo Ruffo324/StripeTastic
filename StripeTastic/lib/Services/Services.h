@@ -3,4 +3,4 @@
 #include <Logger.h>
 #include <LoopService.h>
 #include <WifiService.h>
-// #include <WebService.h>
+#include <WebService.h>

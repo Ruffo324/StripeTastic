@@ -9,6 +9,7 @@
 
 #include "WiFi.h"
 #include "ESPAsyncWebServer.h"
+
 #include "SPIFFS.h"
 
 // Replace with your network credentials
@@ -21,10 +22,11 @@ const int ledPin = 2;
 String ledState;
 
 // Create AsyncWebServer object on port 80
-AsyncWebServer server(80);
+// AsyncWebServer server(80);
 Services::WifiService *_wifiService;
 Services::LoopService *_loopService;
 Services::FileService *_fileService;
+Services::WebService *_webService;
 
 // Replaces placeholder with LED state value
 String processor(const String &var)
@@ -64,9 +66,14 @@ void setup()
     _wifiService = new Services::WifiService();
     _wifiService->CreateAccessPoint();
 
+    // WebService, route static files.
+    auto staticFiles = _fileService->GetStaticFiles();
+    _webService = new Services::WebService();
+    _webService->RebuildFileRoutes(staticFiles);
+
     pinMode(ledPin, OUTPUT);
     // Route for root / web page
-    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
+    auto x = server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
         request->send(SPIFFS, "/index.html", String(), false, processor);
     });
 
@@ -97,9 +104,6 @@ void setup()
         digitalWrite(ledPin, LOW);
         request->send(SPIFFS, "/index.html", String(), false, processor);
     });
-
-    // Start server
-    server.begin();
 }
 
 void loop()

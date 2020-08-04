@@ -15,4 +15,7 @@ public:
     static int LoopDelayMs;
 
     static bool Debug;
+
+    static uint16_t DefaultWebServerPort;
+    static String IndexPageName;
 };

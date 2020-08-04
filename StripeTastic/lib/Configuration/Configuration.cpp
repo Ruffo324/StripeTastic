@@ -8,3 +8,6 @@ int Configuration::Baudrate = 115200;
 int Configuration::LoopDelayMs = 1000;
 
 bool Configuration::Debug = true;
+
+uint16_t Configuration::DefaultWebServerPort = 80;
+String Configuration::IndexPageName = "index.html";
