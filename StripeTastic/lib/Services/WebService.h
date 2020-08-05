@@ -14,9 +14,13 @@ namespace Services
         void Stop();
         void RebuildFileRoutes(FileList fileList);
 
+        void Register(String key, std::function<void()> function);
+        void Unregister(String key);
+
     private:
         Logger *_logger;
         AsyncWebServer _webServer;
+        std::map<String, std::function<void()>> _registeredJsonRequests;
         void addFileRoute(String requestPath, String path, String mimeType);
     };
 
