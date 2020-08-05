@@ -94,7 +94,7 @@ namespace Services
         return "NaN";
     }
 
-    FileList FileService::GetAllFiles()
+    FileList FileService::GetStaticFiles()
     {
         return _files;
     }

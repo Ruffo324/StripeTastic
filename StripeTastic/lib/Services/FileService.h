@@ -22,7 +22,7 @@ namespace Services
     public:
         FileService();
         void ScanFileSystem();
-        FileList GetAllFiles();
+        FileList GetStaticFiles();
 
     private:
         String fileTypeByExtension(String file);

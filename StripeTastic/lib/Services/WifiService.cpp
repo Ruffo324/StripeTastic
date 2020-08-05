@@ -22,7 +22,7 @@ namespace Services
     void WifiService::setHostname()
     {
         // TODO: Read hostname here from settings.
-        auto hostname = Configuration::DefaultHostnamePrefix + getMacSuffix();
+        auto hostname = Configuration::DefaultHostname;
         WiFi.setHostname(hostname.c_str());
         _logger->Logln(_loggerTag, "Hostname set to \"" + hostname + "\"");
     }
