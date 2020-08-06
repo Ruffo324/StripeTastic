@@ -11,51 +11,43 @@ Services::WebService *_webService;
 
 // typedef NeoGrbwFeature MyPixelColorFeature;
 
+// Stripe setup
 const int amountLeds = 20;
-NeoPixelBus<NeoRbgFeature, NeoEsp32BitBang800KbpsMethod> strip1(amountLeds, 21);
-NeoPixelBus<NeoRgbFeature, NeoEsp32BitBang800KbpsMethod> strip2(amountLeds, 23);
+typedef NeoPixelBus<NeoRbgFeature, NeoEsp32BitBang800KbpsMethod> stripeDef;
+stripeDef stripe1(amountLeds, 23);
+stripeDef stripe2(amountLeds, 21);
 
-int red = 0;
-int green = 0;
-int blue = 0;
-int loopcounts = 0;
+// strobe Variablen
+std::map<stripeDef *, long> timerJeLed = {
+    {&stripe1, 0},
+    {&stripe2, 0},
+};
 
-#define colorSaturation 128
-RgbColor col_red(colorSaturation, 0, 0);
-RgbColor col_green(0, colorSaturation, 0);
-RgbColor col_blue(0, 0, colorSaturation);
-RgbColor col_white(colorSaturation);
-RgbColor black(0);
+// strobe Variablen
+unsigned long ltime = 0;
+std::map<stripeDef *, bool> durchlaufJeLed = {
+    {&stripe1, false},
+    {&stripe2, false},
+};
 
-void funLeds()
+void strobo(stripeDef *stripe, int f)
 {
-    int max = 128;
-    RgbColor color(red, green, blue);
-    // Serial.println("r " + String(red) + " g " + String(green) + " b " + String(blue));
-    for (int i = 0; i < amountLeds; i++)
+    auto ntime = millis();
+    if (ntime - timerJeLed[stripe] >= (1000 / f))
     {
-        strip1.SetPixelColor(i, color);
-        strip2.SetPixelColor(i, color);
+        RgbColor color = (durchlaufJeLed[stripe] = !durchlaufJeLed[stripe]) ? RgbColor(255, 255, 255) : RgbColor(0, 0, 0);
+        for (uint16_t i = 0; i < (*stripe).PixelCount(); i++)
+            (*stripe).SetPixelColor(i, color);
+        timerJeLed[stripe] = ntime;
+        (*stripe).Show();
     }
-    strip1.Show();
-    strip2.Show();
+}
 
-    loopcounts++;
-    if (loopcounts - max > 0)
-    {
-        red--;
-        // green--;
-        blue--;
-    }
-    else
-    {
-        red++;
-        // green++;
-        blue++;
-    }
-
-    if (loopcounts >= (2 * max))
-        loopcounts = 0;
+void setColor(stripeDef *stripe, RgbColor color)
+{
+    for (uint16_t i = 0; i < (*stripe).PixelCount(); i++)
+        (*stripe).SetPixelColor(i, color);
+    (*stripe).Show();
 }
 
 void setup()
@@ -85,22 +77,20 @@ void setup()
     _webService->Start();
 
     // _loopService->Register("Beispiel", []() { Serial.print("got called from loop"); });
-    // _loopService->Register("fun_service", funLeds);
-    strip1.Begin();
-    strip2.Begin();
-    for (int i = 0; i < amountLeds; i++)
-    {
-        strip1.SetPixelColor(i, black);
-        strip2.SetPixelColor(i, black);
-    }
-    strip1.Show();
-    strip2.Show();
+    stripe1.Begin();
+    stripe2.Begin();
+    setColor(&stripe1, RgbColor(0, 0, 0));
+    setColor(&stripe2, RgbColor(0, 0, 0));
+    _loopService->Register("fun_service", []() {
+        strobo(&stripe1, 5);
+        strobo(&stripe2, 10);
+    });
 }
 
 void loop()
 {
-    // _loopService->InvokeLoop();
-    funLeds();
+    _loopService->InvokeLoop();
+    // funLeds();
 }
 // void doWithPixels(function<void()> func)
 // {
