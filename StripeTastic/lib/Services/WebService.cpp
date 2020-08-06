@@ -1,5 +1,7 @@
 #include <Configuration.h>
 #include "WebService.h"
+#include "ArduinoJson.h"
+#include "AsyncJson.h"
 
 namespace Services
 {
@@ -14,6 +16,24 @@ namespace Services
                 addFileRoute("/", file.path, file.type);
 
             addFileRoute(file.path, file.path, file.type);
+        }
+    }
+
+    void WebService::RegisterRestCall(String eventPath, std::function<void(JsonObject data)> function)
+    {
+        _registeredJsonRequests[eventPath] = new AsyncCallbackJsonWebHandler(eventPath, [function](AsyncWebServerRequest *request, JsonVariant &json) {
+            function(json.as<JsonObject>());
+        });
+        _webServer.addHandler(_registeredJsonRequests[eventPath]);
+    }
+
+    void WebService::Unregister(String eventPath)
+    {
+        auto position = _registeredJsonRequests.find(eventPath);
+        if (position != _registeredJsonRequests.end())
+        {
+            _webServer.addHandler(_registeredJsonRequests[eventPath]);
+            _registeredJsonRequests.erase(position);
         }
     }
 

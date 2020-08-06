@@ -50,7 +50,8 @@
 			"typeinfo": "cpp",
 			"con": "cpp",
 			"string": "cpp",
-			"iterator": "cpp"
+			"iterator": "cpp",
+			"list": "cpp"
 		}
 	}
 }

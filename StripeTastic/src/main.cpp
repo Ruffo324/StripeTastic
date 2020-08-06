@@ -79,12 +79,14 @@ void setup()
     // _loopService->Register("Beispiel", []() { Serial.print("got called from loop"); });
     stripe1.Begin();
     stripe2.Begin();
-    setColor(&stripe1, RgbColor(0, 0, 0));
-    setColor(&stripe2, RgbColor(0, 0, 0));
-    _loopService->Register("fun_service", []() {
-        strobo(&stripe1, 5);
-        strobo(&stripe2, 10);
-    });
+    setColor(&stripe1, RgbColor(25, 0, 25));
+    setColor(&stripe2, RgbColor(0, 25, 0));
+
+    // auto takt = 70;
+    // _loopService->Register("fun_service", [takt]() {
+    //     strobo(&stripe1, takt);
+    //     strobo(&stripe2, takt);
+    // });
 }
 
 void loop()

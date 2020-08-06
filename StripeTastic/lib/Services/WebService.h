@@ -3,6 +3,8 @@
 #include <Logger.h>
 #include "ESPAsyncWebServer.h"
 #include "FileService.h"
+#include "ArduinoJson.h"
+#include "AsyncJson.h"
 
 namespace Services
 {
@@ -14,13 +16,13 @@ namespace Services
         void Stop();
         void RebuildFileRoutes(FileList fileList);
 
-        void Register(String key, std::function<void()> function);
-        void Unregister(String key);
+        void RegisterRestCall(String eventPath, std::function<void(JsonObject data)> function);
+        void Unregister(String eventPath);
 
     private:
         Logger *_logger;
         AsyncWebServer _webServer;
-        std::map<String, std::function<void()>> _registeredJsonRequests;
+        std::map<String, AsyncCallbackJsonWebHandler *> _registeredJsonRequests;
         void addFileRoute(String requestPath, String path, String mimeType);
     };
 
