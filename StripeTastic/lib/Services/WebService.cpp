@@ -21,10 +21,24 @@ namespace Services
 
     void WebService::RegisterRestCall(String eventPath, std::function<void(JsonObject data)> function)
     {
-        _registeredJsonRequests[eventPath] = new AsyncCallbackJsonWebHandler(eventPath, [function](AsyncWebServerRequest *request, JsonVariant &json) {
-            function(json.as<JsonObject>());
+        // _registeredJsonRequests[eventPath] =
+        //     new AsyncCallbackJsonWebHandler(eventPath, [function](AsyncWebServerRequest *request, JsonVariant json) {
+        //         auto obj = json.as<JsonObject>();
+        //         serializeJsonPretty(obj, Serial);
+        //         // Serial.println(serializeJsonPretty(obj));
+        //         // obj["speed"].as<String>());
+        //         function(obj);
+        //         request->send(200);
+        //     });
+        // _webServer.addHandler(_registeredJsonRequests[eventPath]);
+        // _logger->Log("JSON registered.");
+
+        AsyncCallbackJsonWebHandler *handler = new AsyncCallbackJsonWebHandler("/rest/endpoint", [](AsyncWebServerRequest *request, JsonVariant json) {
+            JsonObject jsonObj = json.as<JsonObject>();
+            serializeJsonPretty(jsonObj, Serial);
+            request->send(200);
         });
-        _webServer.addHandler(_registeredJsonRequests[eventPath]);
+        _webServer.addHandler(handler);
     }
 
     void WebService::Unregister(String eventPath)

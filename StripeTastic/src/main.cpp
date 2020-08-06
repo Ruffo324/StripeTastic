@@ -30,6 +30,8 @@ std::map<stripeDef *, bool> durchlaufJeLed = {
     {&stripe2, false},
 };
 
+int stroboSpeed = 60;
+
 void strobo(stripeDef *stripe, int f)
 {
     auto ntime = millis();
@@ -66,9 +68,9 @@ void setup()
 
     // WifiService, accespoint (later from config)
     _wifiService = new Services::WifiService();
-    _wifiService->CreateAccessPoint();
-    // _wifiService->Connect("***REMOVED***", "***REMOVED***");
-    // _wifiService->Reset();
+    // _wifiService->CreateAccessPoint();
+    _wifiService->Connect("***REMOVED***", "***REMOVED***");
+    _wifiService->Reset();
 
     // WebService, route static files.
     auto staticFiles = _fileService->GetStaticFiles();
@@ -82,11 +84,12 @@ void setup()
     setColor(&stripe1, RgbColor(25, 0, 25));
     setColor(&stripe2, RgbColor(0, 25, 0));
 
-    // auto takt = 70;
-    // _loopService->Register("fun_service", [takt]() {
-    //     strobo(&stripe1, takt);
-    //     strobo(&stripe2, takt);
-    // });
+    _webService->RegisterRestCall("/effects/strobe/speed", [](JsonObject data) { stroboSpeed = data["speed"]; });
+
+    _loopService->Register("led_strobo", []() {
+        strobo(&stripe1, stroboSpeed);
+        strobo(&stripe2, stroboSpeed);
+    });
 }
 
 void loop()
