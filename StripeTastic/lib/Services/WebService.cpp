@@ -21,23 +21,13 @@ namespace Services
 
     void WebService::RegisterRestCall(String eventPath, std::function<void(JsonObject data)> function)
     {
-        // _registeredJsonRequests[eventPath] =
-        //     new AsyncCallbackJsonWebHandler(eventPath, [function](AsyncWebServerRequest *request, JsonVariant json) {
-        //         auto obj = json.as<JsonObject>();
-        //         serializeJsonPretty(obj, Serial);
-        //         // Serial.println(serializeJsonPretty(obj));
-        //         // obj["speed"].as<String>());
-        //         function(obj);
-        //         request->send(200);
-        //     });
-        // _webServer.addHandler(_registeredJsonRequests[eventPath]);
-        // _logger->Log("JSON registered.");
-
-        AsyncCallbackJsonWebHandler *handler = new AsyncCallbackJsonWebHandler("/rest/endpoint", [](AsyncWebServerRequest *request, JsonVariant json) {
+        AsyncCallbackJsonWebHandler *handler = new AsyncCallbackJsonWebHandler(eventPath, [function](AsyncWebServerRequest *request, JsonVariant json) {
             JsonObject jsonObj = json.as<JsonObject>();
-            serializeJsonPretty(jsonObj, Serial);
+            // serializeJsonPretty(jsonObj, Serial); // Debug
+            function(jsonObj);
             request->send(200);
         });
+        _registeredJsonRequests[eventPath] = handler;
         _webServer.addHandler(handler);
     }
 
@@ -46,7 +36,7 @@ namespace Services
         auto position = _registeredJsonRequests.find(eventPath);
         if (position != _registeredJsonRequests.end())
         {
-            _webServer.addHandler(_registeredJsonRequests[eventPath]);
+            _webServer.removeHandler(_registeredJsonRequests[eventPath]);
             _registeredJsonRequests.erase(position);
         }
     }

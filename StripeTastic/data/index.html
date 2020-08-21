@@ -17,9 +17,16 @@
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-sm-12 col-4">
-                <label for="customRange1">Strobo speed</label>
-                <input type="range" class="custom-range" oninput="changeStroboSpeed(this.value)" min="1" max="150"
-                    step="1">
+                <label for="customRange">Strobo speed<span id="value-strobo-speed"></span></label>
+                <input type="range" id="customRange" class="custom-range" oninput="changeStroboSpeed(this.value)"
+                    min="1" max="150" step="1" />
+
+                <label for="strobo-on-off">Strobo on/off</label>
+                <input type="checkbox" id="strobo-on-off" oninput="strobeOnOff()" />
+
+                <label for="head">Color</label>
+                <input type="color" id="stripeColor" name="stripeColor" value="#FFFFFF"
+                    oninput="changeColor(this.value)" />
             </div>
         </div>
     </div>
