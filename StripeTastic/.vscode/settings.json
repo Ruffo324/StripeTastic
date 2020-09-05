@@ -1,1 +1,7 @@
-{}
+{
+	"files.associations": {
+		"MacBookProKeyboardShortcuts": "fsharp",
+		"*.csv": "csv (semicolon)",
+		"map": "cpp"
+	}
+}
