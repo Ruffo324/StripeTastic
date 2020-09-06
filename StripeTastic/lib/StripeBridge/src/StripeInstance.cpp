@@ -73,6 +73,12 @@ namespace StripeBridge
     }
 
     template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::UpdateProcessingData(Models::StripeProcessingData data)
+    {
+        _processingData = data;
+    }
+
+    template <class TRmtMethod>
     void StripeInstance<TRmtMethod>::Show(bool setBrightness)
     {
         if (setBrightness)
