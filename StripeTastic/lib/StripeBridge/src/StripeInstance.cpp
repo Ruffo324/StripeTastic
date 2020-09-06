@@ -459,8 +459,8 @@ namespace StripeBridge
             if (_effectsData.BallOverFlowStack > pixelCount - _effectsData.balllengh)
                 _effectsData.BallOverFlowStack = 0;
 
-            // Löscht alle Farben
-            Off();
+            // // Löscht alle Farben // TODO WEG?
+            // Off();
         }
 
         _effectsData.effectsTimer = millis();
@@ -472,29 +472,21 @@ namespace StripeBridge
         if (!(millis() - _effectsData.effectsTimer >= _processingData.EffectDelay))
             return;
 
+        auto pixelCount = _information.PixelCount;
+        auto pixelCountHalf = _information.PixelCountTwoColors();
+
         // Farbauswahl
-        if (_processingData.Licht == Enums::ColorMode::OneUserColor)
-        {
-            _effectsData.stackcentrecolor_left = _processingData.LED_farbe_1;
-            _effectsData.stackcentrecolor_right = _processingData.LED_farbe_1;
-        }
-        else if (_processingData.Licht == Enums::ColorMode::TwoUserColors)
-        {
-            _effectsData.stackcentrecolor_left = _processingData.LED_farbe_1;
-            _effectsData.stackcentrecolor_right = _processingData.LED_farbe_2
-        }
-        else if (_processingData.Licht == Enums::ColorMode::Random)
+        if (_processingData.Licht == Enums::ColorMode::Random)
         {
             if (_effectsData.stackBallcentreleft == 0)
-            {
                 _effectsData.stackcentrecolor_left = Constants::Colors::GetRandomColor();
+            else if (_effectsData.stackBallcentreright == pixelCount - 1)
                 _effectsData.stackcentrecolor_right = Constants::Colors::GetRandomColor();
-            }
-            else if (_effectsData.stackBallcentreright == amountLeds - 1)
-            {
-                _effectsData.stackcentrecolor_left = Constants::Colors::GetRandomColor();
-                _effectsData.stackcentrecolor_right = Constants::Colors::GetRandomColor();
-            }
+        }
+        else
+        {
+            _effectsData.stackcentrecolor_left = _processingData.LED_farbe_1;
+            _effectsData.stackcentrecolor_right = (_processingData.Licht == Enums::ColorMode::TwoUserColors) ? _processingData.LED_farbe_2 : _processingData.LED_farbe_1;
         }
 
         // Löscht alle Farben
@@ -508,46 +500,40 @@ namespace StripeBridge
             SetPixelColor(i, _effectsData.stackcentrecolor_left);
 
         // Stackt ball left
-        for (int i = amountLeds_half; i > amountLeds_half - _effectsData.BallOverFlowCentreleft; i--)
+        for (int i = pixelCountHalf; i > pixelCountHalf - _effectsData.BallOverFlowCentreleft; i--)
             SetPixelColor(i, _effectsData.stackcentrecolor_left);
 
         // BAll von rechts
         for (int i = _effectsData.stackBallcentreright; i > _effectsData.stackBallcentreright - _effectsData.balllengh; i--)
             SetPixelColor(i, _effectsData.stackcentrecolor_right);
         // Stackt ball rechts
-        for (int i = amountLeds_half; i < amountLeds_half + _effectsData.BallOverFlowCentreleft; i++)
+        for (int i = pixelCountHalf; i < pixelCountHalf + _effectsData.BallOverFlowCentreleft; i++)
             SetPixelColor(i, _effectsData.stackcentrecolor_right);
 
         Show();
 
         // Händelt links position und stack
-        if (_effectsData.stackBallcentreleft + _effectsData.balllengh < amountLeds_half - _effectsData.BallOverFlowCentreleft)
+        if (_effectsData.stackBallcentreleft + _effectsData.balllengh < pixelCountHalf - _effectsData.BallOverFlowCentreleft)
             _effectsData.stackBallcentreleft++;
         else
         {
             _effectsData.stackBallcentreleft = 0;
             _effectsData.BallOverFlowCentreleft += _effectsData.balllengh;
-            if (_effectsData.BallOverFlowCentreleft > amountLeds_half - _effectsData.balllengh)
-            {
+
+            if (_effectsData.BallOverFlowCentreleft > pixelCountHalf - _effectsData.balllengh)
                 _effectsData.BallOverFlowCentreleft = 0;
-                // Löscht alle Farben
-                Off();
-            }
         }
 
         // Händelt rechts position und stack
-        if (_effectsData.stackBallcentreright - _effectsData.balllengh > amountLeds_half + _effectsData.BallOverFlowCentreright)
+        if (_effectsData.stackBallcentreright - _effectsData.balllengh > pixelCountHalf + _effectsData.BallOverFlowCentreright)
             _effectsData.stackBallcentreright--;
         else
         {
-            _effectsData.stackBallcentreright = amountLeds;
+            _effectsData.stackBallcentreright = pixelCount;
             _effectsData.BallOverFlowCentreright += _effectsData.balllengh;
-            if (_effectsData.BallOverFlowCentreright > amountLeds_half - _effectsData.balllengh)
-            {
+
+            if (_effectsData.BallOverFlowCentreright > pixelCountHalf - _effectsData.balllengh)
                 _effectsData.BallOverFlowCentreright = 0;
-                // Löscht alle Farben
-                Off();
-            }
         }
 
         _effectsData.effectsTimer = millis();

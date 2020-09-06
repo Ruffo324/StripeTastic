@@ -17,8 +17,8 @@ namespace StripeBridge
             int balllengh4;         // relative Ball länge
             int balllengh_max = 10; // maximale Ball länge
 
-            bool durchlaufJeStripe = 0;
-            unsigned long stroboTimer = 0; // timerJeStripe
+            bool StroboDurchlauf = 0;
+            unsigned long effectsTimer = 0; // timerJeStripe
             int LeadingBallStack = 0;
             int LeadingBall = 0;
             int LeadingBall2 = 0;
