@@ -1,9 +1,11 @@
+#include <Arduino.h>
 #include "StripeInstance.h"
 #include "StripeBridge.h"
 #include "Constants/Colors.h"
 #include "Constants/MoreConstants.h"
 #include "Services.h"
 #include "Enums/ColorModes.h"
+#include "Configuration.h"
 
 namespace StripeBridge
 {
@@ -84,10 +86,10 @@ namespace StripeBridge
     }
 
     template <class TRmtMethod>
-    void StripeInstance<TRmtMethod>::Off(bool withShow = true)
+    void StripeInstance<TRmtMethod>::Off(bool withShow)
     {
         for (int i = 0; i < _information.PixelCount; i++)
-            _stripeBus.SetPixelColor(i, Constants::Colors::Off);
+            SetPixelColor(i, Constants::Colors::Off);
 
         if (withShow)
             Show(false);
@@ -199,10 +201,10 @@ namespace StripeBridge
                 switch (_processingData.Licht)
                 {
                 case Enums::ColorMode::Rainbow:
-                    rainbow(stripe, values);
+                    rainbow();
                     break;
                 case Enums::ColorMode::Random:
-                    zufall(stripe, values);
+                    zufall();
                     break;
                 case Enums::ColorMode::OneUserColor:
                 case Enums::ColorMode::TwoUserColors:
@@ -224,10 +226,10 @@ namespace StripeBridge
 
         if (micro_aux)
             for (int i = 0; i < 10; i++)
-                temp[i] = analogRead(MicroEingang);
+                temp[i] = analogRead(Configuration::GPIOMicrophonePin);
         else
             for (int i = 0; i < 10; i++)
-                temp[i] = analogRead(AUX_Eingang);
+                temp[i] = analogRead(Configuration::GPIOAuxLeftPin);
 
         for (int i = 0; i < 10; i++)
             tem += temp[i];
@@ -240,9 +242,10 @@ namespace StripeBridge
     {
         auto pixelCount = _information.PixelCount;
         auto pixelCountTop = _information.PixelCountTop();
+
         for (int i = 0; i < pixelCount; i++)
         {
-            RgbColor color = Wheel(map(i, 0, pixelCount - 1, 30, 150));
+            RgbColor color = Constants::Colors::Wheel(i, 0, pixelCount - 1, 30, 150);
             SetPixelColor(pixelCountTop - i - 1, color);
         }
         Show();
@@ -278,9 +281,9 @@ namespace StripeBridge
             else if (_processingData.Licht == Enums::ColorMode::Rainbow) // macht kein Sinn aber lass ich mal drin
                 _effectsData.StroboColor = _processingData.LED_farbe_1;
 
-            RgbColor color = (_effectsData.StroboDurchlauf = !_effectsData.StroboDurchlauf) ? _effectsData.StroboColor : Constants::Colors::Off;
+            auto color = (_effectsData.StroboDurchlauf = !_effectsData.StroboDurchlauf) ? _effectsData.StroboColor : Constants::Colors::Off;
             for (uint16_t i = 0; i < _information.PixelCount; i++)
-                SetPixelColor(i, _effectsData.StroboColor);
+                SetPixelColor(i, color);
 
             Show();
             _effectsData.effectsTimer = millis();
@@ -290,8 +293,8 @@ namespace StripeBridge
     template <class TRmtMethod>
     void StripeInstance<TRmtMethod>::ball()
     {
-
-        if (!(millis() - effectsTimer >= _processingData.EffectDelay))
+        // TODO: Globalize this if!
+        if (!(millis() - _effectsData.effectsTimer >= _processingData.EffectDelay))
             return;
 
         auto pixelCount = _information.PixelCount;
@@ -322,10 +325,10 @@ namespace StripeBridge
         {
             if (_effectsData.LeadingBall == 0)
             {
-                _effectsData.ballcolor = Constants::Colors::Wheel(map(_effectsData.LeadingBall, 0, pixelCount - 1, 30, 150));
-                _effectsData.ballcolor2 = Constants::Colors::Wheel(map(_effectsData.LeadingBall, 0, pixelCount - 1, 30, 150));
-                _effectsData.ballcolor3 = Constants::Colors::Wheel(map(_effectsData.LeadingBall, 0, pixelCount - 1, 30, 150));
-                _effectsData.ballcolor4 = Constants::Colors::Wheel(map(_effectsData.LeadingBall, 0, pixelCount - 1, 30, 150));
+                _effectsData.ballcolor = Constants::Colors::Wheel(_effectsData.LeadingBall, 0, pixelCount - 1, 30, 150);
+                _effectsData.ballcolor2 = Constants::Colors::Wheel(_effectsData.LeadingBall, 0, pixelCount - 1, 30, 150);
+                _effectsData.ballcolor3 = Constants::Colors::Wheel(_effectsData.LeadingBall, 0, pixelCount - 1, 30, 150);
+                _effectsData.ballcolor4 = Constants::Colors::Wheel(_effectsData.LeadingBall, 0, pixelCount - 1, 30, 150);
             }
             // TODO, fehlen hier ggf. noch die anderen bälle?
         }
@@ -413,7 +416,7 @@ namespace StripeBridge
         if (_effectsData.LeadingBall4 >= pixelCount - 1)
             _effectsData.LeadingBall4 = 0;
 
-        effectsTimer = millis();
+        _effectsData.effectsTimer = millis();
     }
 
     template <class TRmtMethod>
@@ -430,7 +433,7 @@ namespace StripeBridge
         else if (_processingData.Licht == Enums::ColorMode::Random && _effectsData.LeadingBallStack == 0)
             _effectsData.stackcolor = Constants::Colors::GetRandomColor();
         else if (_processingData.Licht == Enums::ColorMode::Rainbow)
-            _effectsData.stackcolor = Constants::Colors::Wheel(map(_effectsData.LeadingBallStack, 0, pixelCount - 1, 30, 150));
+            _effectsData.stackcolor = Constants::Colors::Wheel(_effectsData.LeadingBallStack, 0, pixelCount - 1, 30, 150);
 
         // Löscht alle Farben
         Off(false);
@@ -582,7 +585,7 @@ namespace StripeBridge
             _effectsData.peakJeStripe = height; // Keep 'peak' dot at top
 
         // Farbauswahl // Radom macht kein Sinn
-        if (_processingData.Licht == Enums::ColorMode::UserColors)
+        if (_processingData.Licht == Enums::ColorMode::OneUserColor)
             color = _processingData.LED_farbe_1;
 
         // Color pixels based on rainbow gradient
@@ -596,7 +599,7 @@ namespace StripeBridge
             else
             {
                 if (_processingData.Licht == Enums::ColorMode::Rainbow)
-                    color = Constants::Colors::Wheel(map(i, 0, pixelCountHalf - 1, 30, 150));
+                    color = Constants::Colors::Wheel(i, 0, pixelCountHalf - 1, 30, 150);
                 SetPixelColor(pixelCountHalf - i - 1, color);
                 SetPixelColor(pixelCountHalf + i, color);
             }
@@ -605,7 +608,7 @@ namespace StripeBridge
         // Draw peak dot
         if (_effectsData.peakJeStripe > 0 && _effectsData.peakJeStripe <= pixelCount - 1)
         {
-            RgbColor color_peak = Constants::Colors::Wheel(map(_effectsData.peakJeStripe, 0, pixelCountHalf - 1, 30, 150));
+            RgbColor color_peak = Constants::Colors::Wheel(_effectsData.peakJeStripe, 0, pixelCountHalf - 1, 30, 150);
             SetPixelColor(pixelCountHalf - _effectsData.peakJeStripe - 1, color_peak);
             SetPixelColor(pixelCountHalf + _effectsData.peakJeStripe, color_peak);
         }
@@ -649,7 +652,6 @@ namespace StripeBridge
             return;
 
         auto pixelCount = _information.PixelCount;
-        auto pixelCountHalf = _information.PixelCountTwoColors();
         auto pixelCountTop = _information.PixelCountTop();
 
         float scale = 0.0;
@@ -683,31 +685,25 @@ namespace StripeBridge
             height = 0; // Clip output
         else if (height > pixelCount)
             height = pixelCount;
+
         if (height > _effectsData.peakJeStripe)
             _effectsData.peakJeStripe = height; // Keep 'peak' dot at top
 
-        if (_processingData.Licht == Constants::ColorMode::UserColors)
-        {
+        if (_processingData.Licht == Enums::ColorMode::OneUserColor)
             color = _processingData.LED_farbe_1;
-        }
-        if (_processingData.Licht == Constants::ColorMode::Random)
-        {
+        else if (_processingData.Licht == Enums::ColorMode::Random)
             color = Constants::Colors::GetRandomColor();
-        }
 
         // Color pixels based on rainbow gradient
         for (i = 0; i < pixelCount; i++)
         {
             if (i >= height)
-            {
-                SetPixelColor(i, RgbColor(0, 0, 0));
-            }
+                SetPixelColor(i, Constants::Colors::Off);
             else
             {
-                if (_processingData.Licht == Constants::ColorMode::Rainbow)
-                {
-                    color = Constants::Colors::Wheel(map(i, 0, pixelCount - 1, 30, 150));
-                }
+                if (_processingData.Licht == Enums::ColorMode::Rainbow)
+                    color = Constants::Colors::Wheel(i, 0, pixelCount - 1, 30, 150);
+
                 SetPixelColor(i, color);
             }
         }
@@ -715,7 +711,7 @@ namespace StripeBridge
         // Draw peak dot
         if (_effectsData.peakJeStripe > 0 && _effectsData.peakJeStripe <= pixelCount - 1)
         {
-            RgbColor color_peak = Constants::Colors::Wheel(map(_effectsData.peakJeStripe, 0, pixelCount - 1, 30, 150));
+            RgbColor color_peak = Constants::Colors::Wheel(_effectsData.peakJeStripe, 0, pixelCount - 1, 30, 150);
             SetPixelColor(_effectsData.peakJeStripe, color_peak);
         }
 
@@ -759,27 +755,23 @@ namespace StripeBridge
             return;
 
         auto pixelCount = _information.PixelCount;
-        auto pixelCountHalf = _information.PixelCountTwoColors();
-        auto pixelCountTop = _information.PixelCountTop();
         // Farbauswahl
-        if (_processingData.Licht == Constants::ColorMode::UserColors)
+        if (_processingData.Licht == Enums::ColorMode::OneUserColor)
         {
             _effectsData.lavacolor_hoch = _processingData.LED_farbe_1;
             _effectsData.lavacolor_runter = _processingData.LED_farbe_2;
         }
-        if (_processingData.Licht == Constants::ColorMode::Random)
+        else if (_processingData.Licht == Enums::ColorMode::Random)
         {
             if (_effectsData.lavaLampPositon == 0)
                 _effectsData.lavacolor_hoch = Constants::Colors::GetRandomColor();
             if (_effectsData.lavaLampPositon == pixelCount - 1)
                 _effectsData.lavacolor_runter = Constants::Colors::GetRandomColor();
         }
-        if (_processingData.Licht == Constants::ColorMode::Rainbow)
+        else if (_processingData.Licht == Enums::ColorMode::Rainbow)
         {
-            _effectsData.lavacolor_hoch = Constants::Colors::Wheel(map(_effectsData.lavaLampPositon, 0, pixelCount - 1, 30, 150));
-            ;
-            _effectsData.lavacolor_runter = Constants::Colors::Wheel(map(pixelCount - _effectsData.lavaLampPositon, 0, pixelCount - 1, 30, 150));
-            ;
+            _effectsData.lavacolor_hoch = Constants::Colors::Wheel(_effectsData.lavaLampPositon, 0, pixelCount - 1, 30, 150);
+            _effectsData.lavacolor_runter = Constants::Colors::Wheel(pixelCount - _effectsData.lavaLampPositon, 0, pixelCount - 1, 30, 150);
         }
 
         // Zeichet Streifen je nach Richtung
@@ -816,15 +808,13 @@ namespace StripeBridge
     void StripeInstance<TRmtMethod>::movingRainbow()
     {
         auto pixelCount = _information.PixelCount;
-        auto pixelCountHalf = _information.PixelCountTwoColors();
-        auto pixelCountTop = _information.PixelCountTop();
 
         if (!(millis() - _effectsData.effectsTimer >= _processingData.EffectDelay))
             return;
 
         for (int i = 0; i < pixelCount; i++)
         {
-            RgbColor color = Constants::Colors::Wheel(map(i, 0, pixelCount - 1, 30, 150));
+            RgbColor color = Constants::Colors::Wheel(i, 0, pixelCount - 1, 30, 150);
             SetPixelColor(((i + _effectsData.mRainbowStep) % pixelCount), color);
         }
 
@@ -842,37 +832,32 @@ namespace StripeBridge
     void StripeInstance<TRmtMethod>::fillup()
     {
         auto pixelCount = _information.PixelCount;
-        auto pixelCountHalf = _information.PixelCountTwoColors();
-        auto pixelCountTop = _information.PixelCountTop();
 
         if (!(millis() - _effectsData.effectsTimer >= _processingData.EffectDelay))
             return;
+
         RgbColor color;
 
         // Farbauswahl
-        if (_processingData.Licht == ColorMode::UserColors)
+        if (_processingData.Licht == Enums::ColorMode::OneUserColor)
         {
             color = _processingData.LED_farbe_1;
         }
-        if (_processingData.Licht == ColorMode::Random && _effectsData.fillupstep == 0)
+        else if (_processingData.Licht == Enums::ColorMode::Random && _effectsData.fillupstep == 0)
         {
             color = Constants::Colors::GetRandomColor();
         }
-        if (_processingData.Licht == ColorMode::Rainbow)
+        else if (_processingData.Licht == Enums::ColorMode::Rainbow)
         {
-            color = Constants::Colors::Wheel(map(_effectsData.fillupstep, 0, pixelCount - 1, 30, 150));
+            color = Constants::Colors::Wheel(_effectsData.fillupstep, 0, pixelCount - 1, 30, 150);
             ;
         }
 
         // Zeichnet Streifen
         if (_effectsData.durchlauffillup)
-        {
             SetPixelColor(_effectsData.fillupstep, color);
-        }
         else
-        {
-            SetPixelColor(_effectsData.fillupstep, RgbColor(0, 0, 0));
-        }
+            SetPixelColor(_effectsData.fillupstep, Constants::Colors::Off);
 
         Show();
 
@@ -889,29 +874,27 @@ namespace StripeBridge
     template <class TRmtMethod>
     void StripeInstance<TRmtMethod>::fillup2()
     {
-        auto pixelCount = _information.PixelCount;
         auto pixelCountHalf = _information.PixelCountTwoColors();
-        auto pixelCountTop = _information.PixelCountTop();
 
         if (!(millis() - _effectsData.effectsTimer >= _processingData.EffectDelay))
             return;
 
         // Farbauswahl
-        if (_processingData.Licht == ColorMode::UserColors)
+        if (_processingData.Licht == Enums::ColorMode::OneUserColor)
         {
             _effectsData.fullup2color = _processingData.LED_farbe_1;
             _effectsData.fullup2color2 = _processingData.LED_farbe_2;
         }
 
-        if (_processingData.Licht == ColorMode::Random && _effectsData.fillup2step == 0)
+        if (_processingData.Licht == Enums::ColorMode::Random && _effectsData.fillup2step == 0)
         {
             _effectsData.fullup2color = Constants::Colors::GetRandomColor();
             _effectsData.fullup2color2 = Constants::Colors::GetRandomColor();
         }
 
-        if (_processingData.Licht == ColorMode::Rainbow)
+        if (_processingData.Licht == Enums::ColorMode::Rainbow)
         {
-            _effectsData.fullup2color = Constants::Colors::Wheel(map(_effectsData.fillup2step, 0, pixelCountHalf - 1, 30, 150));
+            _effectsData.fullup2color = Constants::Colors::Wheel(_effectsData.fillup2step, 0, pixelCountHalf - 1, 30, 150);
             ;
             _effectsData.fullup2color2 = _effectsData.fullup2color;
         }
@@ -924,7 +907,7 @@ namespace StripeBridge
         }
         else
         {
-            RgbColor color = RgbColor(0, 0, 0);
+            RgbColor color = Constants::Colors::Off;
             SetPixelColor(_effectsData.fillup2step, color);
             SetPixelColor(_effectsData.fillup2step + pixelCountHalf, color);
         }
@@ -946,8 +929,6 @@ namespace StripeBridge
     void StripeInstance<TRmtMethod>::fillup3()
     {
         auto pixelCount = _information.PixelCount;
-        auto pixelCountHalf = _information.PixelCountTwoColors();
-        auto pixelCountTop = _information.PixelCountTop();
 
         int drittel = std::ceil(pixelCount / 3);
         int zweidrittel = std::ceil(pixelCount * 2 / 3);
@@ -955,27 +936,22 @@ namespace StripeBridge
         if (!(millis() - _effectsData.effectsTimer >= _processingData.EffectDelay))
             return;
 
-        int einviertel = pixelCount / 4;
-        int halb = pixelCountHalf;
-        int dreiviertel = pixelCount * 3 / 4;
-        int voll = pixelCount;
-
         // Farbauswahl
-        if (_processingData.Licht == ColorMode::UserColors)
+        if (_processingData.Licht == Enums::ColorMode::OneUserColor)
         {
             _effectsData.fullup3color = _processingData.LED_farbe_1;
             _effectsData.fullup3color2 = _processingData.LED_farbe_2;
             _effectsData.fullup3color3 = _processingData.LED_farbe_3;
         }
-        if (_processingData.Licht == ColorMode::Random && _effectsData.fillup3step == 0)
+        if (_processingData.Licht == Enums::ColorMode::Random && _effectsData.fillup3step == 0)
         {
             _effectsData.fullup3color = Constants::Colors::GetRandomColor();
             _effectsData.fullup3color2 = Constants::Colors::GetRandomColor();
             _effectsData.fullup3color3 = Constants::Colors::GetRandomColor();
         }
-        if (_processingData.Licht == ColorMode::Rainbow)
+        if (_processingData.Licht == Enums::ColorMode::Rainbow)
         {
-            _effectsData.fullup3color = Constants::Colors::Wheel(map(_effectsData.fillup3step, 0, (pixelCount - 1) / 4, 30, 150));
+            _effectsData.fullup3color = Constants::Colors::Wheel(_effectsData.fillup3step, 0, (pixelCount - 1) / 4, 30, 150);
             ;
             _effectsData.fullup3color2 = _effectsData.fullup3color;
             _effectsData.fullup3color3 = _effectsData.fullup3color;
@@ -990,7 +966,7 @@ namespace StripeBridge
         }
         else
         {
-            RgbColor color = RgbColor(0, 0, 0);
+            RgbColor color = Constants::Colors::Off;
             SetPixelColor(_effectsData.fillup3step, color);
             SetPixelColor(_effectsData.fillup3step + drittel, color);
             SetPixelColor(_effectsData.fillup3step + zweidrittel, color);
@@ -1013,8 +989,6 @@ namespace StripeBridge
     void StripeInstance<TRmtMethod>::fillup4()
     {
         auto pixelCount = _information.PixelCount;
-        auto pixelCountHalf = _information.PixelCountTwoColors();
-        auto pixelCountTop = _information.PixelCountTop();
 
         auto ntime = millis();
         if (ntime - _effectsData.effectsTimer >= _processingData.EffectDelay)
@@ -1023,12 +997,9 @@ namespace StripeBridge
             int einviertel = pixelCount / 4;
             int halb = pixelCount / 2;
             int dreiviertel = pixelCount * 3 / 4;
-            int voll = pixelCount;
-
-            Serial.println(_effectsData.fillup4step);
 
             // Farbauswahl
-            if (_processingData.Licht == ColorMode::UserColors)
+            if (_processingData.Licht == Enums::ColorMode::OneUserColor)
             {
                 _effectsData.fullup4color = _processingData.LED_farbe_1;
                 _effectsData.fullup4color2 = _processingData.LED_farbe_2;
@@ -1036,7 +1007,7 @@ namespace StripeBridge
                 _effectsData.fullup4color4 = _processingData.LED_farbe_4;
             }
 
-            if (_processingData.Licht == ColorMode::Random && _effectsData.fillup4step == 0)
+            if (_processingData.Licht == Enums::ColorMode::Random && _effectsData.fillup4step == 0)
             {
                 _effectsData.fullup4color = Constants::Colors::GetRandomColor();
                 _effectsData.fullup4color2 = Constants::Colors::GetRandomColor();
@@ -1044,9 +1015,9 @@ namespace StripeBridge
                 _effectsData.fullup4color4 = Constants::Colors::GetRandomColor();
             }
 
-            if (_processingData.Licht == ColorMode::Rainbow)
+            if (_processingData.Licht == Enums::ColorMode::Rainbow)
             {
-                _effectsData.fullup4color = Constants::Colors::Wheel(map(_effectsData.fillup4step, 0, (pixelCount - 1) / 4, 30, 150));
+                _effectsData.fullup4color = Constants::Colors::Wheel(_effectsData.fillup4step, 0, (pixelCount - 1) / 4, 30, 150);
                 ;
                 _effectsData.fullup4color2 = _effectsData.fullup4color;
                 _effectsData.fullup4color3 = _effectsData.fullup4color;
@@ -1063,7 +1034,7 @@ namespace StripeBridge
             }
             else
             {
-                RgbColor color = RgbColor(0, 0, 0);
+                RgbColor color = Constants::Colors::Off;
                 SetPixelColor(_effectsData.fillup4step, color);
                 SetPixelColor(_effectsData.fillup4step + einviertel, color);
                 SetPixelColor(_effectsData.fillup4step + halb, color);

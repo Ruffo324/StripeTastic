@@ -3,5 +3,7 @@
 		"MacBookProKeyboardShortcuts": "fsharp",
 		"*.csv": "csv (semicolon)",
 		"map": "cpp"
-	}
+    },
+	"C_Cpp.intelliSenseEngineFallback": "Enabled",
+	"C_Cpp.errorSquiggles": "Enabled"
 }

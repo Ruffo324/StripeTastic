@@ -6,6 +6,7 @@
 #include "Enums/ColorModes.h"
 #include "Enums/Effects.h"
 #include "Enums/EffectDirections.h"
+#include "ArduinoJson.h"
 
 namespace StripeBridge
 {

@@ -1,4 +1,3 @@
-#include <iterator>
 #include "Constants/Colors.h"
 
 namespace StripeBridge
@@ -36,6 +35,11 @@ namespace StripeBridge
             return RandomColors[random(RandomColors.size())];
         }
 
+        RgbColor Colors::Wheel(long x, long in_min, long in_max, long out_min, long out_max)
+        {
+            return Wheel(map(x, in_min, in_max, out_min, out_max));
+        }
+
         RgbColor Colors::Wheel(byte wheelPos)
         {
             if (wheelPos < 85)
@@ -54,5 +58,5 @@ namespace StripeBridge
             }
         }
 
-        } // namespace Constants
+    } // namespace Constants
 } // namespace StripeBridge
