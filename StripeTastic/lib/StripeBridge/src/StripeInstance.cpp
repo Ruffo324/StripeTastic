@@ -41,8 +41,8 @@ namespace StripeBridge
     template <class TRmtMethod>
     void StripeInstance<TRmtMethod>::LoopProcessing()
     {
-        if (_processingData.FFTActive)
-            processFFT();
+        // if (_processingData.FFTActive)
+        //     processFFT();
 
         programm();
     }
@@ -645,9 +645,494 @@ namespace StripeBridge
     template <class TRmtMethod>
     void StripeInstance<TRmtMethod>::vunormal()
     {
+        if (!(millis() - _effectsData.effectsTimer >= _processingData.EffectDelay))
+            return;
+
+        auto pixelCount = _information.PixelCount;
+        auto pixelCountHalf = _information.PixelCountTwoColors();
+        auto pixelCountTop = _information.PixelCountTop();
+
+        float scale = 0.0;
+        uint8_t i;
+        uint16_t minLvl, maxLvl;
+        int height;
+        float n = 0;
+        int value = 0;
+        RgbColor color;
+
+        int mic = check_micro(!_processingData.IsAux);
+
+        if (!_processingData.IsAux)
+            Constants::DC_OFFSET = 474; // Offset für Micro
+        else
+            Constants::DC_OFFSET = 440; // Offset für AUX
+
+        scale = _processingData.Intensity / 100.0;
+        n = abs(mic - Constants::DC_OFFSET);
+        n = n * scale;
+        value = (int)n;
+
+        _effectsData.lvlJeStripe = ((_effectsData.lvlJeStripe * 7) + value) >> 3;
+
+        int nenner = (long)(_effectsData.maxLvlAvgJeStripe - _effectsData.minLvlAvgJeStripe);
+        int zaehler = pixelCount * (_effectsData.lvlJeStripe - _effectsData.minLvlAvgJeStripe);
+        // Calculate bar height based on dynamic min/max levels (fixed point):
+        height = zaehler / nenner;
+
+        if (height < 0L)
+            height = 0; // Clip output
+        else if (height > pixelCount)
+            height = pixelCount;
+        if (height > _effectsData.peakJeStripe)
+            _effectsData.peakJeStripe = height; // Keep 'peak' dot at top
+
+        if (_processingData.Licht == Constants::ColorMode::UserColors)
+        {
+            color = _processingData.LED_farbe_1;
         }
+        if (_processingData.Licht == Constants::ColorMode::Random)
+        {
+            color = Constants::Colors::GetRandomColor();
+        }
+
+        // Color pixels based on rainbow gradient
+        for (i = 0; i < pixelCount; i++)
+        {
+            if (i >= height)
+            {
+                SetPixelColor(i, RgbColor(0, 0, 0));
+            }
+            else
+            {
+                if (_processingData.Licht == Constants::ColorMode::Rainbow)
+                {
+                    color = Constants::Colors::Wheel(map(i, 0, pixelCount - 1, 30, 150));
+                }
+                SetPixelColor(i, color);
+            }
+        }
+
+        // Draw peak dot
+        if (_effectsData.peakJeStripe > 0 && _effectsData.peakJeStripe <= pixelCount - 1)
+        {
+            RgbColor color_peak = Constants::Colors::Wheel(map(_effectsData.peakJeStripe, 0, pixelCount - 1, 30, 150));
+            SetPixelColor(_effectsData.peakJeStripe, color_peak);
+        }
+
+        Show(); // Update strip
+
+        // Every few frames, make the peak pixel drop by 1:
+        if (++_effectsData.dotcountJeStripe >= Constants::PEAK_FALL)
+        { //fall rate
+
+            if (_effectsData.peakJeStripe > 0)
+                _effectsData.peakJeStripe--;
+            _effectsData.dotcountJeStripe = 0;
+        }
+
+        _effectsData.volJeStripe[_effectsData.volCountJeStripe] = n; // Save sample for dynamic leveling
+        if (++_effectsData.volCountJeStripe >= Constants::SAMPLES)
+            _effectsData.volCountJeStripe = 0; // Advance/rollover sample counter
+
+        // Get volume range of prior frames
+        minLvl = maxLvl = _effectsData.volJeStripe[0];
+        for (i = 1; i < Constants::SAMPLES; i++)
+        {
+            if (_effectsData.volJeStripe[i] < minLvl)
+                minLvl = _effectsData.volJeStripe[i];
+            else if (_effectsData.volJeStripe[i] > maxLvl)
+                maxLvl = _effectsData.volJeStripe[i];
+        }
+
+        if ((maxLvl - minLvl) < pixelCountTop)
+            maxLvl = minLvl + pixelCountTop;
+        _effectsData.minLvlAvgJeStripe = (_effectsData.minLvlAvgJeStripe * 63 + minLvl) >> 6;
+        _effectsData.maxLvlAvgJeStripe = (_effectsData.maxLvlAvgJeStripe * 63 + maxLvl) >> 6;
+
+        _effectsData.effectsTimer = millis();
+    }
+
+    template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::lavalampemove()
+    {
+        if (!(millis() - _effectsData.effectsTimer >= _processingData.EffectDelay))
+            return;
+
+        auto pixelCount = _information.PixelCount;
+        auto pixelCountHalf = _information.PixelCountTwoColors();
+        auto pixelCountTop = _information.PixelCountTop();
+        // Farbauswahl
+        if (_processingData.Licht == Constants::ColorMode::UserColors)
+        {
+            _effectsData.lavacolor_hoch = _processingData.LED_farbe_1;
+            _effectsData.lavacolor_runter = _processingData.LED_farbe_2;
+        }
+        if (_processingData.Licht == Constants::ColorMode::Random)
+        {
+            if (_effectsData.lavaLampPositon == 0)
+                _effectsData.lavacolor_hoch = Constants::Colors::GetRandomColor();
+            if (_effectsData.lavaLampPositon == pixelCount - 1)
+                _effectsData.lavacolor_runter = Constants::Colors::GetRandomColor();
+        }
+        if (_processingData.Licht == Constants::ColorMode::Rainbow)
+        {
+            _effectsData.lavacolor_hoch = Constants::Colors::Wheel(map(_effectsData.lavaLampPositon, 0, pixelCount - 1, 30, 150));
+            ;
+            _effectsData.lavacolor_runter = Constants::Colors::Wheel(map(pixelCount - _effectsData.lavaLampPositon, 0, pixelCount - 1, 30, 150));
+            ;
+        }
+
+        // Zeichet Streifen je nach Richtung
+        if (_effectsData.RichtungLavalampe == 0)
+        {
+            SetPixelColor(_effectsData.lavaLampPositon, _effectsData.lavacolor_hoch);
+
+            Show();
+            _effectsData.lavaLampPositon++;
+            if (_effectsData.lavaLampPositon >= pixelCount)
+            {
+                _effectsData.RichtungLavalampe = 1;
+                _effectsData.lavaLampPositon = pixelCount;
+            }
+        }
+        else
+        {
+            SetPixelColor(_effectsData.lavaLampPositon, _effectsData.lavacolor_runter);
+
+            Show();
+            _effectsData.lavaLampPositon--;
+            if (_effectsData.lavaLampPositon <= 0)
+            {
+                _effectsData.RichtungLavalampe = 0;
+                _effectsData.lavaLampPositon = 0;
+            }
+        }
+
+        Show();
+        _effectsData.effectsTimer = millis();
+    }
+
+    template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::movingRainbow()
+    {
+        auto pixelCount = _information.PixelCount;
+        auto pixelCountHalf = _information.PixelCountTwoColors();
+        auto pixelCountTop = _information.PixelCountTop();
+
+        if (!(millis() - _effectsData.effectsTimer >= _processingData.EffectDelay))
+            return;
+
+        for (int i = 0; i < pixelCount; i++)
+        {
+            RgbColor color = Constants::Colors::Wheel(map(i, 0, pixelCount - 1, 30, 150));
+            SetPixelColor(((i + _effectsData.mRainbowStep) % pixelCount), color);
+        }
+
+        Show();
+
+        // updatet Position nach aufruf
+        _effectsData.mRainbowStep++;
+        if (_effectsData.mRainbowStep > pixelCount)
+            _effectsData.mRainbowStep = 0;
+
+        _effectsData.effectsTimer = millis();
+    }
+
+    template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::fillup()
+    {
+        auto pixelCount = _information.PixelCount;
+        auto pixelCountHalf = _information.PixelCountTwoColors();
+        auto pixelCountTop = _information.PixelCountTop();
+
+        if (!(millis() - _effectsData.effectsTimer >= _processingData.EffectDelay))
+            return;
+        RgbColor color;
+
+        // Farbauswahl
+        if (_processingData.Licht == ColorMode::UserColors)
+        {
+            color = _processingData.LED_farbe_1;
+        }
+        if (_processingData.Licht == ColorMode::Random && _effectsData.fillupstep == 0)
+        {
+            color = Constants::Colors::GetRandomColor();
+        }
+        if (_processingData.Licht == ColorMode::Rainbow)
+        {
+            color = Constants::Colors::Wheel(map(_effectsData.fillupstep, 0, pixelCount - 1, 30, 150));
+            ;
+        }
+
+        // Zeichnet Streifen
+        if (_effectsData.durchlauffillup)
+        {
+            SetPixelColor(_effectsData.fillupstep, color);
+        }
+        else
+        {
+            SetPixelColor(_effectsData.fillupstep, RgbColor(0, 0, 0));
+        }
+
+        Show();
+
+        // updatet Position nach aufruf
+        _effectsData.fillupstep++;
+        if (_effectsData.fillupstep > pixelCount)
+        {
+            _effectsData.fillupstep = 0;
+            _effectsData.durchlauffillup = _effectsData.durchlauffillup ^ 1;
+        }
+        _effectsData.effectsTimer = millis();
+    }
+
+    template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::fillup2()
+    {
+        auto pixelCount = _information.PixelCount;
+        auto pixelCountHalf = _information.PixelCountTwoColors();
+        auto pixelCountTop = _information.PixelCountTop();
+
+        if (!(millis() - _effectsData.effectsTimer >= _processingData.EffectDelay))
+            return;
+
+        // Farbauswahl
+        if (_processingData.Licht == ColorMode::UserColors)
+        {
+            _effectsData.fullup2color = _processingData.LED_farbe_1;
+            _effectsData.fullup2color2 = _processingData.LED_farbe_2;
+        }
+
+        if (_processingData.Licht == ColorMode::Random && _effectsData.fillup2step == 0)
+        {
+            _effectsData.fullup2color = Constants::Colors::GetRandomColor();
+            _effectsData.fullup2color2 = Constants::Colors::GetRandomColor();
+        }
+
+        if (_processingData.Licht == ColorMode::Rainbow)
+        {
+            _effectsData.fullup2color = Constants::Colors::Wheel(map(_effectsData.fillup2step, 0, pixelCountHalf - 1, 30, 150));
+            ;
+            _effectsData.fullup2color2 = _effectsData.fullup2color;
+        }
+
+        // Zeichnet Streifen
+        if (_effectsData.durchlauffillup2)
+        {
+            SetPixelColor(_effectsData.fillup2step, _effectsData.fullup2color);
+            SetPixelColor(_effectsData.fillup2step + pixelCountHalf, _effectsData.fullup2color2);
+        }
+        else
+        {
+            RgbColor color = RgbColor(0, 0, 0);
+            SetPixelColor(_effectsData.fillup2step, color);
+            SetPixelColor(_effectsData.fillup2step + pixelCountHalf, color);
+        }
+
+        Show();
+
+        // updatet Position nach aufruf
+        _effectsData.fillup2step++;
+        if (_effectsData.fillup2step > pixelCountHalf)
+        {
+            _effectsData.fillup2step = 0;
+            _effectsData.durchlauffillup2 = _effectsData.durchlauffillup2 ^ 1;
+        }
+
+        _effectsData.effectsTimer = millis();
+    }
+
+    template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::fillup3()
+    {
+        auto pixelCount = _information.PixelCount;
+        auto pixelCountHalf = _information.PixelCountTwoColors();
+        auto pixelCountTop = _information.PixelCountTop();
+
+        int drittel = std::ceil(pixelCount / 3);
+        int zweidrittel = std::ceil(pixelCount * 2 / 3);
+
+        if (!(millis() - _effectsData.effectsTimer >= _processingData.EffectDelay))
+            return;
+
+        int einviertel = pixelCount / 4;
+        int halb = pixelCountHalf;
+        int dreiviertel = pixelCount * 3 / 4;
+        int voll = pixelCount;
+
+        // Farbauswahl
+        if (_processingData.Licht == ColorMode::UserColors)
+        {
+            _effectsData.fullup3color = _processingData.LED_farbe_1;
+            _effectsData.fullup3color2 = _processingData.LED_farbe_2;
+            _effectsData.fullup3color3 = _processingData.LED_farbe_3;
+        }
+        if (_processingData.Licht == ColorMode::Random && _effectsData.fillup3step == 0)
+        {
+            _effectsData.fullup3color = Constants::Colors::GetRandomColor();
+            _effectsData.fullup3color2 = Constants::Colors::GetRandomColor();
+            _effectsData.fullup3color3 = Constants::Colors::GetRandomColor();
+        }
+        if (_processingData.Licht == ColorMode::Rainbow)
+        {
+            _effectsData.fullup3color = Constants::Colors::Wheel(map(_effectsData.fillup3step, 0, (pixelCount - 1) / 4, 30, 150));
+            ;
+            _effectsData.fullup3color2 = _effectsData.fullup3color;
+            _effectsData.fullup3color3 = _effectsData.fullup3color;
+        }
+
+        // Zeichnet Streifen
+        if (_effectsData.durchlauffillup3 == false)
+        {
+            SetPixelColor(_effectsData.fillup3step, _effectsData.fullup3color);
+            SetPixelColor(_effectsData.fillup3step + drittel, _effectsData.fullup3color2);
+            SetPixelColor(_effectsData.fillup3step + zweidrittel, _effectsData.fullup3color3);
+        }
+        else
+        {
+            RgbColor color = RgbColor(0, 0, 0);
+            SetPixelColor(_effectsData.fillup3step, color);
+            SetPixelColor(_effectsData.fillup3step + drittel, color);
+            SetPixelColor(_effectsData.fillup3step + zweidrittel, color);
+        }
+
+        Show();
+
+        // updatet Position nach aufruf
+        _effectsData.fillup3step++;
+        if (_effectsData.fillup3step > pixelCount / 3)
+        {
+            _effectsData.fillup3step = 0;
+            _effectsData.durchlauffillup3 = _effectsData.durchlauffillup3 ^ 1;
+        }
+
+        _effectsData.effectsTimer = millis();
+    }
+
+    template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::fillup4()
+    {
+        auto pixelCount = _information.PixelCount;
+        auto pixelCountHalf = _information.PixelCountTwoColors();
+        auto pixelCountTop = _information.PixelCountTop();
+
+        auto ntime = millis();
+        if (ntime - _effectsData.effectsTimer >= _processingData.EffectDelay)
+        {
+
+            int einviertel = pixelCount / 4;
+            int halb = pixelCount / 2;
+            int dreiviertel = pixelCount * 3 / 4;
+            int voll = pixelCount;
+
+            Serial.println(_effectsData.fillup4step);
+
+            // Farbauswahl
+            if (_processingData.Licht == ColorMode::UserColors)
+            {
+                _effectsData.fullup4color = _processingData.LED_farbe_1;
+                _effectsData.fullup4color2 = _processingData.LED_farbe_2;
+                _effectsData.fullup4color3 = _processingData.LED_farbe_3;
+                _effectsData.fullup4color4 = _processingData.LED_farbe_4;
+            }
+
+            if (_processingData.Licht == ColorMode::Random && _effectsData.fillup4step == 0)
+            {
+                _effectsData.fullup4color = Constants::Colors::GetRandomColor();
+                _effectsData.fullup4color2 = Constants::Colors::GetRandomColor();
+                _effectsData.fullup4color3 = Constants::Colors::GetRandomColor();
+                _effectsData.fullup4color4 = Constants::Colors::GetRandomColor();
+            }
+
+            if (_processingData.Licht == ColorMode::Rainbow)
+            {
+                _effectsData.fullup4color = Constants::Colors::Wheel(map(_effectsData.fillup4step, 0, (pixelCount - 1) / 4, 30, 150));
+                ;
+                _effectsData.fullup4color2 = _effectsData.fullup4color;
+                _effectsData.fullup4color3 = _effectsData.fullup4color;
+                _effectsData.fullup4color4 = _effectsData.fullup4color;
+            }
+
+            // Zeichnet Streifen
+            if (_effectsData.durchlauffillup4 == false)
+            {
+                SetPixelColor(_effectsData.fillup4step, _effectsData.fullup4color);
+                SetPixelColor(_effectsData.fillup4step + einviertel, _effectsData.fullup4color2);
+                SetPixelColor(_effectsData.fillup4step + halb, _effectsData.fullup4color3);
+                SetPixelColor(_effectsData.fillup4step + dreiviertel, _effectsData.fullup4color4);
+            }
+            else
+            {
+                RgbColor color = RgbColor(0, 0, 0);
+                SetPixelColor(_effectsData.fillup4step, color);
+                SetPixelColor(_effectsData.fillup4step + einviertel, color);
+                SetPixelColor(_effectsData.fillup4step + halb, color);
+                SetPixelColor(_effectsData.fillup4step + dreiviertel, color);
+            }
+
+            Show();
+
+            // updatet Position nach aufruf
+            _effectsData.fillup4step++;
+            if (_effectsData.fillup4step > pixelCount / 4)
+            {
+                _effectsData.fillup4step = 0;
+                _effectsData.durchlauffillup4 = _effectsData.durchlauffillup4 ^ 1;
+            }
+
+            _effectsData.effectsTimer = ntime;
+        }
+    }
 
 } // namespace StripeBridge
 
 template class StripeBridge::StripeInstance<NeoEsp32RmtMethodBase<NeoEsp32RmtSpeed800Kbps, NeoEsp32RmtChannel0>>;
 template class StripeBridge::StripeInstance<NeoEsp32RmtMethodBase<NeoEsp32RmtSpeed800Kbps, NeoEsp32RmtChannel1>>;
+
+// TODO: Replace
+// pixelCount = pixelCount
+// pixelCountHalf = pixelCountHalf
+// pixelCountTop =
+
+// TODO:
+// inline void prozzesFFT(void)
+// {
+// 	// Fertig
+// 	if (micros() - Constants::oldtime >= Constants::samplingDelay)
+// 	{
+
+// 		//Channel Auswahl
+// 		(p_strip1.IsAux) ? CHANNEL = AUX_Eingang : CHANNEL = MicroEingang;
+// 		(p_strip2.IsAux) ? CHANNEL = AUX_Eingang : CHANNEL = MicroEingang;
+
+// 		// Ließt Analogwert ins Array
+// 		vReal[idex] = analogRead(CHANNEL);
+// 		vImag[idex] = 0;
+
+// 		// nach einlesen Update Index
+// 		idex++;
+// 		if (idex > samples_fft)
+// 		{
+// 			idex = 0;  // Index wird zurückgesetzt
+// 			isRdy = 1; // Zeigt an das genug Samples für FFT Berechnung vorhanden sind
+// 		}
+
+// 		oldtime = micros();
+// 	}
+
+// 	if (isRdy)
+// 	{
+// 		FFT.Windowing(vReal, samples_fft, FFT_WIN_TYP_HAMMING, FFT_FORWARD); /* Weigh data */
+// 		FFT.Compute(vReal, vImag, samples_fft, FFT_FORWARD);				 /* Compute FFT */
+// 		FFT.ComplexToMagnitude(vReal, vImag, samples_fft);					 /* Compute magnitudes */
+// 		double x = FFT.MajorPeak(vReal, samples_fft, samplingFrequency);	 // Gibt Frequenz mit höhster Amplitude zurück
+// 		x = (int)x;
+// 		if (x > maxfreq)
+// 			x = maxfreq;
+// 		int S1delay = map(x, 0, maxfreq, delaxMin, delayMax); // Skalliert Effectdelay jeh dominierende Frequenz
+// 		int S2delay = map(x, 0, maxfreq, delaxMin, delayMax); // Skalliert Effectdelay jeh dominierende Frequenz
+// 		p_strip1.EffectDelay = S1delay;						  // Schreibt neuen Delaywert
+// 		p_strip2.EffectDelay = S2delay;						  // Schreibt neuen Delaywert
+// 		isRdy = 0;
+// 	}
+// }

@@ -80,7 +80,7 @@ namespace StripeBridge
 
             void SetPixelCount(int pixelCount)
             {
-                stackBallcentreright = pixelCount - 1;
+                stackBallcentreright = pixelCount;
             }
         };
     } // namespace Models
