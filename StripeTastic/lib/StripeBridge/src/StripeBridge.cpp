@@ -9,9 +9,6 @@ namespace StripeBridge
     bool StripeBridge::_environmentSetupDone = false;
     int StripeBridge::_totalStripeInstances = 0;
 
-    // StripeBridge::_logger = Services::Logger::GetInstance();
-    // auto _loopService = Services::LoopService::GetInstance();
-
     void StripeBridge::EnvironmentSetup()
     {
         pinMode(Configuration::GPIOMicrophonePin, INPUT);

@@ -39,7 +39,6 @@ namespace StripeBridge
     template <class TRmtMethod>
     void StripeInstance<TRmtMethod>::LoopProcessing()
     {
-        delay(3000); // Debug
         switch (solidColorsTest)
         {
         case 0:
