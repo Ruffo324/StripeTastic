@@ -18,4 +18,8 @@ public:
 
     static uint16_t DefaultWebServerPort;
     static String IndexPageName;
+
+    static int GPIOMicrophonePin;
+    static int GPIOAuxLeftPin;
+    static int GPIOAuxRightPin;
 };

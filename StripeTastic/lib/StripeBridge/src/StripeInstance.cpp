@@ -1,10 +1,9 @@
 #include "StripeInstance.h"
+#include "StripeBridge.h"
+
 namespace StripeBridge
 {
     const String _loggerTag = "STRIPE";
-
-    template <class TRmtMethod>
-    int StripeInstance<TRmtMethod>::_stripeInstancesEverCreated = 0;
 
     template <class TRmtMethod>
     void StripeInstance<TRmtMethod>::Initialize()
@@ -27,8 +26,7 @@ namespace StripeBridge
         this->_information.GPIOPin = pin;
         this->_information.PixelCount = pixelCount;
 
-        this->_loopRegistrationKey = "STRIPE_INSTANCE_" + _stripeInstancesEverCreated;
-        _stripeInstancesEverCreated++;
+        this->_loopRegistrationKey = "STRIPE_INSTANCE_" + StripeBridge::GetNewStripeInstanceId();
 
         _logger->Log(_loggerTag, "Stripe " + _loopRegistrationKey + "(GPIO: " + pin + ", Pixels:" + pixelCount + " ) created..");
     }

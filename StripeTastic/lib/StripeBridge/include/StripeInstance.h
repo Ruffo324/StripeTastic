@@ -9,7 +9,6 @@
 namespace StripeBridge
 {
     template <typename TRmtMethod>
-
     class StripeInstance
     {
         static_assert(
@@ -24,9 +23,6 @@ namespace StripeBridge
             "TRmtMethod must be one of the 'NeoEsp32RmtXYYYKbpsMethod' types.");
 
     private:
-        /** Used to generate uniqe loop registrationkeys. */
-        static int _stripeInstancesEverCreated; // TODO: Find cleaner solution.
-
         NeoPixelBrightnessBus<NeoGrbFeature, TRmtMethod> _stripeBus;
         Models::StripeInformation _information;
         Models::StripeProcessingData _processingData;

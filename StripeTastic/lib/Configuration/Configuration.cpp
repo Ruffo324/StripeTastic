@@ -11,3 +11,7 @@ bool Configuration::Debug = true;
 
 uint16_t Configuration::DefaultWebServerPort = 80;
 String Configuration::IndexPageName = "index.html";
+
+int Configuration::GPIOMicrophonePin = 34;
+int Configuration::GPIOAuxLeftPin = 35;
+int Configuration::GPIOAuxRightPin = 25;
