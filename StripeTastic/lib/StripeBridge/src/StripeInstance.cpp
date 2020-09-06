@@ -15,7 +15,7 @@ namespace StripeBridge
 
         _logger->Log(_loggerTag, "Stripe '" + _loopRegistrationKey + "' is ready.");
         Off();
-        solidColorsTest = 0;
+        // solidColorsTest = 0; // Debug
     }
 
     template <class TRmtMethod>
@@ -39,23 +39,23 @@ namespace StripeBridge
     template <class TRmtMethod>
     void StripeInstance<TRmtMethod>::LoopProcessing()
     {
-        switch (solidColorsTest)
-        {
-        case 0:
-            SolidUserColor(Enums::ColorMode::OneUserColor);
-            break;
-        case 1:
-            SolidUserColor(Enums::ColorMode::TwoUserColors);
-            break;
-        case 2:
-            SolidUserColor(Enums::ColorMode::ThreeUserColors);
-            solidColorsTest = -1;
-            break;
-        default:
-            _logger->Log(_loggerTag, "Ahhh invalid debug test loop code. Fuu myself!");
-            return;
-        }
-        this->solidColorsTest++;
+        // switch (solidColorsTest)
+        // {
+        // case 0:
+        //     SolidUserColor(Enums::ColorMode::OneUserColor);
+        //     break;
+        // case 1:
+        //     SolidUserColor(Enums::ColorMode::TwoUserColors);
+        //     break;
+        // case 2:
+        //     SolidUserColor(Enums::ColorMode::ThreeUserColors);
+        //     solidColorsTest = -1;
+        //     break;
+        // default:
+        //     _logger->Log(_loggerTag, "Ahhh invalid debug test loop code. Fuu myself!");
+        //     return;
+        // }
+        // this->solidColorsTest++;
         // TODO: LOOP processing.
     }
 

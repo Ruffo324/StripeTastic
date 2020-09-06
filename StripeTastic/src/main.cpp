@@ -36,6 +36,31 @@ void setupServices()
 StripeBridge::StripeInstance<NeoEsp32Rmt0800KbpsMethod> *_stripeOne;
 StripeBridge::StripeInstance<NeoEsp32Rmt1800KbpsMethod> *_stripeTwo;
 
+RgbColor ColorFromJsonData(JsonObject data)
+{
+    return RgbColor(data["red"], data["green"], data["blue"]);
+}
+
+StripeBridge::Models::StripeProcessingData FromJsonObject(JsonObject data)
+{
+    StripeBridge::Models::StripeProcessingData pdata = {};
+    pdata.OperationMode = data["OperationMode"];
+    pdata.Effect = data["Effect"];
+    pdata.EffectDirection = data["EffectDirection"];
+    pdata.Licht = data["Licht"];
+    pdata.Brightness = data["Brightness"];
+    pdata.FlashPerSeconds = data["FlashPerSeconds"];
+    pdata.EffectDelay = data["EffectDelay"];
+    pdata.Intensity = data["Intensity"];
+    pdata.FFTActive = data["FFTActive"];
+    pdata.Changed = data["Changed"];
+    pdata.IsAux = data["IsAux"];
+    pdata.LED_farbe_1 = ColorFromJsonData(data["LED_farbe_1"]);
+    pdata.LED_farbe_2 = ColorFromJsonData(data["LED_farbe_2"]);
+    pdata.LED_farbe_3 = ColorFromJsonData(data["LED_farbe_3"]);
+    pdata.LED_farbe_4 = ColorFromJsonData(data["LED_farbe_4"]);
+}
+
 void setup()
 {
     // Setup logger.
@@ -53,6 +78,13 @@ void setup()
     // Led stripe two
     const int stripeTwoPin = 21, stripeTwoPixel = 200;
     _stripeTwo = new StripeBridge::StripeInstance<NeoEsp32Rmt1800KbpsMethod>(stripeTwoPin, stripeTwoPixel);
+
+    _webService->RegisterRestCall("/processdata/stripe1", [](JsonObject data) {
+        _stripeOne->UpdateProcessingData(FromJsonObject(data));
+    });
+    _webService->RegisterRestCall("/processdata/stripe2", [](JsonObject data) {
+        _stripeTwo->UpdateProcessingData(FromJsonObject(data));
+    });
 }
 
 void loop()

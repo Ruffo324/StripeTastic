@@ -28,10 +28,10 @@ namespace StripeBridge
             uint8_t FlashPerSeconds = 50;
             /// 10ms - x
             int EffectDelay = 10;
-            /// Scaliert  Micro/AUX  0 - 500,100 = Faktor 1, 200 =faktor 2
+            /// Scaliert  Micro/AUX  0 - 500,100= Faktor 1, 200=faktor 2
             float Intensity = 100.0;
             /// aktiviert FFT für EffectDelay Steuerung durch Musik
-            bool FFTAktive = false; // TODO: Check optimal default
+            bool FFTActive = false; // TODO: Check optimal default
             /// Flag die anzeigt wenn sich was ändert
             bool Changed = true; // TODO: Get rid of this..
             /// True = aux, false = mic // TODO: Create Enum::SoundSource/Input
