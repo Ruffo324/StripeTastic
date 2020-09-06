@@ -1,4 +1,5 @@
 #pragma once
+
 #include <Arduino.h>
 #include <NeoPixelBrightnessBus.h>
 #include "Enums/OperationModes.h"

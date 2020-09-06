@@ -23,12 +23,11 @@
             "        {",
             "            $0",
             "        }",
-            "    {",
             "    } // namespace ${1:namespaceName}",
             "} // namespace StripeBridge"
 		],
 		"description": "Writes the nested StripeBrdige namespace."
-    },
+    }
     // "summar": {
 	// 	"scope": "cpp, c++",
 	// 	"prefix": "nsb",
@@ -42,5 +41,5 @@
     //         "} // namespace StripeBridge"
 	// 	],
 	// 	"description": "Writes the nested StripeBrdige namespace."
-	}
+	// }
 }
