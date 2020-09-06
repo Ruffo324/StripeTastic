@@ -1,4 +1,7 @@
+#pragma once
+
 #include <NeoPixelBus.h>
+
 namespace StripeBridge
 {
     namespace Constants
@@ -7,6 +10,9 @@ namespace StripeBridge
         {
         private:
         public:
+            /// No color, no light, just off.
+            static RgbColor Off;
+
             static RgbColor Red;
             static RgbColor Green;
             static RgbColor Blue;

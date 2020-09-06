@@ -19,7 +19,12 @@ public:
     static uint16_t DefaultWebServerPort;
     static String IndexPageName;
 
+    /// GPIO Pin number for the microphone.
     static int GPIOMicrophonePin;
+    /// GPIO Pin number for the left aux channel.
     static int GPIOAuxLeftPin;
+    /// GPIO Pin number for the right aux channel.
     static int GPIOAuxRightPin;
+
+    static int AnalogReadResolutionBits;
 };

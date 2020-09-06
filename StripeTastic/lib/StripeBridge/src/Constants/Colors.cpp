@@ -4,6 +4,8 @@ namespace StripeBridge
 {
     namespace Constants
     {
+        RgbColor Colors::Off = RgbColor(0, 0, 0);
+
         RgbColor Colors::Red = RgbColor(255, 0, 0);
         RgbColor Colors::Green = RgbColor(0, 255, 0);
         RgbColor Colors::Blue = RgbColor(0, 0, 255);

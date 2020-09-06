@@ -1,5 +1,6 @@
 #include "StripeInstance.h"
 #include "StripeBridge.h"
+#include "Constants/Colors.h"
 
 namespace StripeBridge
 {
@@ -29,6 +30,20 @@ namespace StripeBridge
         this->_loopRegistrationKey = "STRIPE_INSTANCE_" + StripeBridge::GetNewStripeInstanceId();
 
         _logger->Log(_loggerTag, "Stripe " + _loopRegistrationKey + "(GPIO: " + pin + ", Pixels:" + pixelCount + " ) created..");
+    }
+
+    template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::LoopProcessing()
+    {
+        // TODO: LOOP processing.
+    }
+
+    template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::Off()
+    {
+        for (int i = 0; i < _information.PixelCount; i++)
+            _stripeBus.SetPixelColor(i, Constants::Colors::Off);
+        _stripeBus.Show();
     }
 
 } // namespace StripeBridge

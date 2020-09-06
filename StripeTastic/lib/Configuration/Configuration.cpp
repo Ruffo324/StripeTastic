@@ -15,3 +15,5 @@ String Configuration::IndexPageName = "index.html";
 int Configuration::GPIOMicrophonePin = 34;
 int Configuration::GPIOAuxLeftPin = 35;
 int Configuration::GPIOAuxRightPin = 25;
+
+int Configuration::AnalogReadResolutionBits = 10;

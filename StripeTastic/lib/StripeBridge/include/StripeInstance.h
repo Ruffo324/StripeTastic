@@ -33,9 +33,24 @@ namespace StripeBridge
 
         void Initialize();
         void LoopProcessing();
+
+        /// Loads the last used ProcessingData from the storage.
+        void LoadOrCreateProcessingData();
+        /// Saves the current ProcessingData to the storage.
+        void StoreProcessingData();
+        /// Resets the stored and current ProcessingData to default.
+        void ResetProcessingData();
+
+        /// Turns every pixel on the stripe off.
+        void Off();
+        /// Solid color for each pixel, but based on the color mode. (1color, 2color, ...)
+        void SolidUserColor(Enums::ColorMode colorMode);
+        
         // TODO: Re-initialize, to change pixel count at runtime.
     public:
         StripeInstance(int pin, int pixelCount);
+        /// Updates the stripe processing data struct.
+        void UpdateProcessingData(Models::StripeProcessingData processingData);
     };
 
 } // namespace StripeBridge

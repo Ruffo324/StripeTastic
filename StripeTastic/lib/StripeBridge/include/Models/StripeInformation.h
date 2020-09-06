@@ -12,8 +12,19 @@ namespace StripeBridge
         {
             /// GPIO of the stripe data connection.
             int GPIOPin;
+
             /// Total amount of single LED on the used stripe.
             int PixelCount;
+
+            int PixelCountTwoColors()
+            {
+                return PixelCount / 2;
+            }
+
+            int PixelCountThreeColors()
+            {
+                return PixelCount / 3;
+            }
         };
     } // namespace Models
 } // namespace StripeBridge
