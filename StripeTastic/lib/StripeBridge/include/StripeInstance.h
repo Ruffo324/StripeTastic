@@ -31,6 +31,7 @@ namespace StripeBridge
         Models::StripeInformation _information;
         Models::StripeProcessingData _processingData;
         String _loopRegistrationKey;
+        int solidColorsTest;
 
         void Initialize();
         void LoopProcessing();
