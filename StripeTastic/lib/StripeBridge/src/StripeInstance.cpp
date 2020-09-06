@@ -416,6 +416,143 @@ namespace StripeBridge
         effectsTimer = millis();
     }
 
+    template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::ballstackable()
+    {
+        if (!(millis() - _effectsData.effectsTimer >= _processingData.EffectDelay))
+            return;
+
+        auto pixelCount = _information.PixelCount;
+
+        // Farbauswahl
+        if (_processingData.Licht == Enums::ColorMode::OneUserColor)
+            _effectsData.stackcolor = _processingData.LED_farbe_1;
+        else if (_processingData.Licht == Enums::ColorMode::Random && _effectsData.LeadingBallStack == 0)
+            _effectsData.stackcolor = Constants::Colors::GetRandomColor();
+        else if (_processingData.Licht == Enums::ColorMode::Rainbow)
+            _effectsData.stackcolor = Constants::Colors::Wheel(map(_effectsData.LeadingBallStack, 0, pixelCount - 1, 30, 150));
+
+        // Löscht alle Farben
+        Off(false);
+
+        // Ball1 reinrollen lassen
+        _effectsData.balllengh = (_effectsData.LeadingBallStack < _effectsData.balllengh_max) ? _effectsData.LeadingBallStack : _effectsData.balllengh_max;
+
+        // Zeichnet 1. Ball
+        for (int i = _effectsData.LeadingBallStack; i > _effectsData.LeadingBallStack - _effectsData.balllengh; i--)
+            SetPixelColor(i, _effectsData.stackcolor);
+
+        // Zeichnet stacked Ball
+        for (int i = pixelCount; i > (pixelCount - _effectsData.BallOverFlowStack); i--)
+            SetPixelColor(i, _effectsData.stackcolor);
+
+        Show();
+
+        // Speichert Ball Position und Rollover bei pixelCount und löscht Streifen
+        if (_effectsData.LeadingBallStack < pixelCount - _effectsData.BallOverFlowStack)
+            _effectsData.LeadingBallStack++;
+        else
+        {
+            _effectsData.LeadingBallStack = 0;
+            _effectsData.BallOverFlowStack += _effectsData.balllengh;
+
+            if (_effectsData.BallOverFlowStack > pixelCount - _effectsData.balllengh)
+                _effectsData.BallOverFlowStack = 0;
+
+            // Löscht alle Farben
+            Off();
+        }
+
+        _effectsData.effectsTimer = millis();
+    } // namespace StripeBridge
+
+    template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::ballStackableToCenter()
+    {
+        if (!(millis() - _effectsData.effectsTimer >= _processingData.EffectDelay))
+            return;
+
+        // Farbauswahl
+        if (_processingData.Licht == Enums::ColorMode::OneUserColor)
+        {
+            _effectsData.stackcentrecolor_left = _processingData.LED_farbe_1;
+            _effectsData.stackcentrecolor_right = _processingData.LED_farbe_1;
+        }
+        else if (_processingData.Licht == Enums::ColorMode::TwoUserColors)
+        {
+            _effectsData.stackcentrecolor_left = _processingData.LED_farbe_1;
+            _effectsData.stackcentrecolor_right = _processingData.LED_farbe_2
+        }
+        else if (_processingData.Licht == Enums::ColorMode::Random)
+        {
+            if (_effectsData.stackBallcentreleft == 0)
+            {
+                _effectsData.stackcentrecolor_left = Constants::Colors::GetRandomColor();
+                _effectsData.stackcentrecolor_right = Constants::Colors::GetRandomColor();
+            }
+            else if (_effectsData.stackBallcentreright == amountLeds - 1)
+            {
+                _effectsData.stackcentrecolor_left = Constants::Colors::GetRandomColor();
+                _effectsData.stackcentrecolor_right = Constants::Colors::GetRandomColor();
+            }
+        }
+
+        // Löscht alle Farben
+        Off(false);
+
+        // Ball1 reinrollen lassen
+        _effectsData.balllengh = (_effectsData.stackBallcentreleft < _effectsData.balllengh_max) ? _effectsData.stackBallcentreleft : _effectsData.balllengh_max;
+
+        // BAll von links
+        for (int i = _effectsData.stackBallcentreleft; i > _effectsData.stackBallcentreleft - _effectsData.balllengh; i--)
+            SetPixelColor(i, _effectsData.stackcentrecolor_left);
+
+        // Stackt ball left
+        for (int i = amountLeds_half; i > amountLeds_half - _effectsData.BallOverFlowCentreleft; i--)
+            SetPixelColor(i, _effectsData.stackcentrecolor_left);
+
+        // BAll von rechts
+        for (int i = _effectsData.stackBallcentreright; i > _effectsData.stackBallcentreright - _effectsData.balllengh; i--)
+            SetPixelColor(i, _effectsData.stackcentrecolor_right);
+        // Stackt ball rechts
+        for (int i = amountLeds_half; i < amountLeds_half + _effectsData.BallOverFlowCentreleft; i++)
+            SetPixelColor(i, _effectsData.stackcentrecolor_right);
+
+        Show();
+
+        // Händelt links position und stack
+        if (_effectsData.stackBallcentreleft + _effectsData.balllengh < amountLeds_half - _effectsData.BallOverFlowCentreleft)
+            _effectsData.stackBallcentreleft++;
+        else
+        {
+            _effectsData.stackBallcentreleft = 0;
+            _effectsData.BallOverFlowCentreleft += _effectsData.balllengh;
+            if (_effectsData.BallOverFlowCentreleft > amountLeds_half - _effectsData.balllengh)
+            {
+                _effectsData.BallOverFlowCentreleft = 0;
+                // Löscht alle Farben
+                Off();
+            }
+        }
+
+        // Händelt rechts position und stack
+        if (_effectsData.stackBallcentreright - _effectsData.balllengh > amountLeds_half + _effectsData.BallOverFlowCentreright)
+            _effectsData.stackBallcentreright--;
+        else
+        {
+            _effectsData.stackBallcentreright = amountLeds;
+            _effectsData.BallOverFlowCentreright += _effectsData.balllengh;
+            if (_effectsData.BallOverFlowCentreright > amountLeds_half - _effectsData.balllengh)
+            {
+                _effectsData.BallOverFlowCentreright = 0;
+                // Löscht alle Farben
+                Off();
+            }
+        }
+
+        _effectsData.effectsTimer = millis();
+    }
+
 } // namespace StripeBridge
 
 template class StripeBridge::StripeInstance<NeoEsp32RmtMethodBase<NeoEsp32RmtSpeed800Kbps, NeoEsp32RmtChannel0>>;

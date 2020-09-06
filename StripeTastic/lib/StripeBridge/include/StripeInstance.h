@@ -63,6 +63,9 @@ namespace StripeBridge
         // ==================== Effects
         void strobo();
         void ball();
+        void ballstackable();
+        void ballStackableToCenter();
+        void vu_centre();
 
     public:
         StripeInstance(int pin, int pixelCount);
