@@ -49,7 +49,7 @@ void setup()
     _stripeOne = new StripeBridge::StripeInstance<NeoEsp32Rmt0800KbpsMethod>(stripeOnePin, stripeOnePixel);
 
     // Led stripe two
-    const int stripeTwoPin = 23, stripeTwoPixel = 60;
+    const int stripeTwoPin = 21, stripeTwoPixel = 60;
     _stripeTwo = new StripeBridge::StripeInstance<NeoEsp32Rmt1800KbpsMethod>(stripeTwoPin, stripeTwoPixel);
 }
 

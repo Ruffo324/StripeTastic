@@ -4,7 +4,6 @@
 #include <NeoPixelBrightnessBus.h>
 #include "Models/StripeProcessingData.h"
 #include "Models/StripeInformation.h"
-#include "Services.h"
 
 namespace StripeBridge
 {
@@ -27,9 +26,6 @@ namespace StripeBridge
         Models::StripeInformation _information;
         Models::StripeProcessingData _processingData;
         String _loopRegistrationKey;
-
-        Services::Logger *_logger;
-        Services::LoopService *_loopService;
 
         void Initialize();
         void LoopProcessing();

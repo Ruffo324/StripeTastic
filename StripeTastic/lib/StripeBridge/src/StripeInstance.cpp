@@ -1,10 +1,14 @@
 #include "StripeInstance.h"
 #include "StripeBridge.h"
 #include "Constants/Colors.h"
+#include "Services.h"
 
 namespace StripeBridge
 {
     const String _loggerTag = "STRIPE";
+
+    auto _logger = Services::Logger::GetInstance();
+    auto _loopService = Services::LoopService::GetInstance();
 
     template <class TRmtMethod>
     void StripeInstance<TRmtMethod>::Initialize()
@@ -14,6 +18,7 @@ namespace StripeBridge
         _loopService->Register(_loopRegistrationKey, [this]() { LoopProcessing(); });
 
         _logger->Log(_loggerTag, "Stripe '" + _loopRegistrationKey + "' is ready.");
+        Off();
     }
 
     template <class TRmtMethod>
@@ -22,20 +27,37 @@ namespace StripeBridge
     {
         pinMode(pin, OUTPUT);
 
-        _logger = Logger::GetInstance();
-        _loopService = LoopService::GetInstance();
-
         this->_information.GPIOPin = pin;
         this->_information.PixelCount = pixelCount;
 
         this->_loopRegistrationKey = "STRIPE_INSTANCE_" + StripeBridge::GetNewStripeInstanceId();
 
         _logger->Log(_loggerTag, "Stripe " + _loopRegistrationKey + "(GPIO: " + pin + ", Pixels:" + pixelCount + " ) created..");
+        Initialize();
     }
 
+    int solidColorsTest = 0;
     template <class TRmtMethod>
     void StripeInstance<TRmtMethod>::LoopProcessing()
     {
+        delay(3000); // Debug
+        switch (solidColorsTest)
+        {
+        case 0:
+            SolidUserColor(Enums::ColorMode::OneUserColor);
+            break;
+        case 1:
+            SolidUserColor(Enums::ColorMode::TwoUserColor);
+            break;
+        case 2:
+            SolidUserColor(Enums::ColorMode::ThreeUserColor);
+            solidColorsTest = -1;
+            break;
+        default:
+            _logger->Log(_loggerTag, "Ahhh invalid debug test loop code. Fuu myself!");
+            return;
+        }
+        solidColorsTest++;
         // TODO: LOOP processing.
     }
 
