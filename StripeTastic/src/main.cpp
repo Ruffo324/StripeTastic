@@ -1,7 +1,6 @@
 
 #include <Configuration.h>
 #include <Services.h>
-#include <LedBridge.h>
 
 Services::WifiService *_wifiService;
 Services::LoopService *_loopService;
@@ -35,8 +34,8 @@ void setup()
     _webService->Start();
 
     // LedBridge
-    LedBridge::Initalize();
-    _loopService->Register("LEDBRIDGE_LOOP", []() { LedBridge::InvokeLoop(); });
+    // LedBridge::Initalize();
+    // _loopService->Register("LEDBRIDGE_LOOP", []() { LedBridge::InvokeLoop(); });
 }
 
 void loop()
