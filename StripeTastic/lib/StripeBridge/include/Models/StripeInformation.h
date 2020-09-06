@@ -10,9 +10,9 @@ namespace StripeBridge
          * */
         struct StripeInformation
         {
-            /** GPIO of the stripe data connection. */
+            /// GPIO of the stripe data connection.
             int GPIOPin;
-            /** Total amount of single LED on the used stripe. */
+            /// Total amount of single LED on the used stripe.
             int PixelCount;
         };
     } // namespace Models

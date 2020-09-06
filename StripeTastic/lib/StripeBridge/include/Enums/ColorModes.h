@@ -4,18 +4,18 @@ namespace StripeBridge
 {
     namespace Enums
     {
-        /** Defines wich color logic is used. */
+        /// Defines wich color logic is used.
         enum ColorMode
         {
-            /** Fades from red to light blue. */
+            /// Fades from red to light blue.
             Rainbow,
-            /** Random color from Colors::RaindomColors. */
+            /// Random color from Colors::RaindomColors.
             Random,
-            /** Single color selected by user. */
+            /// Single color selected by user.
             OneUserColor,
-            /** Two colors selected by user. */
+            /// Two colors selected by user.
             TwoUserColors,
-            /** Three colors selected by user. */
+            /// Three colors selected by user.
             ThreeUserColors
         };
     } // namespace Enums
