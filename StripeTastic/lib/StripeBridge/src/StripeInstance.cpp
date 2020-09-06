@@ -10,6 +10,7 @@ namespace StripeBridge
     void StripeInstance<TRmtMethod>::Initialize()
     {
         _stripeBus.Begin();
+        LoadOrCreateProcessingData();
         _loopService->Register(_loopRegistrationKey, [this]() { LoopProcessing(); });
 
         _logger->Log(_loggerTag, "Stripe '" + _loopRegistrationKey + "' is ready.");
@@ -36,6 +37,19 @@ namespace StripeBridge
     void StripeInstance<TRmtMethod>::LoopProcessing()
     {
         // TODO: LOOP processing.
+    }
+
+    template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::LoadOrCreateProcessingData()
+    {
+        // TODO: Store and load processing data.!
+        ResetProcessingData();
+    }
+
+    template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::ResetProcessingData()
+    {
+        _processingData = Models::StripeProcessingData();
     }
 
     template <class TRmtMethod>
@@ -69,7 +83,7 @@ namespace StripeBridge
 
         switch (colorMode)
         {
-        // Single solid color.
+        // Single user ncolor.
         case Enums::ColorMode::OneUserColor:
             for (int i = 0; i < totalPixel; i++)
                 SetPixelColor(i, _processingData.LED_farbe_1);
