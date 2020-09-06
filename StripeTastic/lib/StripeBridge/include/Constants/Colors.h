@@ -27,7 +27,11 @@ namespace StripeBridge
             /** 
              * Predefined color set used by ColorModes::Random. 
              */
-            static RgbColor RandomColors[];
+            static std::vector<RgbColor> RandomColors;
+
+            /// Gives u a random color from the RandomColors vector.
+            static RgbColor GetRandomColor();
+            static RgbColor Wheel(byte wheelPos);
         };
     } // namespace Constants
 } // namespace StripeBridge

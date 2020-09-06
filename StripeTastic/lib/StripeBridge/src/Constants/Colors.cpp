@@ -1,3 +1,4 @@
+#include <iterator>
 #include "Constants/Colors.h"
 
 namespace StripeBridge
@@ -17,7 +18,7 @@ namespace StripeBridge
         RgbColor Colors::Lila = RgbColor(200, 0, 200);
         RgbColor Colors::Cyan = RgbColor(75, 196, 213);
 
-        RgbColor Colors::RandomColors[] = {
+        std::vector<RgbColor> Colors::RandomColors = {
             Colors::Red,
             Colors::Green,
             Colors::Blue,
@@ -29,5 +30,29 @@ namespace StripeBridge
             Colors::Lila,
             Colors::Cyan,
         };
-    } // namespace Constants
+
+        RgbColor Colors::GetRandomColor()
+        {
+            return RandomColors[random(RandomColors.size())];
+        }
+
+        RgbColor Colors::Wheel(byte wheelPos)
+        {
+            if (wheelPos < 85)
+            {
+                return RgbColor(wheelPos * 3, 255 - wheelPos * 3, 0);
+            }
+            else if (wheelPos < 170)
+            {
+                wheelPos -= 85;
+                return RgbColor(255 - wheelPos * 3, 0, wheelPos * 3);
+            }
+            else
+            {
+                wheelPos -= 170;
+                return RgbColor(0, wheelPos * 3, 255 - wheelPos * 3);
+            }
+        }
+
+        } // namespace Constants
 } // namespace StripeBridge

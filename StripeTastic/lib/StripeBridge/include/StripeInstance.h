@@ -4,6 +4,7 @@
 #include <NeoPixelBrightnessBus.h>
 #include "Models/StripeProcessingData.h"
 #include "Models/StripeInformation.h"
+#include "Models/StripeEffectsData.h"
 #include "Services.h"
 
 namespace StripeBridge
@@ -30,10 +31,12 @@ namespace StripeBridge
         NeoPixelBrightnessBus<NeoGrbFeature, TRmtMethod> _stripeBus;
         Models::StripeInformation _information;
         Models::StripeProcessingData _processingData;
+        Models::StripeEffectsData _effectsData;
         String _loopRegistrationKey;
-        int solidColorsTest; // Debug
+        bool _processingDataChanged;
 
         void Initialize();
+        // TODO: Re-initialize, to change pixel count at runtime.
         void LoopProcessing();
 
         /// Loads the last used ProcessingData from the storage.
@@ -48,11 +51,19 @@ namespace StripeBridge
         /// Calls neopixel setPixelColor function, but can also send realtime informations to client for virtualization.
         void SetPixelColor(uint16_t pixel, RgbColor color);
         /// Turns every pixel on the stripe off.
-        void Off();
+        void Off(bool withShow = true);
         /// Solid color for each pixel, but based on the color mode. (1color, 2color, ...)
         void SolidUserColor(Enums::ColorMode colorMode);
 
-        // TODO: Re-initialize, to change pixel count at runtime.
+        // TODO: Functions wich needs cleanup.
+        void programm(); // TODO: Change name to "HandleProcessData"
+        static int check_micro(bool micro_aux);
+        void rainbow();
+        void zufall();
+        // ==================== Effects
+        void strobo();
+        void ball();
+
     public:
         StripeInstance(int pin, int pixelCount);
         /// Updates the stripe processing data struct.

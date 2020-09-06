@@ -25,6 +25,11 @@ namespace StripeBridge
             {
                 return PixelCount / 3;
             }
+
+            int PixelCountTop() // TODO: Warum?
+            {
+                return PixelCount + 2;
+            }
         };
     } // namespace Models
 } // namespace StripeBridge
