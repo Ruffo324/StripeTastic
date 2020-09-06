@@ -27,19 +27,13 @@
             "} // namespace StripeBridge"
 		],
 		"description": "Writes the nested StripeBrdige namespace."
-    }
-    // "summar": {
-	// 	"scope": "cpp, c++",
-	// 	"prefix": "nsb",
-	// 	"body": [
-    //         "namespace StripeBridge",
-    //         "{",
-    //         "    namespace ${1:name}",
-    //         "    {",
-    //         "        $0",
-    //         "    } // namespace ${1:name}",
-    //         "} // namespace StripeBridge"
-	// 	],
-	// 	"description": "Writes the nested StripeBrdige namespace."
-	// }
+    },
+    "Tagged call to logger": {
+		"scope": "cpp, c++",
+		"prefix": "log",
+		"body": [
+            "_logger->Log(_loggerTag, \"$0\");",
+		],
+		"description": "Simple call the _logger->Log function with _loggerTag."
+	}
 }

@@ -11,7 +11,7 @@ namespace StripeBridge
 {
     namespace Models
     {
-        struct StripeConfiguration
+        struct StripeProcessingData
         {
             /** Strip nummer */
             int StripeIndex;
