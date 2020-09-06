@@ -4,6 +4,7 @@
 #include <NeoPixelBrightnessBus.h>
 #include "Models/StripeProcessingData.h"
 #include "Models/StripeInformation.h"
+#include "Services.h"
 
 namespace StripeBridge
 {
@@ -22,6 +23,10 @@ namespace StripeBridge
             "TRmtMethod must be one of the 'NeoEsp32RmtXYYYKbpsMethod' types.");
 
     private:
+        const String _loggerTag = "STRIPE";
+        Services::Logger *_logger;
+        Services::LoopService *_loopService;
+
         NeoPixelBrightnessBus<NeoGrbFeature, TRmtMethod> _stripeBus;
         Models::StripeInformation _information;
         Models::StripeProcessingData _processingData;

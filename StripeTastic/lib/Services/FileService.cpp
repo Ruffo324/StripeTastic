@@ -5,7 +5,6 @@
 
 namespace Services
 {
-    const String _loggerTag = "FILE";
     FileService::FileService()
     {
         _logger = Logger::GetInstance();

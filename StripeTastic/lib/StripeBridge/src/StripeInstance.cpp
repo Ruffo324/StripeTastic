@@ -6,11 +6,6 @@
 
 namespace StripeBridge
 {
-    const String _loggerTag = "STRIPE";
-
-    auto _logger = Services::Logger::GetInstance();
-    auto _loopService = Services::LoopService::GetInstance();
-
     template <class TRmtMethod>
     void StripeInstance<TRmtMethod>::Initialize()
     {
@@ -26,6 +21,9 @@ namespace StripeBridge
     StripeInstance<TRmtMethod>::StripeInstance(int pin, int pixelCount)
         : _stripeBus(pixelCount, pin), _information(), _processingData()
     {
+        _logger = Services::Logger::GetInstance();
+        _loopService = Services::LoopService::GetInstance();
+
         pinMode(pin, OUTPUT);
 
         this->_information.GPIOPin = pin;
@@ -108,31 +106,35 @@ namespace StripeBridge
         {
         // Single user ncolor.
         case Enums::ColorMode::OneUserColor:
+        {
             for (int i = 0; i < totalPixel; i++)
                 SetPixelColor(i, _processingData.LED_farbe_1);
             break;
-
+        }
         // Two user colors.
         case Enums::ColorMode::TwoUserColors:
-            auto twoSegmentPixel = _information.PixelCountTwoColors();
+        {
+            auto segmentPixel = _information.PixelCountTwoColors();
 
-            for (uint16_t i = 0; i < twoSegmentPixel; i++)
+            for (uint16_t i = 0; i < segmentPixel; i++)
                 SetPixelColor(i, _processingData.LED_farbe_1);
-            for (uint16_t i = twoSegmentPixel; i < totalPixel; i++)
+            for (uint16_t i = segmentPixel; i < totalPixel; i++)
                 SetPixelColor(i, _processingData.LED_farbe_2);
             break;
-
+        }
         // Three user colos.
         case Enums::ColorMode::ThreeUserColors:
-            auto threeSegmentPixel = _information.PixelCountThreeColors();
+        {
+            auto segmentPixel = _information.PixelCountThreeColors();
 
-            for (uint16_t i = 0; i < threeSegmentPixel; i++)
+            for (uint16_t i = 0; i < segmentPixel; i++)
                 SetPixelColor(i, _processingData.LED_farbe_1);
-            for (uint16_t i = threeSegmentPixel; i < threeSegmentPixel * 2; i++)
+            for (uint16_t i = segmentPixel; i < segmentPixel * 2; i++)
                 SetPixelColor(i, _processingData.LED_farbe_2);
-            for (uint16_t i = threeSegmentPixel * 2; i < totalPixel; i++)
+            for (uint16_t i = segmentPixel * 2; i < totalPixel; i++)
                 SetPixelColor(i, _processingData.LED_farbe_3);
             break;
+        }
         // Invalid ColorModes.
         default:
             _logger->Log(_loggerTag, "StripeInstance::SolidUserColor() can only be used with user base Enums::ColorModes.");
@@ -142,3 +144,6 @@ namespace StripeBridge
     }
 
 } // namespace StripeBridge
+
+template class StripeBridge::StripeInstance<NeoEsp32RmtMethodBase<NeoEsp32RmtSpeed800Kbps, NeoEsp32RmtChannel0>>;
+template class StripeBridge::StripeInstance<NeoEsp32RmtMethodBase<NeoEsp32RmtSpeed800Kbps, NeoEsp32RmtChannel1>>;

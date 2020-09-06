@@ -9,7 +9,6 @@
 
 namespace Services
 {
-    const String _loggerTag = "WiFi";
     const String _dnsLoopKey = "WIFI-DNS";
 
     WifiService::WifiService()

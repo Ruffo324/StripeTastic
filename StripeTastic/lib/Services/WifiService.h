@@ -17,6 +17,7 @@ namespace Services
         void Reset();
 
     private:
+        const String _loggerTag = "WiFi";
         bool _accesPointMode;
         LoopService *_loopService;
         Logger *_logger;

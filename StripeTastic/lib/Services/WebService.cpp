@@ -5,8 +5,6 @@
 
 namespace Services
 {
-    const String _loggerTag = "HTTP";
-
     void WebService::RebuildFileRoutes(FileList fileList)
     {
         _webServer.reset();

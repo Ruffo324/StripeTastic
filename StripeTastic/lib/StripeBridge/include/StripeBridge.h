@@ -1,10 +1,14 @@
 #pragma once
+#include "Services.h"
+#include "Arduino.h"
 
 namespace StripeBridge
 {
     class StripeBridge
     {
     private:
+        static String _loggerTag;
+
         static bool _environmentSetupDone;
         static int _totalStripeInstances;
 

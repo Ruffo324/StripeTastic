@@ -25,6 +25,7 @@ namespace Services
         FileList GetStaticFiles();
 
     private:
+        const String _loggerTag = "FILE";
         String fileTypeByExtension(String file);
         Logger *_logger;
         FileList _files;

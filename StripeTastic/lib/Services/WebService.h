@@ -20,6 +20,7 @@ namespace Services
         void Unregister(String eventPath);
 
     private:
+        const String _loggerTag = "HTTP";
         Logger *_logger;
         AsyncWebServer _webServer;
         std::map<String, AsyncCallbackJsonWebHandler *> _registeredJsonRequests;
