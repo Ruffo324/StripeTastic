@@ -66,6 +66,14 @@ namespace StripeBridge
         void ballstackable();
         void ballStackableToCenter();
         void vu_centre();
+        void vunormal();
+        void lavalampemove();
+
+        void movingRainbow();
+        void fillup();
+        void fillup2();
+        void fillup3();
+        void fillup4();
 
     public:
         StripeInstance(int pin, int pixelCount);

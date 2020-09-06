@@ -539,6 +539,114 @@ namespace StripeBridge
         _effectsData.effectsTimer = millis();
     }
 
+    template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::vu_centre()
+    {
+        if (!(millis() - _effectsData.effectsTimer >= _processingData.EffectDelay))
+            return;
+
+        float scale = 0.0;
+        uint8_t i;
+        uint16_t minLvl, maxLvl;
+        int height;
+        float n = 0;
+        int value = 0;
+        RgbColor color;
+
+        int mic = check_micro(!_processingData.IsAux);
+
+        if (!_processingData.IsAux)
+            Constants::DC_OFFSET = 474; // Offset für Micro
+        else
+            Constants::DC_OFFSET = 440; // Offset für AUX
+
+        //Serial.print("mic = ");Serial.print(mic);Serial.print(" n= ");
+        scale = _processingData.Intensity / 100.0;
+        n = abs(mic - Constants::DC_OFFSET);
+        n = n * scale;
+        value = (int)n;
+        //Serial.println(n);
+        _effectsData.lvlJeStripe = ((_effectsData.lvlJeStripe * 7) + value) >> 3;
+
+        auto pixelCount = _information.PixelCount;
+        auto pixelCountHalf = _information.PixelCountTwoColors();
+        auto pixelCountTop = _information.PixelCountTop();
+
+        // Calculate bar height based on dynamic min/max levels (fixed point):
+        height = pixelCount * (_effectsData.lvlJeStripe - _effectsData.minLvlAvgJeStripe) / (long)(_effectsData.maxLvlAvgJeStripe - _effectsData.minLvlAvgJeStripe);
+        if (height < 0L)
+            height = 0; // Clip output
+        else if (height > pixelCount)
+            height = pixelCount;
+        if (height > _effectsData.peakJeStripe)
+            _effectsData.peakJeStripe = height; // Keep 'peak' dot at top
+
+        // Farbauswahl // Radom macht kein Sinn
+        if (_processingData.Licht == Enums::ColorMode::UserColors)
+            color = _processingData.LED_farbe_1;
+
+        // Color pixels based on rainbow gradient
+        for (i = 0; i < pixelCountHalf; i++)
+        {
+            if (i >= height)
+            {
+                SetPixelColor(pixelCountHalf - i - 1, Constants::Colors::Off);
+                SetPixelColor(pixelCountHalf + i, Constants::Colors::Off);
+            }
+            else
+            {
+                if (_processingData.Licht == Enums::ColorMode::Rainbow)
+                    color = Constants::Colors::Wheel(map(i, 0, pixelCountHalf - 1, 30, 150));
+                SetPixelColor(pixelCountHalf - i - 1, color);
+                SetPixelColor(pixelCountHalf + i, color);
+            }
+        }
+
+        // Draw peak dot
+        if (_effectsData.peakJeStripe > 0 && _effectsData.peakJeStripe <= pixelCount - 1)
+        {
+            RgbColor color_peak = Constants::Colors::Wheel(map(_effectsData.peakJeStripe, 0, pixelCountHalf - 1, 30, 150));
+            SetPixelColor(pixelCountHalf - _effectsData.peakJeStripe - 1, color_peak);
+            SetPixelColor(pixelCountHalf + _effectsData.peakJeStripe, color_peak);
+        }
+
+        Show(); // Update strip
+
+        // Every few frames, make the peak pixel drop by 1:
+        if (++_effectsData.dotcountJeStripe >= Constants::PEAK_FALL)
+        { //fall rate
+            if (_effectsData.peakJeStripe > 0)
+                _effectsData.peakJeStripe--;
+            _effectsData.dotcountJeStripe = 0;
+        }
+
+        _effectsData.volJeStripe[_effectsData.volCountJeStripe] = n; // Save sample for dynamic leveling
+        if (++_effectsData.volCountJeStripe >= Constants::SAMPLES)
+            _effectsData.volCountJeStripe = 0; // Advance/rollover sample counter
+
+        // Get volume range of prior frames
+        minLvl = maxLvl = _effectsData.volJeStripe[0];
+        for (i = 1; i < Constants::SAMPLES; i++)
+        {
+            if (_effectsData.volJeStripe[i] < minLvl)
+                minLvl = _effectsData.volJeStripe[i];
+            else if (_effectsData.volJeStripe[i] > maxLvl)
+                maxLvl = _effectsData.volJeStripe[i];
+        }
+
+        if ((maxLvl - minLvl) < pixelCountTop)
+            maxLvl = minLvl + pixelCountTop;
+        _effectsData.minLvlAvgJeStripe = (_effectsData.minLvlAvgJeStripe * 63 + minLvl) >> 6;
+        _effectsData.maxLvlAvgJeStripe = (_effectsData.maxLvlAvgJeStripe * 63 + maxLvl) >> 6;
+
+        _effectsData.effectsTimer = millis();
+    }
+
+    template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::vunormal()
+    {
+        }
+
 } // namespace StripeBridge
 
 template class StripeBridge::StripeInstance<NeoEsp32RmtMethodBase<NeoEsp32RmtSpeed800Kbps, NeoEsp32RmtChannel0>>;
