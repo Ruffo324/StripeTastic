@@ -3,7 +3,7 @@ namespace StripeBridge
     namespace Enums
     {
         /** Diffrent operation modes for the stripe. */
-        enum StripeModes
+        enum OperationModes
         {
             /** Turns the whole stripe off. */
             Off,

@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\lib",
+    "\\lib\\StripeBridge",
+    "\\lib\\StripeBridge\\include",
+    "\\lib\\StripeBridge\\include\\Constants",
+    "\\src"
+  ],
+  "SelectedNode": "\\lib\\StripeBridge\\include\\Constants\\Colors.h",
+  "PreviewInSolutionExplorer": false
+}
