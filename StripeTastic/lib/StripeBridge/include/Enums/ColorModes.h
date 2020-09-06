@@ -11,7 +11,6 @@ namespace StripeBridge
             Rainbow,
             /// Random color from Colors::RaindomColors.
             Random,
-
             /// Single color selected by user. // TODO: Check if "one" is always correct...
             OneUserColor,
             /// Two colors selected by user.

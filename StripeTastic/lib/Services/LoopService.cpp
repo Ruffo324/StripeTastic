@@ -20,7 +20,6 @@ namespace Services
         {
             loopFunction.second();
         }
-        delay(LoopDelayMs);
     }
 
     void LoopService::Register(String key, std::function<void()> function)

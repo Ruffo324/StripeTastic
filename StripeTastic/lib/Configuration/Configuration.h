@@ -12,7 +12,6 @@ public:
     static String DefaultPassword;
 
     static int Baudrate;
-    static int LoopDelayMs;
 
     static bool Debug;
 

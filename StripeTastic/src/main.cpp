@@ -17,7 +17,6 @@ void setupServices()
 {
     // Setup loop service.
     _loopService = Services::LoopService::GetInstance();
-    _loopService->LoopDelayMs = Configuration::LoopDelayMs;
 
     // Initialize FileService.
     _fileService = new Services::FileService();
@@ -50,11 +49,11 @@ void setup()
     StripeBridge::StripeBridge::EnvironmentSetup();
 
     // Led stripe one
-    const int stripeOnePin = 23, stripeOnePixel = 300;
+    const int stripeOnePin = 23, stripeOnePixel = 200;
     _stripeOne = new StripeBridge::StripeInstance<NeoEsp32Rmt0800KbpsMethod>(stripeOnePin, stripeOnePixel);
 
     // Led stripe two
-    const int stripeTwoPin = 21, stripeTwoPixel = 300;
+    const int stripeTwoPin = 21, stripeTwoPixel = 200;
     _stripeTwo = new StripeBridge::StripeInstance<NeoEsp32Rmt1800KbpsMethod>(stripeTwoPin, stripeTwoPixel);
 
     // Register REST listener for both stripes.

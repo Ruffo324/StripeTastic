@@ -8,7 +8,6 @@ namespace Services
     class LoopService
     {
     public:
-        int LoopDelayMs = 0;
         static LoopService *GetInstance();
         void InvokeLoop();
         void Register(String key, std::function<void()> function);
