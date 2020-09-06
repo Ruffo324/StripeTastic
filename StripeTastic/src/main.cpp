@@ -41,6 +41,8 @@ void setup()
     // Setup logger.
     logger->Setup(Configuration::Baudrate);
 
+    setupServices();
+
     // LedBridge
     StripeBridge::StripeBridge::EnvironmentSetup();
 

@@ -2,6 +2,7 @@
 #include "StripeBridge.h"
 #include "Constants/Colors.h"
 #include "Services.h"
+#include "Enums/ColorModes.h"
 
 namespace StripeBridge
 {
@@ -47,10 +48,10 @@ namespace StripeBridge
             SolidUserColor(Enums::ColorMode::OneUserColor);
             break;
         case 1:
-            SolidUserColor(Enums::ColorMode::TwoUserColor);
+            SolidUserColor(Enums::ColorMode::TwoUserColors);
             break;
         case 2:
-            SolidUserColor(Enums::ColorMode::ThreeUserColor);
+            SolidUserColor(Enums::ColorMode::ThreeUserColors);
             solidColorsTest = -1;
             break;
         default:
@@ -78,7 +79,7 @@ namespace StripeBridge
     void StripeInstance<TRmtMethod>::Show(bool setBrightness)
     {
         if (setBrightness)
-            _stripeBus.SetBrightness(values.Brightness);
+            _stripeBus.SetBrightness(_processingData.Brightness);
 
         _stripeBus.Show();
     }
@@ -113,23 +114,23 @@ namespace StripeBridge
 
         // Two user colors.
         case Enums::ColorMode::TwoUserColors:
-            auto segmentPixel = _information.PixelCountTwoColors();
+            auto twoSegmentPixel = _information.PixelCountTwoColors();
 
-            for (uint16_t i = 0; i < segmentPixel; i++)
+            for (uint16_t i = 0; i < twoSegmentPixel; i++)
                 SetPixelColor(i, _processingData.LED_farbe_1);
-            for (uint16_t i = segmentPixel; i < totalPixel; i++)
+            for (uint16_t i = twoSegmentPixel; i < totalPixel; i++)
                 SetPixelColor(i, _processingData.LED_farbe_2);
             break;
 
         // Three user colos.
         case Enums::ColorMode::ThreeUserColors:
-            auto segmentPixel = _information.PixelCountThreeColors();
+            auto threeSegmentPixel = _information.PixelCountThreeColors();
 
-            for (uint16_t i = 0; i < segmentPixel; i++)
+            for (uint16_t i = 0; i < threeSegmentPixel; i++)
                 SetPixelColor(i, _processingData.LED_farbe_1);
-            for (uint16_t i = segmentPixel; i < segmentPixel * 2; i++)
+            for (uint16_t i = threeSegmentPixel; i < threeSegmentPixel * 2; i++)
                 SetPixelColor(i, _processingData.LED_farbe_2);
-            for (uint16_t i = segmentPixel * 2; i < totalPixel; i++)
+            for (uint16_t i = threeSegmentPixel * 2; i < totalPixel; i++)
                 SetPixelColor(i, _processingData.LED_farbe_3);
             break;
         // Invalid ColorModes.
