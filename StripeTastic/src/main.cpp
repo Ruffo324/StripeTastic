@@ -1,18 +1,17 @@
 
 #include <Configuration.h>
 #include <Services.h>
+#include <StripeBridge.h>
+#include <StripeInstance.h>
 
+auto logger = Services::Logger::GetInstance();
 Services::WifiService *_wifiService;
 Services::LoopService *_loopService;
 Services::FileService *_fileService;
 Services::WebService *_webService;
 
-void setup()
+void setupServices()
 {
-    // Setup logger.
-    auto logger = Services::Logger::GetInstance();
-    logger->Setup(Configuration::Baudrate);
-
     // Setup loop service.
     _loopService = Services::LoopService::GetInstance();
     _loopService->LoopDelayMs = Configuration::LoopDelayMs;
@@ -32,10 +31,26 @@ void setup()
     _webService = new Services::WebService();
     _webService->RebuildFileRoutes(staticFiles);
     _webService->Start();
+}
+
+StripeBridge::StripeInstance<NeoEsp32Rmt0800KbpsMethod> *_stripeOne;
+StripeBridge::StripeInstance<NeoEsp32Rmt1800KbpsMethod> *_stripeTwo;
+
+void setup()
+{
+    // Setup logger.
+    logger->Setup(Configuration::Baudrate);
 
     // LedBridge
-    // LedBridge::Initalize();
-    // _loopService->Register("LEDBRIDGE_LOOP", []() { LedBridge::InvokeLoop(); });
+    StripeBridge::StripeBridge::EnvironmentSetup();
+
+    // Led stripe one
+    const int stripeOnePin = 23, stripeOnePixel = 60;
+    _stripeOne = new StripeBridge::StripeInstance<NeoEsp32Rmt0800KbpsMethod>(stripeOnePin, stripeOnePixel);
+
+    // Led stripe two
+    const int stripeTwoPin = 23, stripeTwoPixel = 60;
+    _stripeTwo = new StripeBridge::StripeInstance<NeoEsp32Rmt1800KbpsMethod>(stripeOnePin, stripeTwoPixel);
 }
 
 void loop()
