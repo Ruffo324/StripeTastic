@@ -13,7 +13,7 @@ namespace StripeBridge
         LoadOrCreateProcessingData();
         _loopService->Register(_loopRegistrationKey, [this]() { LoopProcessing(); });
 
-        _logger->Log(_loggerTag, "Stripe '" + _loopRegistrationKey + "' is ready.");
+        _logger->Logln(_loggerTag, "Stripe '" + _loopRegistrationKey + "' is ready.");
         Off();
         solidColorsTest = 0; // Debug
     }
@@ -30,9 +30,9 @@ namespace StripeBridge
         this->_information.GPIOPin = pin;
         this->_information.PixelCount = pixelCount;
 
-        this->_loopRegistrationKey = "STRIPE_INSTANCE_" + StripeBridge::GetNewStripeInstanceId();
+        this->_loopRegistrationKey = "STRIPE_INSTANCE_" + String(StripeBridge::GetNewStripeInstanceId());
 
-        _logger->Log(_loggerTag, "Stripe " + _loopRegistrationKey + "(GPIO: " + pin + ", Pixels:" + pixelCount + " ) created..");
+        _logger->Logln(_loggerTag, "Stripe " + _loopRegistrationKey + "(GPIO: " + pin + ", Pixels:" + pixelCount + " ) created..");
         Initialize();
     }
 
@@ -52,7 +52,7 @@ namespace StripeBridge
             solidColorsTest = -1;
             break;
         default:
-            _logger->Log(_loggerTag, "Ahhh invalid debug test loop code. Fuu myself!");
+            _logger->Logln(_loggerTag, "Ahhh invalid debug test loop code. Fuu myself!");
             return;
         }
         this->solidColorsTest++;
@@ -142,7 +142,7 @@ namespace StripeBridge
         }
         // Invalid ColorModes.
         default:
-            _logger->Log(_loggerTag, "StripeInstance::SolidUserColor() can only be used with user base Enums::ColorModes.");
+            _logger->Logln(_loggerTag, "StripeInstance::SolidUserColor() can only be used with user base Enums::ColorModes.");
             return;
         }
         Show();

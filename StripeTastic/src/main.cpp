@@ -24,7 +24,7 @@ void setupServices()
     _wifiService = new Services::WifiService();
     // _wifiService->CreateAccessPoint();
     _wifiService->Connect("***REMOVED***", "***REMOVED***");
-    _wifiService->Reset();
+    // _wifiService->Reset();
 
     // WebService, route static files.
     auto staticFiles = _fileService->GetStaticFiles();

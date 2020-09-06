@@ -17,8 +17,8 @@ var defaultProcessing = {
 };
 
 // Prefill textareas..
-$("#stripe1").val(JSON.stringify(defaultProcessing));
-$("#stripe2").val(JSON.stringify(defaultProcessing));
+$("#stripe1").val(JSON.stringify(defaultProcessing, null, 2));
+$("#stripe2").val(JSON.stringify(defaultProcessing, null, 2));
 
 $("#updateStripe1").click(() => {
     let jsonStr = $("#stripe1").val();

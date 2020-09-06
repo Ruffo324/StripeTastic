@@ -18,7 +18,7 @@ namespace StripeBridge
         analogReadResolution(Configuration::AnalogReadResolutionBits);
 
         _environmentSetupDone = true;
-        Services::Logger::GetInstance()->Log(_loggerTag, "Environment setup done..");
+        Services::Logger::GetInstance()->Logln(_loggerTag, "Environment setup done..");
     }
 
     int StripeBridge::GetNewStripeInstanceId()
