@@ -13,12 +13,18 @@
 		"scope": "cpp, c++",
 		"prefix": "nsb",
 		"body": [
+            "#pragma once",
+            "",
             "namespace StripeBridge",
             "{",
-            "    namespace ${1:name}",
+            "    namespace ${1:namespaceName}",
             "    {",
-            "        $0",
-            "    } // namespace ${1:name}",
+            "        ${2:objectType} ${3:objectName}",
+            "        {",
+            "            $0",
+            "        }",
+            "    {",
+            "    } // namespace ${1:namespaceName}",
             "} // namespace StripeBridge"
 		],
 		"description": "Writes the nested StripeBrdige namespace."

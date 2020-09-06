@@ -1,3 +1,5 @@
+#pragma once
+
 namespace StripeBridge
 {
     namespace Enums
@@ -6,7 +8,7 @@ namespace StripeBridge
          * Set's the direction for the active Enums::Effects. 
          * TODO: Not implemented currently.
         */
-        enum EffectDirectons
+        enum EffectDirections
         {
             Left,
             Right
