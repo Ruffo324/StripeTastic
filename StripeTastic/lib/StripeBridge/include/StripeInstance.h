@@ -41,11 +41,15 @@ namespace StripeBridge
         /// Resets the stored and current ProcessingData to default.
         void ResetProcessingData();
 
+        /// Adjusts the stripe brightness and calls the stripe show function.
+        void Show(bool setBrightness = true);
+        /// Calls neopixel setPixelColor function, but can also send realtime informations to client for virtualization.
+        void SetPixelColor(uint16_t pixel, RgbColor color);
         /// Turns every pixel on the stripe off.
         void Off();
         /// Solid color for each pixel, but based on the color mode. (1color, 2color, ...)
         void SolidUserColor(Enums::ColorMode colorMode);
-        
+
         // TODO: Re-initialize, to change pixel count at runtime.
     public:
         StripeInstance(int pin, int pixelCount);

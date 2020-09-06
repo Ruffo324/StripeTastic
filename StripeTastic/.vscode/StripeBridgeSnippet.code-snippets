@@ -35,5 +35,16 @@
             "_logger->Log(_loggerTag, \"$0\");",
 		],
 		"description": "Simple call the _logger->Log function with _loggerTag."
+	},"StripeInstance source implementation.": {
+		"scope": "cpp, c++",
+		"prefix": "svoid",
+		"body": [
+            "template <class TRmtMethod>",
+            "void StripeInstance<TRmtMethod>::${1:FunctionName}()",
+            "{",
+            "    $0",
+            "}",
+		],
+		"description": "Simple call the _logger->Log function with _loggerTag."
 	}
 }
