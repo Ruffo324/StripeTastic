@@ -59,6 +59,7 @@ StripeBridge::Models::StripeProcessingData FromJsonObject(JsonObject data)
     pdata.LED_farbe_2 = ColorFromJsonData(data["LED_farbe_2"]);
     pdata.LED_farbe_3 = ColorFromJsonData(data["LED_farbe_3"]);
     pdata.LED_farbe_4 = ColorFromJsonData(data["LED_farbe_4"]);
+    return pdata;
 }
 
 void setup()
