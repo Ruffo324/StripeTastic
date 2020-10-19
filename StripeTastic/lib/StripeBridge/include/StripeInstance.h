@@ -27,6 +27,7 @@ namespace StripeBridge
         const String _loggerTag = "STRIPE";
         Services::Logger *_logger;
         Services::LoopService *_loopService;
+        Services::WebService *_webService;
 
         NeoPixelBrightnessBus<NeoGrbFeature, TRmtMethod> _stripeBus;
         Models::StripeInformation _information;
@@ -76,7 +77,7 @@ namespace StripeBridge
         void fillup4();
 
     public:
-        StripeInstance(int pin, int pixelCount);
+        StripeInstance(int pin, int pixelCount, Services::WebService *webService);
         /// Updates the stripe processing data struct.
         void UpdateProcessingData(Models::StripeProcessingData processingData);
     };

@@ -29,6 +29,13 @@ namespace Services
         _webServer.addHandler(handler);
     }
 
+    void WebService::SendEvent(String eventName, JsonDocument data)
+    {
+        String dataAsJsonString = "";
+        serializeJson(data, dataAsJsonString);
+        _serverEvents.send(dataAsJsonString.c_str(), eventName.c_str()); // Debug
+    }
+
     void WebService::Unregister(String eventPath)
     {
         auto position = _registeredJsonRequests.find(eventPath);
@@ -49,7 +56,7 @@ namespace Services
         _webServer.end();
     }
 
-    WebService::WebService() : _webServer(Configuration::DefaultWebServerPort)
+    WebService::WebService() : _webServer(Configuration::DefaultWebServerPort), _serverEvents("/events") // TODO: Create const for "/events"
     {
         _logger->Logger::GetInstance();
         _logger->Logln(_loggerTag, "Webserver started with port " + String(Configuration::DefaultWebServerPort) + ".");
@@ -61,17 +68,4 @@ namespace Services
             request->send(SPIFFS, path, mimeType);
         });
     }
-
-    // // Route to set GPIO to HIGH
-    // server.on("/on", HTTP_GET, [](AsyncWebServerRequest *request) {
-    //     digitalWrite(ledPin, HIGH);
-    //     request->send(SPIFFS, "/index.html", String(), false, processor);
-    // });
-
-    // // Route to set GPIO to LOW
-    // server.on("/off", HTTP_GET, [](AsyncWebServerRequest *request) {
-    //     digitalWrite(ledPin, LOW);
-    //     request->send(SPIFFS, "/index.html", String(), false, processor);
-    // });
-
 } // namespace Services

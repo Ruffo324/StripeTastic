@@ -18,11 +18,13 @@ namespace Services
 
         void RegisterRestCall(String eventPath, std::function<void(JsonObject data)> function);
         void Unregister(String eventPath);
+        void SendEvent(String eventName, JsonDocument data);
 
     private:
         const String _loggerTag = "HTTP";
         Logger *_logger;
         AsyncWebServer _webServer;
+        AsyncEventSource _serverEvents;
         std::map<String, AsyncCallbackJsonWebHandler *> _registeredJsonRequests;
         void addFileRoute(String requestPath, String path, String mimeType);
     };

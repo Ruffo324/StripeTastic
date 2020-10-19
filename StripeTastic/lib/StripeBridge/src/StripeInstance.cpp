@@ -22,11 +22,12 @@ namespace StripeBridge
     }
 
     template <class TRmtMethod>
-    StripeInstance<TRmtMethod>::StripeInstance(int pin, int pixelCount)
+    StripeInstance<TRmtMethod>::StripeInstance(int pin, int pixelCount, Services::WebService *webService)
         : _stripeBus(pixelCount, pin), _information(), _processingData(), _effectsData()
     {
         _logger = Services::Logger::GetInstance();
         _loopService = Services::LoopService::GetInstance();
+        _webService = webService;
 
         pinMode(pin, OUTPUT);
 
@@ -81,7 +82,20 @@ namespace StripeBridge
     template <class TRmtMethod>
     void StripeInstance<TRmtMethod>::SetPixelColor(uint16_t pixel, RgbColor color)
     {
-        // TODO: Add here event call to web client for live preview.
+        // TODO: Create function to write data to jsonObject.
+        // TODO: Create once, and just change pin and color.
+        const int capacityColor = JSON_OBJECT_SIZE(3);                 // red, green, blue
+        const int capacityEvent = JSON_OBJECT_SIZE(3) + capacityColor; // pin, pixel, color
+
+        StaticJsonDocument<capacityEvent> eventDoc;
+        JsonObject colorDoc = eventDoc.createNestedObject("color");
+        colorDoc["Red"] = color.R;
+        colorDoc["Green"] = color.G;
+        colorDoc["Blue"] = color.B;
+        eventDoc["Pin"] = _information.GPIOPin;
+        eventDoc["Pixel"] = pixel;
+        _webService->SendEvent("SetPixelColor", eventDoc);
+
         _stripeBus.SetPixelColor(pixel, color);
     }
 
