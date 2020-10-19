@@ -1,31 +1,5 @@
-$("#container-page")
-
-
-
-
-
-
-
-
-
-
-var defaultProcessing = {
-    "OperationMode": 0,
-    "Effect": 7,
-    "EffectDirection": 0,
-    "Licht": 4,
-    "Brightness": 255,
-    "FlashPerSeconds": 50,
-    "EffectDelay": 10,
-    "Intensity": 100.0,
-    "FFTActive": false,
-    "Changed": true,
-    "IsAux": true,
-    "LED_farbe_1": { red: 255, green: 0, blue: 0 },
-    "LED_farbe_2": { red: 0, green: 255, blue: 0 },
-    "LED_farbe_3": { red: 0, green: 0, blue: 255 },
-    "LED_farbe_4": { red: 255, green: 0, blue: 255 }
-};
+// TODO: Rewrite the commented code below..
+/**
 
 // Prefill textareas..
 $("#stripe1").val(JSON.stringify(defaultProcessing, null, 2));
@@ -95,3 +69,4 @@ function hexToRgb(hex) {
         blue: parseInt(result[3], 16)
     } : null;
 }
+ */
