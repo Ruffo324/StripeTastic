@@ -35,7 +35,7 @@ namespace Services
 
     void WebService::SendEvent(String eventName, String data)
     {
-        _serverEvents.send(data.c_str(), eventName.c_str(), millis(), 10); // Debug
+        _serverEvents.send(data.c_str(), eventName.c_str());
     }
 
     void WebService::Unregister(String eventPath)

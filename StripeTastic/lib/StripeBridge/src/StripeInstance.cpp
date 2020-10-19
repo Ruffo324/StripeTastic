@@ -106,7 +106,7 @@ namespace StripeBridge
         }
         catch (const std::exception &e)
         {
-            _logger->Error(e.what())
+            _logger->Error(e.what());
         }
 
         _stripeBus.SetPixelColor(pixel, color);
