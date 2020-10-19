@@ -18,7 +18,7 @@ namespace Services
 
         void RegisterRestCall(String eventPath, std::function<void(JsonObject data)> function);
         void Unregister(String eventPath);
-        void SendEvent(String eventName, JsonDocument data);
+        void SendEvent(String eventName, String data);
 
     private:
         const String _loggerTag = "HTTP";

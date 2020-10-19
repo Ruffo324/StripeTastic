@@ -68,16 +68,76 @@ define("Modules/NavigationModule", ["require", "exports", "Utils/Utils"], functi
         function loadPage(pageFile) {
             $("#container-page").load(pageFile);
             $(".nav-item").removeClass("active");
-            $(`.nav-item[data-page-file-name="${pageFile}"]`).parent().addClass("active");
+            $(`.nav-link[data-page-file-name="${pageFile}"]`).parent().addClass("active");
         }
     })(NavigationModule = exports.NavigationModule || (exports.NavigationModule = {}));
 });
-define("app", ["require", "exports", "Modules/NavigationModule"], function (require, exports, NavigationModule_1) {
+define("Modules/ServerEventListener", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ServerEventListener = void 0;
+    var ServerEventListener;
+    (function (ServerEventListener) {
+        ;
+        var eventSource;
+        function Listen() {
+            setupEventSource();
+            listenToEvents();
+        }
+        ServerEventListener.Listen = Listen;
+        function listenToEvents() {
+            eventSource.addEventListener('message', function (e) {
+                var data = JSON.parse(e.data);
+                console.log(data);
+            }, false);
+            eventSource.addEventListener('SetPixelColor', function (e) {
+                var pixelData = JSON.parse(e.data);
+                // var $element = $('#stripe_23');
+                // if(!$element.length)
+                let parentId = `#stripe_${pixelData.Pin}`;
+                let parentContainer = $(parentId);
+                if (!parentContainer.length)
+                    parentContainer = $(`<div id="stripe_${pixelData.Pin}"></div>`).appendTo('#stripe_container');
+                let pixelClass = `.pixel-${pixelData.Pixel}`;
+                let pixelElement = $(pixelClass);
+                if (!pixelElement.length)
+                    pixelElement = $(`<div class="pixel pixel-${pixelData.Pixel}"></div>`).appendTo(parentContainer);
+                pixelElement.css('background-color', 'rgb(' + pixelData.Color.Red + ',' + pixelData.Color.Green + ',' + pixelData.Color.Blue + ')');
+                // $("#debug-pixel-data").append(e.data);
+                //            let pixelData: SetPixelColorData = JSON.parse(e.data);
+            }, false);
+            eventSource.addEventListener('open', function (e) {
+                // Connection was opened.
+                console.debug("Now listen to esp events.");
+            }, false);
+            eventSource.addEventListener('error', function (e) {
+                if (this.readyState == EventSource.CLOSED) {
+                    console.debug("Connection closed!");
+                }
+                console.error(e);
+            }, false);
+        }
+        function setupEventSource() {
+            var eventUrl = '/events';
+            if (window.location.host != "192.168.178.38")
+                eventUrl = "http://192.168.178.38" + eventUrl;
+            if (!!window.EventSource) {
+                eventSource = new EventSource(eventUrl);
+            }
+            else {
+                // Result to xhr polling :(
+                console.error("HTML 5 not supported by browser!"); // TODO: Just don't allow outdated browsers.
+            }
+        }
+    })(ServerEventListener = exports.ServerEventListener || (exports.ServerEventListener = {}));
+});
+define("app", ["require", "exports", "Modules/NavigationModule", "Modules/ServerEventListener"], function (require, exports, NavigationModule_1, ServerEventListener_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // Load and Bind all required modules.
     $(() => {
         NavigationModule_1.NavigationModule.Bind();
+        ServerEventListener_1.ServerEventListener.Listen();
     });
 });
 define("Models/IStripeProcessingData", ["require", "exports"], function (require, exports) {

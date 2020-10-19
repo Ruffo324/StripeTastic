@@ -82,19 +82,32 @@ namespace StripeBridge
     template <class TRmtMethod>
     void StripeInstance<TRmtMethod>::SetPixelColor(uint16_t pixel, RgbColor color)
     {
-        // TODO: Create function to write data to jsonObject.
-        // TODO: Create once, and just change pin and color.
-        const int capacityColor = JSON_OBJECT_SIZE(3);                 // red, green, blue
-        const int capacityEvent = JSON_OBJECT_SIZE(3) + capacityColor; // pin, pixel, color
+        try
+        {
+            // TODO: Create function to write data to jsonObject.
+            // TODO: Create once, and just change pin and color.
+            const int capacityColor = JSON_OBJECT_SIZE(3);                 // red, green, blue
+            const int capacityEvent = JSON_OBJECT_SIZE(3) + capacityColor; // pin, pixel, color
 
-        StaticJsonDocument<capacityEvent> eventDoc;
-        JsonObject colorDoc = eventDoc.createNestedObject("color");
-        colorDoc["Red"] = color.R;
-        colorDoc["Green"] = color.G;
-        colorDoc["Blue"] = color.B;
-        eventDoc["Pin"] = _information.GPIOPin;
-        eventDoc["Pixel"] = pixel;
-        _webService->SendEvent("SetPixelColor", eventDoc);
+            StaticJsonDocument<capacityEvent> eventDoc;
+            eventDoc["Pin"] = _information.GPIOPin;
+            eventDoc["Pixel"] = pixel;
+            JsonObject colorDoc = eventDoc.createNestedObject("Color");
+            colorDoc["Red"] = color.R;
+            colorDoc["Green"] = color.G;
+            colorDoc["Blue"] = color.B;
+
+            String output = "";
+            serializeJson(eventDoc, output);
+            // _logger->Debug(output);
+            _webService->SendEvent("SetPixelColor", output);
+            eventDoc.garbageCollect();
+            output.clear();
+        }
+        catch (const std::exception &e)
+        {
+            _logger->Error(e.what())
+        }
 
         _stripeBus.SetPixelColor(pixel, color);
     }

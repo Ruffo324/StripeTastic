@@ -30,3 +30,14 @@ p {
 .button2 {
     background-color: #f44336;
 }
+
+#stripe_container>div{
+    margin-top: 20px;
+}
+
+.pixel{
+    height: 15px;
+    width: 15px;
+    /*margin: 1px;*/
+    float:left;
+}

@@ -26,6 +26,6 @@ export module NavigationModule {
     function loadPage(pageFile: string): void {
         $("#container-page").load(pageFile);
         $(".nav-item").removeClass("active");
-        $(`.nav-item[data-page-file-name="${pageFile}"]`).parent().addClass("active");
+        $(`.nav-link[data-page-file-name="${pageFile}"]`).parent().addClass("active");
     }
 }

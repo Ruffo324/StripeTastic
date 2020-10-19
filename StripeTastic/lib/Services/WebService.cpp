@@ -7,6 +7,9 @@ namespace Services
 {
     void WebService::RebuildFileRoutes(FileList fileList)
     {
+        if (_webServer.removeHandler(&_serverEvents))
+            _logger->Logln(_loggerTag, "event handler removed.");
+
         _webServer.reset();
         for (auto &&file : fileList)
         {
@@ -15,6 +18,7 @@ namespace Services
 
             addFileRoute(file.path, file.path, file.type);
         }
+        _webServer.addHandler(&_serverEvents);
     }
 
     void WebService::RegisterRestCall(String eventPath, std::function<void(JsonObject data)> function)
@@ -29,11 +33,9 @@ namespace Services
         _webServer.addHandler(handler);
     }
 
-    void WebService::SendEvent(String eventName, JsonDocument data)
+    void WebService::SendEvent(String eventName, String data)
     {
-        String dataAsJsonString = "";
-        serializeJson(data, dataAsJsonString);
-        _serverEvents.send(dataAsJsonString.c_str(), eventName.c_str()); // Debug
+        _serverEvents.send(data.c_str(), eventName.c_str(), millis(), 10); // Debug
     }
 
     void WebService::Unregister(String eventPath)

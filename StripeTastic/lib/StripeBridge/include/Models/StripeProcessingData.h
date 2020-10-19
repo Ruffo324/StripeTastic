@@ -15,7 +15,7 @@ namespace StripeBridge
         struct StripeProcessingData
         {
             /// Speichert Modus Static, Effect, OFF
-            Enums::OperationModes OperationMode = Enums::OperationModes::Static;
+            Enums::OperationModes OperationMode = Enums::OperationModes::Effect;
             /// Speichert welcher Effect abgespielt werden soll
             Enums::Effects Effect = Enums::Effects::MovingRainbow;
             /// Richtung des Effekts
@@ -24,7 +24,7 @@ namespace StripeBridge
             Enums::ColorMode Licht = Enums::ColorMode::ThreeUserColors;
 
             /// Speichert helligkeit
-            uint8_t Brightness = 10;
+            uint8_t Brightness = 50;
             /// Strobo takt
             uint8_t FlashPerSeconds = 50;
             /// 10ms - x
