@@ -10,22 +10,13 @@ namespace Services
     public:
         struct Registration
         {
-            String Key;
             int IntervalMs;
             long LastCalled;
             std::function<void()> Function;
         };
         static LoopService *GetInstance();
         void InvokeLoop();
-        void Register(String key, std::function<void()> function);
-        /**
-         * @brief Registers the given function for loop calls, but with the given interval.
-         * 
-         * @param key The loop registration key.
-         * @param function The function wich get's executed.
-         * @param intervalMs intervall between each call.
-         */
-        void Register(String key, std::function<void()> function, int intervalMs);
+        void Register(String key, std::function<void()> function, int intervalMs = 0);
         void Unregister(String key);
 
     private:
