@@ -3,7 +3,16 @@
 		"MacBookProKeyboardShortcuts": "fsharp",
 		"*.csv": "csv (semicolon)",
 		"map": "cpp",
-		"vector": "cpp"
+		"vector": "cpp",
+		"random": "cpp",
+		"utility": "cpp",
+		"type_traits": "cpp",
+		"*.tcc": "cpp",
+		"system_error": "cpp",
+		"array": "cpp",
+		"functional": "cpp",
+		"regex": "cpp",
+		"tuple": "cpp"
 	},
 	"C_Cpp.intelliSenseEngineFallback": "Enabled",
 	"C_Cpp.errorSquiggles": "Enabled"

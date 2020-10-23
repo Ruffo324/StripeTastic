@@ -18,7 +18,8 @@ namespace Services
     {
         for (auto &item : _registrations)
         {
-            auto registration = item.second;
+            // TODO: This does not look like the right way. Fix it.
+            auto &registration = _registrations[item.first];
 
             auto currentMs = millis();
             if (registration.IntervalMs == 0 || currentMs - registration.LastCalled >= registration.IntervalMs)

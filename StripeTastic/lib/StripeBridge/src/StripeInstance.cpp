@@ -1,11 +1,11 @@
-#include <Arduino.h>
 #include "StripeInstance.h"
-#include "StripeBridge.h"
+#include "Configuration.h"
 #include "Constants/Colors.h"
 #include "Constants/MoreConstants.h"
-#include "Services.h"
 #include "Enums/ColorModes.h"
-#include "Configuration.h"
+#include "Services.h"
+#include "StripeBridge.h"
+#include <Arduino.h>
 
 namespace StripeBridge
 {
@@ -13,9 +13,13 @@ namespace StripeBridge
     void StripeInstance<TRmtMethod>::Initialize()
     {
         _processingDataChanged = false;
+        auto pixelLoopKey = _loopRegistrationKey + "PIXEL_UPDATE";
         _stripeBus.Begin();
         LoadOrCreateProcessingData();
+
         _loopService->Register(_loopRegistrationKey, [this]() { LoopProcessing(); });
+        _loopService->Register(
+            pixelLoopKey, [this] { PixelUpdateEvent(); }, 5000);
 
         _logger->Logln(_loggerTag, "Stripe '" + _loopRegistrationKey + "' is ready.");
         Off();
@@ -35,6 +39,8 @@ namespace StripeBridge
         _information.PixelCount = pixelCount;
         _effectsData.SetPixelCount(pixelCount);
 
+        _pixels.resize(pixelCount);
+
         _loopRegistrationKey = "STRIPE_INSTANCE_" + String(StripeBridge::GetNewStripeInstanceId());
 
         _logger->Logln(_loggerTag, "Stripe " + _loopRegistrationKey + "(GPIO: " + pin + ", Pixels:" + pixelCount + " ) created..");
@@ -48,6 +54,33 @@ namespace StripeBridge
         //     processFFT();
 
         programm();
+    }
+
+    template <class TRmtMethod>
+    void StripeInstance<TRmtMethod>::PixelUpdateEvent()
+    {
+        auto pixelCount = _pixels.size();
+        auto capacityPixels = JSON_ARRAY_SIZE(pixelCount) + JSON_OBJECT_SIZE(3) * pixelCount; // pixel *(red, green, blue)
+        auto capacityEvent = JSON_OBJECT_SIZE(3) + capacityPixels;                            // pin, pixel, color
+
+        DynamicJsonDocument eventDoc(capacityEvent);
+        eventDoc["Pin"] = _information.GPIOPin;
+
+        JsonArray pixels = eventDoc.createNestedArray("Pixels");
+        for (const auto &color : _pixels)
+        {
+            JsonObject colorDoc = pixels.createNestedObject();
+            colorDoc["Red"] = color.R;
+            colorDoc["Green"] = color.G;
+            colorDoc["Blue"] = color.B;
+        }
+
+        String output = "";
+        serializeJson(eventDoc, output);
+        _logger->Debug("Pixel updated"); // DEBUG
+        _webService->SendEvent("PixelData", output);
+        eventDoc.clear();
+        output.clear();
     }
 
     template <class TRmtMethod>
@@ -82,34 +115,8 @@ namespace StripeBridge
     template <class TRmtMethod>
     void StripeInstance<TRmtMethod>::SetPixelColor(uint16_t pixel, RgbColor color)
     {
-        try
-        {
-            // TODO: Create function to write data to jsonObject.
-            // TODO: Create once, and just change pin and color.
-            const int capacityColor = JSON_OBJECT_SIZE(3);                 // red, green, blue
-            const int capacityEvent = JSON_OBJECT_SIZE(3) + capacityColor; // pin, pixel, color
-
-            StaticJsonDocument<capacityEvent> eventDoc;
-            eventDoc["Pin"] = _information.GPIOPin;
-            eventDoc["Pixel"] = pixel;
-            JsonObject colorDoc = eventDoc.createNestedObject("Color");
-            colorDoc["Red"] = color.R;
-            colorDoc["Green"] = color.G;
-            colorDoc["Blue"] = color.B;
-
-            String output = "";
-            serializeJson(eventDoc, output);
-            // _logger->Debug(output);
-            _webService->SendEvent("SetPixelColor", output);
-            eventDoc.garbageCollect();
-            output.clear();
-        }
-        catch (const std::exception &e)
-        {
-            _logger->Error(e.what());
-        }
-
         _stripeBus.SetPixelColor(pixel, color);
+        _pixels[pixel] = color; // Store the colors of each pixel.
     }
 
     template <class TRmtMethod>

@@ -30,6 +30,7 @@ namespace StripeBridge
         Services::WebService *_webService;
 
         NeoPixelBrightnessBus<NeoGrbFeature, TRmtMethod> _stripeBus;
+        std::vector<RgbColor> _pixels;
         Models::StripeInformation _information;
         Models::StripeProcessingData _processingData;
         Models::StripeEffectsData _effectsData;
@@ -39,6 +40,7 @@ namespace StripeBridge
         void Initialize();
         // TODO: Re-initialize, to change pixel count at runtime.
         void LoopProcessing();
+        void PixelUpdateEvent();
 
         /// Loads the last used ProcessingData from the storage.
         void LoadOrCreateProcessingData();
