@@ -11,6 +11,7 @@ namespace Services
         static LoopService *GetInstance();
         void InvokeLoop();
         void Register(String key, std::function<void()> function);
+        void Register(String key, std::function<void()> function, int intervalMs);
         void Unregister(String key);
 
     private:
