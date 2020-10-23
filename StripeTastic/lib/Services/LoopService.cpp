@@ -3,7 +3,7 @@
 namespace Services
 {
     LoopService *LoopService::_instance = 0;
-    std::map<String, std::function<void()>> _registeredFunctions;
+    std::map<String, LoopService::Registration> _registeredFunctions;
 
     LoopService::LoopService()
     {
@@ -25,6 +25,10 @@ namespace Services
     void LoopService::Register(String key, std::function<void()> function)
     {
         _registeredFunctions[key] = function;
+    }
+
+    void LoopService::Register(String key, std::function<void()> function, int intervalMs)
+    {
     }
 
     void LoopService::Unregister(String key)
