@@ -7,6 +7,9 @@
 #include "StripeBridge.h"
 #include <Arduino.h>
 
+template class StripeBridge::StripeInstance<NeoEsp32I2sMethodBase<NeoEsp32I2sSpeed800Kbps, NeoEsp32I2sBusZero, NeoEsp32I2sNotInverted>>;
+template class StripeBridge::StripeInstance<NeoEsp32I2sMethodBase<NeoEsp32I2sSpeed800Kbps, NeoEsp32I2sBusOne, NeoEsp32I2sNotInverted>>;
+
 namespace StripeBridge
 {
     template <class TRmtMethod>
@@ -1090,14 +1093,10 @@ namespace StripeBridge
     }
 
 } // namespace StripeBridge
-
-template class StripeBridge::StripeInstance<NeoEsp32RmtMethodBase<NeoEsp32RmtSpeed800Kbps, NeoEsp32RmtChannel0>>;
-template class StripeBridge::StripeInstance<NeoEsp32RmtMethodBase<NeoEsp32RmtSpeed800Kbps, NeoEsp32RmtChannel1>>;
-
-// TODO: Replace
-// pixelCount = pixelCount
-// pixelCountHalf = pixelCountHalf
-// pixelCountTop =
+  // TODO: Replace
+  // pixelCount = pixelCount
+  // pixelCountHalf = pixelCountHalf
+  // pixelCountTop =
 
 // TODO:
 // inline void prozzesFFT(void)

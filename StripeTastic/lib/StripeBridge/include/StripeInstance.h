@@ -12,16 +12,9 @@ namespace StripeBridge
     template <typename TRmtMethod>
     class StripeInstance
     {
-        static_assert(
-            std::is_same<NeoEsp32Rmt0800KbpsMethod, TRmtMethod>::value ||
-                std::is_same<NeoEsp32Rmt0400KbpsMethod, TRmtMethod>::value ||
-                std::is_same<NeoEsp32Rmt1800KbpsMethod, TRmtMethod>::value ||
-                std::is_same<NeoEsp32Rmt1400KbpsMethod, TRmtMethod>::value ||
-                std::is_same<NeoEsp32Rmt2800KbpsMethod, TRmtMethod>::value ||
-                std::is_same<NeoEsp32Rmt2400KbpsMethod, TRmtMethod>::value ||
-                std::is_same<NeoEsp32Rmt3800KbpsMethod, TRmtMethod>::value ||
-                std::is_same<NeoEsp32Rmt3400KbpsMethod, TRmtMethod>::value,
-            "TRmtMethod must be one of the 'NeoEsp32RmtXYYYKbpsMethod' types.");
+        static_assert(std::is_same<NeoEsp32I2s1800KbpsMethod, TRmtMethod>::value ||
+                          std::is_same<NeoEsp32I2s0800KbpsMethod, TRmtMethod>::value,
+                      "TRmtMethod must be one of the 'NeoEsp32I2sXYZKbpsMethod' types.");
 
     private:
         const String _loggerTag = "STRIPE";

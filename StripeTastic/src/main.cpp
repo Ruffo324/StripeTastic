@@ -35,8 +35,8 @@ void setupServices()
     _webService->Start();
 }
 
-StripeBridge::StripeInstance<NeoEsp32Rmt0800KbpsMethod> *_stripeOne;
-StripeBridge::StripeInstance<NeoEsp32Rmt1800KbpsMethod> *_stripeTwo;
+StripeBridge::StripeInstance<NeoEsp32I2s1800KbpsMethod> *_stripeOne;
+StripeBridge::StripeInstance<NeoEsp32I2s0800KbpsMethod> *_stripeTwo;
 
 void setup()
 {
@@ -50,11 +50,11 @@ void setup()
 
     // Led stripe one
     const int stripeOnePin = 23, stripeOnePixel = 200;
-    _stripeOne = new StripeBridge::StripeInstance<NeoEsp32Rmt0800KbpsMethod>(stripeOnePin, stripeOnePixel, _webService);
+    _stripeOne = new StripeBridge::StripeInstance<NeoEsp32I2s1800KbpsMethod>(stripeOnePin, stripeOnePixel, _webService);
 
     // Led stripe two
     const int stripeTwoPin = 21, stripeTwoPixel = 200;
-    _stripeTwo = new StripeBridge::StripeInstance<NeoEsp32Rmt1800KbpsMethod>(stripeTwoPin, stripeTwoPixel, _webService);
+    _stripeTwo = new StripeBridge::StripeInstance<NeoEsp32I2s0800KbpsMethod>(stripeTwoPin, stripeTwoPixel, _webService);
 
     // Register REST listener for both stripes.
     _webService->RegisterRestCall("/processdata/stripe1", [](JsonObject data) {
