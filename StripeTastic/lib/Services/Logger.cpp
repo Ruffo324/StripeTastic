@@ -23,17 +23,21 @@ namespace Services
         Serial.println();
     }
 
-    void Logger::Listen(std::function<void(String)> outFunction)
+    void Logger::Listen(LoggerListenFunction outFunction)
     {
         _listeners.push_back(outFunction);
     }
 
     void Logger::SendToListeners(String message)
     {
-        for (auto &listener : _listeners)
+        for (auto i = 0; i < _listeners.size(); i++)
         {
-            listener(message);
+            _listeners[i](message);
         }
+        // for (auto &listener : _listeners)
+        // {
+        //     listener(message);
+        // }
     }
 
     void Logger::Logln(const String message)
@@ -44,14 +48,13 @@ namespace Services
     void Logger::Log(const String message)
     {
         Serial.print(message);
-        SendToListeners(message);
+        this->SendToListeners(message);
     }
 
     void Logger::Logln(const String tag, const String message)
     {
-        auto combinedMessage = TagToPrefix(tag) + message;
-        Serial.println(combinedMessage);
-        SendToListeners(combinedMessage);
+        Serial.println(TagToPrefix(tag) + message);
+        this->SendToListeners(message);
     }
 
     void Logger::Log(const String tag, const String message)
@@ -62,7 +65,7 @@ namespace Services
     void Logger::Linebreak()
     {
         Serial.println();
-        SendToListeners("\n");
+        this->SendToListeners("\n");
     }
 
     String Logger::TagToPrefix(const String tag)

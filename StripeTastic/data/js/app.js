@@ -87,19 +87,13 @@ define("Modules/ServerEventListener", ["require", "exports"], function (require,
         ServerEventListener.Listen = Listen;
         function listenToEvents() {
             ServerEventListener.eventSource.addEventListener('message', function (e) {
-                var data = JSON.parse(e.data);
-                console.log(data);
+                console.debug(e); // debug
+                // var data = JSON.parse(e.data);
+                // console.log(data);
             }, false);
             ServerEventListener.eventSource.addEventListener('PixelData', function (e) {
-                var pixelData;
-                try {
-                    pixelData = JSON.parse(e.data);
-                }
-                catch (error) {
-                    console.error(error);
-                    console.log(e.data);
-                    return;
-                }
+                console.debug(e); // Debug
+                var pixelData = JSON.parse(e.data);
                 console.debug(pixelData);
                 // var $element = $('#stripe_23');
                 // if(!$element.length)
@@ -282,4 +276,4 @@ define("Utils/TypeChecker", ["require", "exports"], function (require, exports) 
         TypeChecker.isAnyUndefined = isAnyUndefined;
     })(TypeChecker = exports.TypeChecker || (exports.TypeChecker = {}));
 });
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=/data_src/app.js.map

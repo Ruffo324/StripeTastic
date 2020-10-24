@@ -1,12 +1,14 @@
 #pragma once
 
 #include <Arduino.h>
+#include <functional>
 using namespace std;
 
 namespace Services
 {
     typedef vector<String> LoggerTableRow;
     typedef vector<LoggerTableRow> LoggerTable;
+    typedef function<void(String &)> LoggerListenFunction;
 
     class Logger
     {
@@ -27,7 +29,7 @@ namespace Services
         void PrintLine(const String tag, const int length);
         void PrintLine(const String tag);
         void PrintLine();
-        void Listen(std::function<void(String)> outFunction);
+        void Listen(LoggerListenFunction outFunction);
 
     private:
         Logger();
@@ -35,7 +37,7 @@ namespace Services
         String TagToPrefix(const String tag);
         String RepeatChar(const int length, const char padChar = ' ');
         void SendToListeners(String message);
-        std::vector<std::function<void(String)>> _listeners;
+        vector<LoggerListenFunction> _listeners;
 
         const int LineLength = 20;
         const String UnknownTag = "UNKNW";

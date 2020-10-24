@@ -3,7 +3,6 @@
 namespace Services
 {
     LoopService *LoopService::_instance = 0;
-    std::map<String, LoopService::Registration> _registrations;
 
     LoopService::LoopService()
     {

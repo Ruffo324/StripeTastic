@@ -17,19 +17,14 @@ export module ServerEventListener {
 
     function listenToEvents() {
         eventSource.addEventListener('message', function (e) {
-            var data = JSON.parse(e.data);
-            console.log(data);
+            console.debug(e); // debug
+            // var data = JSON.parse(e.data);
+            // console.log(data);
         }, false);
 
         eventSource.addEventListener('PixelData', function (e: any) {
-            var pixelData: PixelData;
-            try {
-                pixelData = JSON.parse(e.data);
-            } catch (error) {
-                console.error(error);
-                console.log(e.data)
-                return;
-            }
+            console.debug(e); // Debug
+            var pixelData: PixelData = JSON.parse(e.data);
             console.debug(pixelData);
 
             // var $element = $('#stripe_23');

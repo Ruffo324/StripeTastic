@@ -35,10 +35,7 @@ namespace Services
 
     void WebService::SendEvent(String eventName, String data)
     {
-        if (_initialized)
-        {
-            _serverEvents.send(data.c_str(), eventName.c_str());
-        }
+        _serverEvents.send(data.c_str(), eventName.c_str());
     }
 
     void WebService::Unregister(String eventPath)
@@ -54,12 +51,10 @@ namespace Services
     void WebService::Start()
     {
         _webServer.begin();
-        _initialized = true;
     }
 
     void WebService::Stop()
     {
-        _initialized = false;
         _webServer.end();
     }
 
@@ -68,15 +63,6 @@ namespace Services
     {
         _logger->Logger::GetInstance();
         _logger->Logln(_loggerTag, "Webserver started with port " + String(Configuration::DefaultWebServerPort) + ".");
-        _logger->Listen([this](String msg) { sendSerialMessage(msg); });
-    }
-
-    void WebService::sendSerialMessage(String message)
-    {
-        if (_initialized)
-        {
-            SendEvent("message", message);
-        }
     }
 
     void WebService::addFileRoute(String requestPath, String path, String mimeType)

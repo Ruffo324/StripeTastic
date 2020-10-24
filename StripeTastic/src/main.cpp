@@ -61,9 +61,14 @@ void setup()
         auto newProcessData = StripeBridge::Models::StripeProcessingData::FromJsonObject(data);
         _stripeOne->UpdateProcessingData(newProcessData);
     });
+
     _webService->RegisterRestCall("/processdata/stripe2", [](JsonObject data) {
         auto newProcessData = StripeBridge::Models::StripeProcessingData::FromJsonObject(data);
         _stripeTwo->UpdateProcessingData(newProcessData);
+    });
+
+    logger->Listen([](String &msg) {
+        _webService->SendEvent("message", msg);
     });
 }
 
