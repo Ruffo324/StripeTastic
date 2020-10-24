@@ -32,7 +32,7 @@ namespace StripeBridge
 
         RgbColor Colors::GetRandomColor()
         {
-            return RandomColors[random(RandomColors.size())];
+            return RandomColors[random(RandomColors.size() + 1)];
         }
 
         RgbColor Colors::Wheel(long x, long in_min, long in_max, long out_min, long out_max)

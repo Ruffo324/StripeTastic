@@ -53,6 +53,7 @@ p {
 
 .pixel {
     flex-grow: 1;
+    transition: all 100ms linear;
     /* height: fit-content;
     width: auto; */
     /*margin: 1px;*/

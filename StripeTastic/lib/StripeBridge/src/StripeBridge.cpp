@@ -14,6 +14,7 @@ namespace StripeBridge
         pinMode(Configuration::GPIOMicrophonePin, INPUT);
         pinMode(Configuration::GPIOAuxLeftPin, INPUT);
         pinMode(Configuration::GPIOAuxRightPin, INPUT);
+        randomSeed(analogRead(0)); // init random.
 
         analogReadResolution(Configuration::AnalogReadResolutionBits);
 

@@ -101,13 +101,15 @@ define("Modules/ServerEventListener", ["require", "exports"], function (require,
                 var parentContainer = $(parentId);
                 if (!parentContainer.length)
                     parentContainer = $(`<div id="stripe_${pixelData.Pin}"></div>`).appendTo('#stripe_container');
-                for (var i = 0; i < pixelData.Pixels.length; i++) {
-                    var color = pixelData.Pixels[i].toString(16);
-                    var pixelClass = `${parentId} > .pixel-${i}`;
-                    var pixelElement = $(pixelClass);
+                var timeoutForEachPixel = (1000 / pixelData.Pixels.length);
+                for (let i = 0; i < pixelData.Pixels.length; i++) {
+                    let color = pixelData.Pixels[i].toString(16);
+                    let pixelClass = `${parentId} > .pixel-${i}`;
+                    let pixelElement = $(pixelClass);
                     if (!pixelElement.length)
                         pixelElement = $(`<div class="pixel pixel-${i}"></div>`).appendTo(parentContainer);
-                    pixelElement.css('background-color', color == "0" ? "transparent" : `#${color}`);
+                    let timeoutForThisPixel = timeoutForEachPixel * i;
+                    setTimeout(() => pixelElement.css('background-color', color == "0" ? "transparent" : `#${color}`), timeoutForThisPixel);
                 }
                 // $("#debug-pixel-data").append(e.data);
                 //            let pixelData: SetPixelColorData = JSON.parse(e.data);

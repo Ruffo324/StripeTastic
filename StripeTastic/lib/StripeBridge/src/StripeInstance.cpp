@@ -881,17 +881,15 @@ namespace StripeBridge
         {
             color = _processingData.LED_farbe_1;
         }
-        else if (_processingData.Licht == Enums::ColorMode::Random && _effectsData.fillupstep == 0)
+        else if (_processingData.Licht == Enums::ColorMode::Random) // && _effectsData.fillupstep == 0
         {
             color = Constants::Colors::GetRandomColor();
         }
         else if (_processingData.Licht == Enums::ColorMode::Rainbow)
         {
             color = Constants::Colors::Wheel(_effectsData.fillupstep, 0, pixelCount - 1, 30, 150);
-            ;
         }
 
-        // Zeichnet Streifen
         if (_effectsData.durchlauffillup)
             SetPixelColor(_effectsData.fillupstep, color);
         else
@@ -900,11 +898,12 @@ namespace StripeBridge
         Show();
 
         // updatet Position nach aufruf
+        // _effectsData.c
         _effectsData.fillupstep++;
         if (_effectsData.fillupstep > pixelCount)
         {
             _effectsData.fillupstep = 0;
-            _effectsData.durchlauffillup = _effectsData.durchlauffillup ^ 1;
+            _effectsData.durchlauffillup = _effectsData.durchlauffillup ^ 1; // TODO: Rewrite "only some pixel" effect.
         }
         _effectsData.effectsTimer = millis();
     }
@@ -923,17 +922,14 @@ namespace StripeBridge
             _effectsData.fullup2color = _processingData.LED_farbe_1;
             _effectsData.fullup2color2 = _processingData.LED_farbe_2;
         }
-
-        if (_processingData.Licht == Enums::ColorMode::Random && _effectsData.fillup2step == 0)
+        else if (_processingData.Licht == Enums::ColorMode::Random && _effectsData.fillup2step == 0)
         {
             _effectsData.fullup2color = Constants::Colors::GetRandomColor();
             _effectsData.fullup2color2 = Constants::Colors::GetRandomColor();
         }
-
-        if (_processingData.Licht == Enums::ColorMode::Rainbow)
+        else if (_processingData.Licht == Enums::ColorMode::Rainbow)
         {
             _effectsData.fullup2color = Constants::Colors::Wheel(_effectsData.fillup2step, 0, pixelCountHalf - 1, 30, 150);
-            ;
             _effectsData.fullup2color2 = _effectsData.fullup2color;
         }
 

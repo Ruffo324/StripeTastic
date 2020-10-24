@@ -16,8 +16,8 @@ namespace StripeBridge
                           std::is_same<NeoEsp32I2s0800KbpsMethod, TRmtMethod>::value,
                       "TRmtMethod must be one of the 'NeoEsp32I2sXYZKbpsMethod' types.");
 
-    private:
         const String _loggerTag = "STRIPE";
+    private:
         Services::Logger *_logger;
         Services::LoopService *_loopService;
         Services::WebService *_webService;
