@@ -1,0 +1,4 @@
+"C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=esp32doit-devkit-v1 -G "CodeBlocks - MinGW Makefiles" C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/cmake-build-esp32doit-devkit-v1

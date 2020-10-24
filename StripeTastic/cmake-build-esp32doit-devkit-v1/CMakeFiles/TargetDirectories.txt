@@ -1,0 +1,5 @@
+C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/cmake-build-esp32doit-devkit-v1/CMakeFiles/Production.dir
+C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/cmake-build-esp32doit-devkit-v1/CMakeFiles/edit_cache.dir
+C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/cmake-build-esp32doit-devkit-v1/CMakeFiles/Debug.dir
+C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/cmake-build-esp32doit-devkit-v1/CMakeFiles/Z_DUMMY_TARGET.dir
+C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/cmake-build-esp32doit-devkit-v1/CMakeFiles/rebuild_cache.dir
