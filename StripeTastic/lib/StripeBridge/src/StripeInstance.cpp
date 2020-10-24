@@ -120,7 +120,7 @@ namespace StripeBridge
         _pixels[pixel] = Constants::Colors::ToInt(color);
 
         // _stripeBus.SetPixelColor(pixel, color);
-        _stripeBus.SetPixelColor(pixel, color.Dim(50)); // TODO: // REMOVE: // DEBUG FIX BRIGHTNESS!);
+        _stripeBus.SetPixelColor(pixel, color.Dim(5)); // TODO: // REMOVE: // DEBUG FIX BRIGHTNESS!);
     }
 
     template <class TRmtMethod>

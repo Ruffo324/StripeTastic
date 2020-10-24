@@ -1,11 +1,11 @@
-#include <WifiService.h>
 #include <Configuration.h>
-#include <LoopService.h>
-#include <Logger.h>
 #include <DNSServer.h>
+#include <Logger.h>
+#include <LoopService.h>
+#include <WifiService.h>
 
-#include <WiFi.h>
 #include <ESPAsyncWebServer.h>
+#include <WiFi.h>
 
 namespace Services
 {
@@ -15,6 +15,7 @@ namespace Services
     {
         _logger = Logger::GetInstance();
         _loopService = LoopService::GetInstance();
+
         setHostname();
     }
 
@@ -24,6 +25,18 @@ namespace Services
         auto hostname = Configuration::DefaultHostname;
         WiFi.setHostname(hostname.c_str());
         _logger->Logln(_loggerTag, "Hostname set to \"" + hostname + "\"");
+    }
+
+    std::vector<WifiService::WiFiNetwork> WifiService::GetAroundWiFiNetworks()
+    {
+        auto returnVector = std::vector<WiFiNetwork>();
+        auto foundNetworks = WiFi.scanNetworks();
+
+        for (auto i = 0; i < foundNetworks; i++)
+        {
+            returnVector.push_back(WifiService::WiFiNetwork(i));
+        }
+        return returnVector;
     }
 
     bool WifiService::Connect(const String ssid, const String password)
