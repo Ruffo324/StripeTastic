@@ -24,9 +24,7 @@ void setupServices()
 
     // WifiService, accespoint (later from config)
     _wifiService = new Services::WifiService();
-    // _wifiService->CreateAccessPoint();
     _wifiService->Connect("***REMOVED***", "***REMOVED***");
-    // _wifiService->Reset();
 
     // WebService, route static files.
     auto staticFiles = _fileService->GetStaticFiles();
@@ -49,11 +47,11 @@ void setup()
     StripeBridge::StripeBridge::EnvironmentSetup();
 
     // Led stripe one
-    const int stripeOnePin = 23, stripeOnePixel = 200;
+    const int stripeOnePin = 23, stripeOnePixel = 300;
     _stripeOne = new StripeBridge::StripeInstance<NeoEsp32I2s1800KbpsMethod>(stripeOnePin, stripeOnePixel, _webService);
 
     // Led stripe two
-    const int stripeTwoPin = 21, stripeTwoPixel = 200;
+    const int stripeTwoPin = 21, stripeTwoPixel = 300;
     _stripeTwo = new StripeBridge::StripeInstance<NeoEsp32I2s0800KbpsMethod>(stripeTwoPin, stripeTwoPixel, _webService);
 
     // Register REST listener for both stripes.

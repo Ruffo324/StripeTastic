@@ -22,7 +22,7 @@ namespace StripeBridge
 
         _loopService->Register(_loopRegistrationKey, [this]() { LoopProcessing(); });
         _loopService->Register(
-            pixelLoopKey, [this]() { PixelUpdateEvent(); }, 5000);
+            pixelLoopKey, [this]() { PixelUpdateEvent(); }, 100);
 
         _logger->Logln(_loggerTag, "Stripe '" + _loopRegistrationKey + "' is ready.");
         Off();
@@ -76,14 +76,11 @@ namespace StripeBridge
             colorDoc.add(color.R);
             colorDoc.add(color.G);
             colorDoc.add(color.B);
-            // colorDoc["Green"] = color.G;
-            // colorDoc["Blue"] = color.B;
         }
 
         String output = "";
         serializeJson(eventDoc, output);
-        _logger->Debug("Data send for stripe " + String(_information.GPIOPin)); // DEBUG
-        // _logger->Debug(output);                                                 // DEBUG
+        // _logger->Debug("Data send for stripe " + String(_information.GPIOPin)); // DEBUG
         _webService->SendEvent("PixelData", output);
         eventDoc.clear();
         output.clear();

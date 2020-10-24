@@ -103,7 +103,7 @@ define("Modules/ServerEventListener", ["require", "exports"], function (require,
                     parentContainer = $(`<div id="stripe_${pixelData.Pin}"></div>`).appendTo('#stripe_container');
                 for (var i = 0; i < pixelData.Pixels.length; i++) {
                     const pixel = pixelData.Pixels[i];
-                    var pixelClass = `.pixel-${i}`;
+                    var pixelClass = `${parentId} > .pixel-${i}`;
                     var pixelElement = $(pixelClass);
                     if (!pixelElement.length)
                         pixelElement = $(`<div class="pixel pixel-${i}"></div>`).appendTo(parentContainer);
