@@ -1,12 +1,12 @@
 export module ServerEventListener {
-    interface LedColor {
-        Red: number;
-        Green: number;
-        Blue: number;
-    }
+    // interface LedColor {
+    //     Red: number;
+    //     Green: number;
+    //     Blue: number;
+    // }
     interface PixelData {
         Pin: number;
-        Pixels: LedColor[];
+        Pixels: number[][];
     };
 
     export var eventSource: EventSource;
@@ -29,17 +29,17 @@ export module ServerEventListener {
 
             // var $element = $('#stripe_23');
             // if(!$element.length)
-            let parentId = `#stripe_${pixelData.Pin}`;
-            let parentContainer = $(parentId);
+            var parentId = `#stripe_${pixelData.Pin}`;
+            var parentContainer = $(parentId);
             if (!parentContainer.length) parentContainer = $(`<div id="stripe_${pixelData.Pin}"></div>`).appendTo('#stripe_container');
 
-            for (let i = 0; i < pixelData.Pixels.length; i++) {
+            for (var i = 0; i < pixelData.Pixels.length; i++) {
                 const pixel = pixelData.Pixels[i];
-                let pixelClass = `.pixel-${i}`;
-                let pixelElement = $(pixelClass);
+                var pixelClass = `.pixel-${i}`;
+                var pixelElement = $(pixelClass);
                 if (!pixelElement.length) pixelElement = $(`<div class="pixel pixel-${i}"></div>`).appendTo(parentContainer);
 
-                pixelElement.css('background-color', 'rgb(' + pixel.Red + ',' + pixel.Green + ',' + pixel.Blue + ')');
+                pixelElement.css('background-color', 'rgb(' + pixel[0] + ',' + pixel[1] + ',' + pixel[2] + ')');
             }
 
             // $("#debug-pixel-data").append(e.data);

@@ -63,8 +63,8 @@ namespace StripeBridge
     void StripeInstance<TRmtMethod>::PixelUpdateEvent()
     {
         auto pixelCount = _pixels.size();
-        auto capacityPixels = JSON_ARRAY_SIZE(pixelCount + 1) + JSON_OBJECT_SIZE(3) * pixelCount; // pixel *(red, green, blue)
-        auto capacityEvent = JSON_OBJECT_SIZE(3) + capacityPixels;                                // pin, pixel, color
+        auto capacityPixels = JSON_ARRAY_SIZE(pixelCount + 1) + JSON_ARRAY_SIZE(3) * pixelCount; // pixel *(red, green, blue)
+        auto capacityEvent = JSON_OBJECT_SIZE(3) + capacityPixels;                               // pin, pixel, color
 
         DynamicJsonDocument eventDoc(capacityEvent);
         eventDoc["Pin"] = _information.GPIOPin;
@@ -72,16 +72,18 @@ namespace StripeBridge
         JsonArray pixels = eventDoc.createNestedArray("Pixels");
         for (const auto &color : _pixels)
         {
-            JsonObject colorDoc = pixels.createNestedObject();
-            colorDoc["Red"] = color.R;
-            colorDoc["Green"] = color.G;
-            colorDoc["Blue"] = color.B;
+            JsonArray colorDoc = pixels.createNestedArray();
+            colorDoc.add(color.R);
+            colorDoc.add(color.G);
+            colorDoc.add(color.B);
+            // colorDoc["Green"] = color.G;
+            // colorDoc["Blue"] = color.B;
         }
 
         String output = "";
         serializeJson(eventDoc, output);
         _logger->Debug("Data send for stripe " + String(_information.GPIOPin)); // DEBUG
-        _logger->Debug(output);                                                 // DEBUG
+        // _logger->Debug(output);                                                 // DEBUG
         _webService->SendEvent("PixelData", output);
         eventDoc.clear();
         output.clear();

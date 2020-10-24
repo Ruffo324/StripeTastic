@@ -97,17 +97,17 @@ define("Modules/ServerEventListener", ["require", "exports"], function (require,
                 console.debug(pixelData);
                 // var $element = $('#stripe_23');
                 // if(!$element.length)
-                let parentId = `#stripe_${pixelData.Pin}`;
-                let parentContainer = $(parentId);
+                var parentId = `#stripe_${pixelData.Pin}`;
+                var parentContainer = $(parentId);
                 if (!parentContainer.length)
                     parentContainer = $(`<div id="stripe_${pixelData.Pin}"></div>`).appendTo('#stripe_container');
-                for (let i = 0; i < pixelData.Pixels.length; i++) {
+                for (var i = 0; i < pixelData.Pixels.length; i++) {
                     const pixel = pixelData.Pixels[i];
-                    let pixelClass = `.pixel-${i}`;
-                    let pixelElement = $(pixelClass);
+                    var pixelClass = `.pixel-${i}`;
+                    var pixelElement = $(pixelClass);
                     if (!pixelElement.length)
                         pixelElement = $(`<div class="pixel pixel-${i}"></div>`).appendTo(parentContainer);
-                    pixelElement.css('background-color', 'rgb(' + pixel.Red + ',' + pixel.Green + ',' + pixel.Blue + ')');
+                    pixelElement.css('background-color', 'rgb(' + pixel[0] + ',' + pixel[1] + ',' + pixel[2] + ')');
                 }
                 // $("#debug-pixel-data").append(e.data);
                 //            let pixelData: SetPixelColorData = JSON.parse(e.data);
