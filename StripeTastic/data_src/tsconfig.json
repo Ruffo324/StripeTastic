@@ -2,19 +2,15 @@
     "compilerOptions": {
         "module": "amd",
         "target": "es6",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "sourceMap": true,
-        "mapRoot": "/data_src/",
+        "mapRoot": "file:///C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/data_src/",
         "outFile": "../data/js/app.js",
+        // "outFile": "../data/192.168.178.38/js/app.js",
         "strictNullChecks": false,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true
     },
     "compileOnSave": true,
-    "typeRoots": [
-        "./node_modules/@types"
-    ]
+    "typeRoots": ["./node_modules/@types"]
 }

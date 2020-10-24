@@ -6,7 +6,7 @@ export module ServerEventListener {
     // }
     interface PixelData {
         Pin: number;
-        Pixels: number[][];
+        Pixels: number[];
     };
 
     export var eventSource: EventSource;
@@ -23,9 +23,9 @@ export module ServerEventListener {
         }, false);
 
         eventSource.addEventListener('PixelData', function (e: any) {
-            console.debug(e); // Debug
+            // console.debug(e); // Debug
             var pixelData: PixelData = JSON.parse(e.data);
-            console.debug(pixelData);
+            // console.debug(pixelData);
 
             // var $element = $('#stripe_23');
             // if(!$element.length)
@@ -34,12 +34,12 @@ export module ServerEventListener {
             if (!parentContainer.length) parentContainer = $(`<div id="stripe_${pixelData.Pin}"></div>`).appendTo('#stripe_container');
 
             for (var i = 0; i < pixelData.Pixels.length; i++) {
-                const pixel = pixelData.Pixels[i];
+                var color = pixelData.Pixels[i].toString(16);
                 var pixelClass = `${parentId} > .pixel-${i}`;
                 var pixelElement = $(pixelClass);
                 if (!pixelElement.length) pixelElement = $(`<div class="pixel pixel-${i}"></div>`).appendTo(parentContainer);
 
-                pixelElement.css('background-color', 'rgb(' + pixel[0] + ',' + pixel[1] + ',' + pixel[2] + ')');
+                pixelElement.css('background-color', `#${color}`);
             }
 
             // $("#debug-pixel-data").append(e.data);
@@ -62,8 +62,6 @@ export module ServerEventListener {
 
     function setupEventSource() {
         var eventUrl: string = '/events';
-        if (window.location.host != "192.168.178.38")
-            eventUrl = "http://192.168.178.38" + eventUrl;
 
         if (!!window.EventSource) {
             eventSource = new EventSource(eventUrl);

@@ -23,7 +23,7 @@ namespace StripeBridge
         Services::WebService *_webService;
 
         NeoPixelBrightnessBus<NeoGrbFeature, TRmtMethod> _stripeBus;
-        std::vector<RgbColor> _pixels;
+        std::vector<long> _pixels;
         Models::StripeInformation _information;
         Models::StripeProcessingData _processingData;
         Models::StripeEffectsData _effectsData;
@@ -44,7 +44,7 @@ namespace StripeBridge
 
         /// Adjusts the stripe brightness and calls the stripe show function.
         void Show(bool setBrightness = true);
-        /// Calls neopixel setPixelColor function, but can also send realtime informations to client for virtualization.
+        /// Calls neopixel setPixelColor function and also stores the color as long in _pixels.
         void SetPixelColor(uint16_t pixel, RgbColor color);
         /// Turns every pixel on the stripe off.
         void Off(bool withShow = true);

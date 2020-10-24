@@ -40,6 +40,11 @@ namespace StripeBridge
             return Wheel(map(x, in_min, in_max, out_min, out_max));
         }
 
+        long Colors::ToInt(RgbColor color)
+        {
+            return ((color.R & 0xff) << 16) + ((color.G & 0xff) << 8) + (color.B & 0xff);
+        }
+
         RgbColor Colors::Wheel(byte wheelPos)
         {
             if (wheelPos < 85)

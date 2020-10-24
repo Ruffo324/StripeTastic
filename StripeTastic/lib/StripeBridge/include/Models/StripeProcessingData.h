@@ -24,7 +24,7 @@ namespace StripeBridge
             Enums::ColorMode Licht = Enums::ColorMode::ThreeUserColors;
 
             /// Speichert helligkeit
-            uint8_t Brightness = 50;
+            uint8_t Brightness = 20;
             /// Strobo takt
             uint8_t FlashPerSeconds = 50;
             /// 10ms - x

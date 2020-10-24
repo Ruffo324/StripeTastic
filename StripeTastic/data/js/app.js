@@ -92,9 +92,9 @@ define("Modules/ServerEventListener", ["require", "exports"], function (require,
                 // console.log(data);
             }, false);
             ServerEventListener.eventSource.addEventListener('PixelData', function (e) {
-                console.debug(e); // Debug
+                // console.debug(e); // Debug
                 var pixelData = JSON.parse(e.data);
-                console.debug(pixelData);
+                // console.debug(pixelData);
                 // var $element = $('#stripe_23');
                 // if(!$element.length)
                 var parentId = `#stripe_${pixelData.Pin}`;
@@ -102,12 +102,12 @@ define("Modules/ServerEventListener", ["require", "exports"], function (require,
                 if (!parentContainer.length)
                     parentContainer = $(`<div id="stripe_${pixelData.Pin}"></div>`).appendTo('#stripe_container');
                 for (var i = 0; i < pixelData.Pixels.length; i++) {
-                    const pixel = pixelData.Pixels[i];
+                    var color = pixelData.Pixels[i].toString(16);
                     var pixelClass = `${parentId} > .pixel-${i}`;
                     var pixelElement = $(pixelClass);
                     if (!pixelElement.length)
                         pixelElement = $(`<div class="pixel pixel-${i}"></div>`).appendTo(parentContainer);
-                    pixelElement.css('background-color', 'rgb(' + pixel[0] + ',' + pixel[1] + ',' + pixel[2] + ')');
+                    pixelElement.css('background-color', `#${color}`);
                 }
                 // $("#debug-pixel-data").append(e.data);
                 //            let pixelData: SetPixelColorData = JSON.parse(e.data);
@@ -125,8 +125,6 @@ define("Modules/ServerEventListener", ["require", "exports"], function (require,
         }
         function setupEventSource() {
             var eventUrl = '/events';
-            if (window.location.host != "192.168.178.38")
-                eventUrl = "http://192.168.178.38" + eventUrl;
             if (!!window.EventSource) {
                 ServerEventListener.eventSource = new EventSource(eventUrl);
             }
@@ -276,4 +274,4 @@ define("Utils/TypeChecker", ["require", "exports"], function (require, exports) 
         TypeChecker.isAnyUndefined = isAnyUndefined;
     })(TypeChecker = exports.TypeChecker || (exports.TypeChecker = {}));
 });
-//# sourceMappingURL=/data_src/app.js.map
+//# sourceMappingURL=file:///C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/data_src/app.js.map

@@ -17,12 +17,13 @@ namespace StripeBridge
     {
         _processingDataChanged = false;
         auto pixelLoopKey = _loopRegistrationKey + "PIXEL_UPDATE";
+
         _stripeBus.Begin();
         LoadOrCreateProcessingData();
 
         _loopService->Register(_loopRegistrationKey, [this]() { LoopProcessing(); });
         _loopService->Register(
-            pixelLoopKey, [this]() { PixelUpdateEvent(); }, 100);
+            pixelLoopKey, [this]() { PixelUpdateEvent(); }, 200);
 
         _logger->Logln(_loggerTag, "Stripe '" + _loopRegistrationKey + "' is ready.");
         Off();
@@ -63,8 +64,8 @@ namespace StripeBridge
     void StripeInstance<TRmtMethod>::PixelUpdateEvent()
     {
         auto pixelCount = _pixels.size();
-        auto capacityPixels = JSON_ARRAY_SIZE(pixelCount + 1) + JSON_ARRAY_SIZE(3) * pixelCount; // pixel *(red, green, blue)
-        auto capacityEvent = JSON_OBJECT_SIZE(3) + capacityPixels;                               // pin, pixel, color
+        auto capacityPixels = JSON_ARRAY_SIZE(pixelCount + 1);     // Color stored as one long.
+        auto capacityEvent = JSON_OBJECT_SIZE(2) + capacityPixels; // pin, color
 
         DynamicJsonDocument eventDoc(capacityEvent);
         eventDoc["Pin"] = _information.GPIOPin;
@@ -72,10 +73,7 @@ namespace StripeBridge
         JsonArray pixels = eventDoc.createNestedArray("Pixels");
         for (const auto &color : _pixels)
         {
-            JsonArray colorDoc = pixels.createNestedArray();
-            colorDoc.add(color.R);
-            colorDoc.add(color.G);
-            colorDoc.add(color.B);
+            pixels.add(color);
         }
 
         String output = "";
@@ -118,8 +116,11 @@ namespace StripeBridge
     template <class TRmtMethod>
     void StripeInstance<TRmtMethod>::SetPixelColor(uint16_t pixel, RgbColor color)
     {
-        _stripeBus.SetPixelColor(pixel, color);
-        _pixels[pixel] = color; // Store the colors of each pixel.
+        // Store the colors of each pixel.
+        _pixels[pixel] = Constants::Colors::ToInt(color);
+
+        // _stripeBus.SetPixelColor(pixel, color);
+        _stripeBus.SetPixelColor(pixel, color.Dim(50)); // TODO: // REMOVE: // DEBUG FIX BRIGHTNESS!);
     }
 
     template <class TRmtMethod>

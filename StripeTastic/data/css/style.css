@@ -6,7 +6,7 @@ html {
 }
 
 h1 {
-    color: #0F3376;
+    color: #0f3376;
     padding: 2vh;
 }
 
@@ -16,7 +16,7 @@ p {
 
 .button {
     display: inline-block;
-    background-color: #008CBA;
+    background-color: #008cba;
     border: none;
     border-radius: 4px;
     color: white;
@@ -31,13 +31,13 @@ p {
     background-color: #f44336;
 }
 
-#stripe_container > div{
+#stripe_container > div {
     margin-top: 20px;
 }
 
-.pixel{
+.pixel {
     height: 15px;
     width: 15px;
     /*margin: 1px;*/
-    float:left;
+    float: left;
 }

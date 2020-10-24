@@ -33,6 +33,7 @@ namespace StripeBridge
             static RgbColor GetRandomColor();
             static RgbColor Wheel(byte wheelPos);
             static RgbColor Wheel(long x, long in_min, long in_max, long out_min, long out_max);
-          };
+            static long ToInt(RgbColor color);
+        };
     } // namespace Constants
 } // namespace StripeBridge

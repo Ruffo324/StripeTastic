@@ -47,11 +47,11 @@ void setup()
     StripeBridge::StripeBridge::EnvironmentSetup();
 
     // Led stripe one
-    const int stripeOnePin = 23, stripeOnePixel = 300;
+    const int stripeOnePin = 23, stripeOnePixel = 280;
     _stripeOne = new StripeBridge::StripeInstance<NeoEsp32I2s1800KbpsMethod>(stripeOnePin, stripeOnePixel, _webService);
 
     // Led stripe two
-    const int stripeTwoPin = 21, stripeTwoPixel = 300;
+    const int stripeTwoPin = 21, stripeTwoPixel = 280;
     _stripeTwo = new StripeBridge::StripeInstance<NeoEsp32I2s0800KbpsMethod>(stripeTwoPin, stripeTwoPixel, _webService);
 
     // Register REST listener for both stripes.
