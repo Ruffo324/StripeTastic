@@ -80,7 +80,7 @@ namespace StripeBridge
 
         String output = "";
         serializeJson(eventDoc, output);
-        _logger->Debug("Pixel updated"); // DEBUG
+        _logger->Debug("Data send for stripe " + _information.GPIOPin); // DEBUG
         _webService->SendEvent("PixelData", output);
         eventDoc.clear();
         output.clear();

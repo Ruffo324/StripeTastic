@@ -21,12 +21,14 @@ namespace Services
         void SendEvent(String eventName, String data);
 
     private:
+        bool _initialized;
         const String _loggerTag = "HTTP";
         Logger *_logger;
         AsyncWebServer _webServer;
         AsyncEventSource _serverEvents;
         std::map<String, AsyncCallbackJsonWebHandler *> _registeredJsonRequests;
         void addFileRoute(String requestPath, String path, String mimeType);
+        void sendSerialMessage(String message);
     };
 
     // // Route to set GPIO to HIGH

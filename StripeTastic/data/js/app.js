@@ -66,6 +66,7 @@ define("Modules/NavigationModule", ["require", "exports", "Utils/Utils"], functi
         }
         NavigationModule.LoadPageFromUrl = LoadPageFromUrl;
         function loadPage(pageFile) {
+            Utils_1.UrlManipulation.SetGetParameter("page", pageFile);
             $("#container-page").load(pageFile);
             $(".nav-item").removeClass("active");
             $(`.nav-link[data-page-file-name="${pageFile}"]`).parent().addClass("active");
@@ -79,38 +80,49 @@ define("Modules/ServerEventListener", ["require", "exports"], function (require,
     var ServerEventListener;
     (function (ServerEventListener) {
         ;
-        var eventSource;
         function Listen() {
             setupEventSource();
             listenToEvents();
         }
         ServerEventListener.Listen = Listen;
         function listenToEvents() {
-            eventSource.addEventListener('message', function (e) {
+            ServerEventListener.eventSource.addEventListener('message', function (e) {
                 var data = JSON.parse(e.data);
                 console.log(data);
             }, false);
-            eventSource.addEventListener('SetPixelColor', function (e) {
-                var pixelData = JSON.parse(e.data);
+            ServerEventListener.eventSource.addEventListener('PixelData', function (e) {
+                var pixelData;
+                try {
+                    pixelData = JSON.parse(e.data);
+                }
+                catch (error) {
+                    console.error(error);
+                    console.log(e.data);
+                    return;
+                }
+                console.debug(pixelData);
                 // var $element = $('#stripe_23');
                 // if(!$element.length)
                 let parentId = `#stripe_${pixelData.Pin}`;
                 let parentContainer = $(parentId);
                 if (!parentContainer.length)
                     parentContainer = $(`<div id="stripe_${pixelData.Pin}"></div>`).appendTo('#stripe_container');
-                let pixelClass = `.pixel-${pixelData.Pixel}`;
-                let pixelElement = $(pixelClass);
-                if (!pixelElement.length)
-                    pixelElement = $(`<div class="pixel pixel-${pixelData.Pixel}"></div>`).appendTo(parentContainer);
-                pixelElement.css('background-color', 'rgb(' + pixelData.Color.Red + ',' + pixelData.Color.Green + ',' + pixelData.Color.Blue + ')');
+                for (let i = 0; i < pixelData.Pixels.length; i++) {
+                    const pixel = pixelData.Pixels[i];
+                    let pixelClass = `.pixel-${i}`;
+                    let pixelElement = $(pixelClass);
+                    if (!pixelElement.length)
+                        pixelElement = $(`<div class="pixel pixel-${i}"></div>`).appendTo(parentContainer);
+                    pixelElement.css('background-color', 'rgb(' + pixel.Red + ',' + pixel.Green + ',' + pixel.Blue + ')');
+                }
                 // $("#debug-pixel-data").append(e.data);
                 //            let pixelData: SetPixelColorData = JSON.parse(e.data);
             }, false);
-            eventSource.addEventListener('open', function (e) {
+            ServerEventListener.eventSource.addEventListener('open', function (e) {
                 // Connection was opened.
-                console.debug("Now listen to esp events.");
+                console.debug("Now lisetn to esp events.");
             }, false);
-            eventSource.addEventListener('error', function (e) {
+            ServerEventListener.eventSource.addEventListener('error', function (e) {
                 if (this.readyState == EventSource.CLOSED) {
                     console.debug("Connection closed!");
                 }
@@ -122,7 +134,7 @@ define("Modules/ServerEventListener", ["require", "exports"], function (require,
             if (window.location.host != "192.168.178.38")
                 eventUrl = "http://192.168.178.38" + eventUrl;
             if (!!window.EventSource) {
-                eventSource = new EventSource(eventUrl);
+                ServerEventListener.eventSource = new EventSource(eventUrl);
             }
             else {
                 // Result to xhr polling :(

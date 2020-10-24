@@ -24,6 +24,7 @@ export module NavigationModule {
     }
 
     function loadPage(pageFile: string): void {
+        UrlManipulation.SetGetParameter("page", pageFile);
         $("#container-page").load(pageFile);
         $(".nav-item").removeClass("active");
         $(`.nav-link[data-page-file-name="${pageFile}"]`).parent().addClass("active");

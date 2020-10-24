@@ -27,12 +27,16 @@ namespace Services
         void PrintLine(const String tag, const int length);
         void PrintLine(const String tag);
         void PrintLine();
+        void Listen(std::function<void(String)> outFunction);
 
     private:
         Logger();
         static Logger *_instance;
         String TagToPrefix(const String tag);
         String RepeatChar(const int length, const char padChar = ' ');
+        void SendToListeners(String message);
+        std::vector<std::function<void(String)>> _listeners;
+
         const int LineLength = 20;
         const String UnknownTag = "UNKNW";
         const String WarningTag = "WARN";

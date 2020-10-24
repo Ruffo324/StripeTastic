@@ -1,16 +1,15 @@
 export module ServerEventListener {
-    interface SetPixelColorData {
+    interface LedColor {
+        Red: number;
+        Green: number;
+        Blue: number;
+    }
+    interface PixelData {
         Pin: number;
-        Pixel: number;
-
-        Color: {
-            Red: number;
-            Green: number;
-            Blue: number;
-        }
+        Pixels: LedColor[];
     };
 
-    var eventSource: EventSource;
+    export var eventSource: EventSource;
     export function Listen(): void {
         setupEventSource();
         listenToEvents();
@@ -22,8 +21,16 @@ export module ServerEventListener {
             console.log(data);
         }, false);
 
-        eventSource.addEventListener('SetPixelColor', function (e: any) {
-            var pixelData: SetPixelColorData = JSON.parse(e.data);
+        eventSource.addEventListener('PixelData', function (e: any) {
+            var pixelData: PixelData;
+            try {
+                pixelData = JSON.parse(e.data);
+            } catch (error) {
+                console.error(error);
+                console.log(e.data)
+                return;
+            }
+            console.debug(pixelData);
 
             // var $element = $('#stripe_23');
             // if(!$element.length)
@@ -31,11 +38,14 @@ export module ServerEventListener {
             let parentContainer = $(parentId);
             if (!parentContainer.length) parentContainer = $(`<div id="stripe_${pixelData.Pin}"></div>`).appendTo('#stripe_container');
 
-            let pixelClass = `.pixel-${pixelData.Pixel}`;
-            let pixelElement = $(pixelClass);
-            if (!pixelElement.length) pixelElement = $(`<div class="pixel pixel-${pixelData.Pixel}"></div>`).appendTo(parentContainer);
+            for (let i = 0; i < pixelData.Pixels.length; i++) {
+                const pixel = pixelData.Pixels[i];
+                let pixelClass = `.pixel-${i}`;
+                let pixelElement = $(pixelClass);
+                if (!pixelElement.length) pixelElement = $(`<div class="pixel pixel-${i}"></div>`).appendTo(parentContainer);
 
-            pixelElement.css('background-color', 'rgb(' + pixelData.Color.Red + ',' + pixelData.Color.Green + ',' + pixelData.Color.Blue + ')');
+                pixelElement.css('background-color', 'rgb(' + pixel.Red + ',' + pixel.Green + ',' + pixel.Blue + ')');
+            }
 
             // $("#debug-pixel-data").append(e.data);
             //            let pixelData: SetPixelColorData = JSON.parse(e.data);
@@ -43,7 +53,7 @@ export module ServerEventListener {
 
         eventSource.addEventListener('open', function (e) {
             // Connection was opened.
-            console.debug("Now listen to esp events.");
+            console.debug("Now lisetn to esp events.");
         }, false);
 
         eventSource.addEventListener('error', function (e) {
