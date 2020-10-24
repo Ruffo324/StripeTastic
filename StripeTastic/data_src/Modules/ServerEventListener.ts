@@ -39,7 +39,7 @@ export module ServerEventListener {
                 var pixelElement = $(pixelClass);
                 if (!pixelElement.length) pixelElement = $(`<div class="pixel pixel-${i}"></div>`).appendTo(parentContainer);
 
-                pixelElement.css('background-color', `#${color}`);
+                pixelElement.css('background-color', color == "0" ? "transparent" :`#${color}`);
             }
 
             // $("#debug-pixel-data").append(e.data);

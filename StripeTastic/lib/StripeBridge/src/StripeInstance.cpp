@@ -23,7 +23,7 @@ namespace StripeBridge
 
         _loopService->Register(_loopRegistrationKey, [this]() { LoopProcessing(); });
         _loopService->Register(
-            pixelLoopKey, [this]() { PixelUpdateEvent(); }, 200);
+            pixelLoopKey, [this]() { PixelUpdateEvent(); }, 250);
 
         _logger->Logln(_loggerTag, "Stripe '" + _loopRegistrationKey + "' is ready.");
         Off();

@@ -32,12 +32,29 @@ p {
 }
 
 #stripe_container > div {
-    margin-top: 20px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    --width: 5vw;
+    --height: 80vh;
+    width: var(--width);
+    z-index: 999;
+    height: var(--height);
+    top: calc((100vh - var(--height)) / 2);
+}
+
+#stripe_container > div:nth-child(1) {
+    left: 0;
+}
+#stripe_container > div:nth-child(2) {
+    right: 0;
+    /* calc(100vw - var(--width)); */
 }
 
 .pixel {
-    height: 15px;
-    width: 15px;
+    flex-grow: 1;
+    /* height: fit-content;
+    width: auto; */
     /*margin: 1px;*/
-    float: left;
+    /* float: left; */
 }

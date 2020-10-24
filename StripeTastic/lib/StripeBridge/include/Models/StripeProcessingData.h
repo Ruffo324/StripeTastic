@@ -17,11 +17,11 @@ namespace StripeBridge
             /// Speichert Modus Static, Effect, OFF
             Enums::OperationModes OperationMode = Enums::OperationModes::Effect;
             /// Speichert welcher Effect abgespielt werden soll
-            Enums::Effects Effect = Enums::Effects::MovingRainbow;
+            Enums::Effects Effect = Enums::Effects::FillUp;
             /// Richtung des Effekts
             Enums::EffectDirections EffectDirection = Enums::EffectDirections::Left;
             /// Speichert Farb quelle // TODO: Rename correct after whole source implementation.
-            Enums::ColorMode Licht = Enums::ColorMode::ThreeUserColors;
+            Enums::ColorMode Licht = Enums::ColorMode::Rainbow;
 
             /// Speichert helligkeit
             uint8_t Brightness = 20;
