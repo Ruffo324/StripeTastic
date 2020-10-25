@@ -39,7 +39,7 @@ CMAKE_CODEBLOCKS_MAKE_ARGUMENTS:STRING=
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
 //Build Types reflect PlatformIO Environments
-CMAKE_CONFIGURATION_TYPES:STRING=esp32doit-devkit-v1
+CMAKE_CONFIGURATION_TYPES:STRING=doit-production;doit-esp-prog-debug;
 
 //CXX compiler
 CMAKE_CXX_COMPILER:FILEPATH=C:/MinGW/bin/g++.exe
