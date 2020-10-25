@@ -546,6 +546,411 @@ Z_DUMMY_TARGET/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/ESP_Async_WebServer/src/WebServer.cpp.s
 .PHONY : .pio/libdeps/doit-production/ESP_Async_WebServer/src/WebServer.cpp.s
 
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.obj: .pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.c.obj
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.obj
+
+# target to build an object file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.c.obj
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.c.obj
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.i: .pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.c.i
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.i
+
+# target to preprocess a source file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.c.i
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.c.i
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.s: .pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.c.s
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.s
+
+# target to generate assembly for a file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.c.s
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.c.s
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.obj: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.cpp.obj
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.obj
+
+# target to build an object file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.cpp.obj
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.cpp.obj
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.i: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.cpp.i
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.i
+
+# target to preprocess a source file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.cpp.i
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.cpp.i
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.s: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.cpp.s
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.s
+
+# target to generate assembly for a file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.cpp.s
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.cpp.s
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.obj: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.cpp.obj
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.obj
+
+# target to build an object file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.cpp.obj
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.cpp.obj
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.i: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.cpp.i
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.i
+
+# target to preprocess a source file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.cpp.i
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.cpp.i
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.s: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.cpp.s
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.s
+
+# target to generate assembly for a file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.cpp.s
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.cpp.s
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.obj: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.cpp.obj
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.obj
+
+# target to build an object file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.cpp.obj
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.cpp.obj
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.i: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.cpp.i
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.i
+
+# target to preprocess a source file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.cpp.i
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.cpp.i
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.s: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.cpp.s
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.s
+
+# target to generate assembly for a file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.cpp.s
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.cpp.s
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.obj: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.obj
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.obj
+
+# target to build an object file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.obj
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.obj
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.i: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.i
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.i
+
+# target to preprocess a source file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.i
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.i
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.s: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.s
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.s
+
+# target to generate assembly for a file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.s
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.s
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.obj: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.cpp.obj
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.obj
+
+# target to build an object file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.cpp.obj
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.cpp.obj
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.i: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.cpp.i
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.i
+
+# target to preprocess a source file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.cpp.i
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.cpp.i
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.s: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.cpp.s
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.s
+
+# target to generate assembly for a file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.cpp.s
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.cpp.s
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.obj: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.obj
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.obj
+
+# target to build an object file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.obj
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.obj
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.i: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.i
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.i
+
+# target to preprocess a source file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.i
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.i
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.s: .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.s
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.s
+
+# target to generate assembly for a file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.s
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.s
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.obj: .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.obj
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.obj
+
+# target to build an object file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.obj
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.obj
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.i: .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.i
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.i
+
+# target to preprocess a source file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.i
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.i
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.s: .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.s
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.s
+
+# target to generate assembly for a file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.s
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.s
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.obj: .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.obj
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.obj
+
+# target to build an object file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.obj
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.obj
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.i: .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.i
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.i
+
+# target to preprocess a source file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.i
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.i
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.s: .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.s
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.s
+
+# target to generate assembly for a file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.s
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.s
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.obj: .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.cpp.obj
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.obj
+
+# target to build an object file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.cpp.obj
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.cpp.obj
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.i: .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.cpp.i
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.i
+
+# target to preprocess a source file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.cpp.i
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.cpp.i
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.s: .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.cpp.s
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.s
+
+# target to generate assembly for a file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.cpp.s
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.cpp.s
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.obj: .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.obj
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.obj
+
+# target to build an object file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.obj
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.obj
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.i: .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.i
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.i
+
+# target to preprocess a source file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.i
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.i
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.s: .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.s
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.s
+
+# target to generate assembly for a file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.s
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.s
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.obj: .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.c.obj
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.obj
+
+# target to build an object file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.c.obj
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.c.obj
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.i: .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.c.i
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.i
+
+# target to preprocess a source file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.c.i
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.c.i
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.s: .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.c.s
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.s
+
+# target to generate assembly for a file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.c.s
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.c.s
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.obj: .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.cpp.obj
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.obj
+
+# target to build an object file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.cpp.obj
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.cpp.obj
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.i: .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.cpp.i
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.i
+
+# target to preprocess a source file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.cpp.i
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.cpp.i
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.s: .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.cpp.s
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.s
+
+# target to generate assembly for a file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.cpp.s
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.cpp.s
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.obj: .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.cpp.obj
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.obj
+
+# target to build an object file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.cpp.obj
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.cpp.obj
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.i: .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.cpp.i
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.i
+
+# target to preprocess a source file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.cpp.i
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.cpp.i
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.s: .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.cpp.s
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.s
+
+# target to generate assembly for a file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.cpp.s
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.cpp.s
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.obj: .pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.cpp.obj
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.obj
+
+# target to build an object file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.cpp.obj
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.cpp.obj
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.i: .pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.cpp.i
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.i
+
+# target to preprocess a source file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.cpp.i
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.cpp.i
+
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.s: .pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.cpp.s
+
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.s
+
+# target to generate assembly for a file
+.pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.cpp.s
+.PHONY : .pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.cpp.s
+
 .pio/libdeps/doit-production/arduinoFFT/src/arduinoFFT.obj: .pio/libdeps/doit-production/arduinoFFT/src/arduinoFFT.cpp.obj
 
 .PHONY : .pio/libdeps/doit-production/arduinoFFT/src/arduinoFFT.obj
@@ -923,6 +1328,51 @@ help:
 	@echo ... .pio/libdeps/doit-production/ESP_Async_WebServer/src/WebServer.obj
 	@echo ... .pio/libdeps/doit-production/ESP_Async_WebServer/src/WebServer.i
 	@echo ... .pio/libdeps/doit-production/ESP_Async_WebServer/src/WebServer.s
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.obj
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.i
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/Esp32_i2s.s
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.obj
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.i
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HsbColor.s
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.obj
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.i
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HslColor.s
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.obj
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.i
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColor.s
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.obj
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.i
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNameStrings.s
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.obj
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.i
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorNames.s
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.obj
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.i
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/HtmlColorShortNames.s
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.obj
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.i
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp32RmtMethod.s
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.obj
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.i
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoEsp8266UartMethod.s
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.obj
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.i
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoGamma.s
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.obj
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.i
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAnimator.s
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.obj
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.i
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/NeoPixelAvr.s
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.obj
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.i
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbColor.s
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.obj
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.i
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/RgbwColor.s
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.obj
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.i
+	@echo ... .pio/libdeps/doit-production/NeoPixelBus/src/internal/SegmentDigit.s
 	@echo ... .pio/libdeps/doit-production/arduinoFFT/src/arduinoFFT.obj
 	@echo ... .pio/libdeps/doit-production/arduinoFFT/src/arduinoFFT.i
 	@echo ... .pio/libdeps/doit-production/arduinoFFT/src/arduinoFFT.s

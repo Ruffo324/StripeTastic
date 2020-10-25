@@ -401,9 +401,204 @@ CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/ESPAsyncTCP/src/t
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/ESPAsyncTCP/src/tcp_axtls.c.s"
 	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\ESPAsyncTCP\src\tcp_axtls.c -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\ESPAsyncTCP\src\tcp_axtls.c.s
 
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Esp32_i2s.c.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Esp32_i2s.c.obj: ../.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Esp32_i2s.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Esp32_i2s.c.obj"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\Esp32_i2s.c.obj   -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\Esp32_i2s.c
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Esp32_i2s.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Esp32_i2s.c.i"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\Esp32_i2s.c > CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\Esp32_i2s.c.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Esp32_i2s.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Esp32_i2s.c.s"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\Esp32_i2s.c -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\Esp32_i2s.c.s
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HsbColor.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HsbColor.cpp.obj: ../.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HsbColor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HsbColor.cpp.obj"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HsbColor.cpp.obj -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HsbColor.cpp
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HsbColor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HsbColor.cpp.i"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HsbColor.cpp > CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HsbColor.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HsbColor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HsbColor.cpp.s"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HsbColor.cpp -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HsbColor.cpp.s
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HslColor.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HslColor.cpp.obj: ../.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HslColor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HslColor.cpp.obj"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HslColor.cpp.obj -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HslColor.cpp
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HslColor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HslColor.cpp.i"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HslColor.cpp > CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HslColor.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HslColor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HslColor.cpp.s"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HslColor.cpp -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HslColor.cpp.s
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColor.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColor.cpp.obj: ../.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColor.cpp.obj"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColor.cpp.obj -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColor.cpp
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColor.cpp.i"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColor.cpp > CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColor.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColor.cpp.s"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColor.cpp -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColor.cpp.s
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.obj: ../.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.obj"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorNameStrings.cpp.obj -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorNameStrings.cpp
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.i"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorNameStrings.cpp > CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorNameStrings.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.s"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorNameStrings.cpp -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorNameStrings.cpp.s
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNames.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNames.cpp.obj: ../.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNames.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNames.cpp.obj"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorNames.cpp.obj -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorNames.cpp
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNames.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNames.cpp.i"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorNames.cpp > CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorNames.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNames.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNames.cpp.s"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorNames.cpp -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorNames.cpp.s
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.obj: ../.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorShortNames.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.obj"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorShortNames.cpp.obj -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorShortNames.cpp
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.i"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorShortNames.cpp > CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorShortNames.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.s"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorShortNames.cpp -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\HtmlColorShortNames.cpp.s
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.obj: ../.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.obj"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoEsp32RmtMethod.cpp.obj -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoEsp32RmtMethod.cpp
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.i"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoEsp32RmtMethod.cpp > CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoEsp32RmtMethod.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.s"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoEsp32RmtMethod.cpp -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoEsp32RmtMethod.cpp.s
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.obj: ../.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.obj"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoEsp8266UartMethod.cpp.obj -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoEsp8266UartMethod.cpp
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.i"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoEsp8266UartMethod.cpp > CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoEsp8266UartMethod.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.s"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoEsp8266UartMethod.cpp -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoEsp8266UartMethod.cpp.s
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoGamma.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoGamma.cpp.obj: ../.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoGamma.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoGamma.cpp.obj"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoGamma.cpp.obj -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoGamma.cpp
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoGamma.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoGamma.cpp.i"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoGamma.cpp > CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoGamma.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoGamma.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoGamma.cpp.s"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoGamma.cpp -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoGamma.cpp.s
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.obj: ../.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAnimator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.obj"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoPixelAnimator.cpp.obj -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoPixelAnimator.cpp
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.i"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoPixelAnimator.cpp > CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoPixelAnimator.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.s"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoPixelAnimator.cpp -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoPixelAnimator.cpp.s
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAvr.c.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAvr.c.obj: ../.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAvr.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAvr.c.obj"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoPixelAvr.c.obj   -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoPixelAvr.c
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAvr.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAvr.c.i"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoPixelAvr.c > CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoPixelAvr.c.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAvr.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAvr.c.s"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoPixelAvr.c -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\NeoPixelAvr.c.s
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbColor.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbColor.cpp.obj: ../.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbColor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbColor.cpp.obj"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\RgbColor.cpp.obj -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\RgbColor.cpp
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbColor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbColor.cpp.i"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\RgbColor.cpp > CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\RgbColor.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbColor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbColor.cpp.s"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\RgbColor.cpp -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\RgbColor.cpp.s
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbwColor.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbwColor.cpp.obj: ../.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbwColor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbwColor.cpp.obj"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\RgbwColor.cpp.obj -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\RgbwColor.cpp
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbwColor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbwColor.cpp.i"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\RgbwColor.cpp > CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\RgbwColor.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbwColor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbwColor.cpp.s"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\RgbwColor.cpp -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\RgbwColor.cpp.s
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/SegmentDigit.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/SegmentDigit.cpp.obj: ../.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/SegmentDigit.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/SegmentDigit.cpp.obj"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\SegmentDigit.cpp.obj -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\SegmentDigit.cpp
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/SegmentDigit.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/SegmentDigit.cpp.i"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\SegmentDigit.cpp > CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\SegmentDigit.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/SegmentDigit.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/SegmentDigit.cpp.s"
+	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\SegmentDigit.cpp -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\NeoPixelBus\src\internal\SegmentDigit.cpp.s
+
 CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/arduinoFFT/src/arduinoFFT.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/arduinoFFT/src/arduinoFFT.cpp.obj: ../.pio/libdeps/doit-esp-prog-debug/arduinoFFT/src/arduinoFFT.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/arduinoFFT/src/arduinoFFT.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/arduinoFFT/src/arduinoFFT.cpp.obj"
 	C:\Users\ruffo\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\.pio\libdeps\doit-esp-prog-debug\arduinoFFT\src\arduinoFFT.cpp.obj -c C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\.pio\libdeps\doit-esp-prog-debug\arduinoFFT\src\arduinoFFT.cpp
 
 CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/arduinoFFT/src/arduinoFFT.cpp.i: cmake_force
@@ -441,6 +636,21 @@ Z_DUMMY_TARGET_OBJECTS = \
 "CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/ESPAsyncTCP/src/ESPAsyncTCPbuffer.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/ESPAsyncTCP/src/SyncClient.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/ESPAsyncTCP/src/tcp_axtls.c.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Esp32_i2s.c.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HsbColor.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HslColor.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColor.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNames.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoGamma.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAvr.c.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbColor.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbwColor.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/SegmentDigit.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/arduinoFFT/src/arduinoFFT.cpp.obj"
 
 # External object files for target Z_DUMMY_TARGET
@@ -471,10 +681,25 @@ Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/E
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/ESPAsyncTCP/src/ESPAsyncTCPbuffer.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/ESPAsyncTCP/src/SyncClient.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/ESPAsyncTCP/src/tcp_axtls.c.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Esp32_i2s.c.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HsbColor.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HslColor.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColor.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNames.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorShortNames.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoGamma.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAnimator.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAvr.c.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbColor.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbwColor.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/SegmentDigit.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/doit-esp-prog-debug/arduinoFFT/src/arduinoFFT.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/build.make
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Linking CXX executable Z_DUMMY_TARGET"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\_Files\1_Programming\3_GitHub\StripeTastic\StripeTastic\cmake-build-doit-esp-prog-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Linking CXX executable Z_DUMMY_TARGET"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Z_DUMMY_TARGET.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

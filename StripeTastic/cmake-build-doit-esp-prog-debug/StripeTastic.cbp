@@ -60,14 +60,16 @@
 					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/lib/StripeBridge/src"/>
 					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/lib/Services"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/DNSServer/src"/>
-					<Add directory="C:/Users/ruffo/.platformio/lib/CppLinq/src"/>
-					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/SPIFFS/src"/>
-					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/lib/Configuration"/>
-					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/arduinoFFT/src"/>
 					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ESP Async WebServer/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src"/>
-					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/FS/src"/>
 					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/AsyncTCP/src"/>
+					<Add directory="C:/Users/ruffo/.platformio/lib/CppLinq/src"/>
+					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/SPIFFS/src"/>
+					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/FS/src"/>
+					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/lib/Configuration"/>
+					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src"/>
+					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src"/>
+					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/tools/sdk/include/config"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/tools/sdk/include/app_trace"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/tools/sdk/include/app_update"/>
@@ -126,6 +128,7 @@
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/tools/sdk/include/fb_gfx"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/cores/esp32"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/variants/doitESP32devkitV1"/>
+					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/arduinoFFT/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/ArduinoOTA/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/AsyncUDP/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/AzureIoT/src"/>
@@ -141,7 +144,6 @@
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/Preferences/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/SD/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/SD_MMC/src"/>
-					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/SimpleBLE/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/Ticker/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/Update/src"/>
@@ -181,14 +183,16 @@
 					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/lib/StripeBridge/src"/>
 					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/lib/Services"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/DNSServer/src"/>
-					<Add directory="C:/Users/ruffo/.platformio/lib/CppLinq/src"/>
-					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/SPIFFS/src"/>
-					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/lib/Configuration"/>
-					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/arduinoFFT/src"/>
 					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ESP Async WebServer/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src"/>
-					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/FS/src"/>
 					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/AsyncTCP/src"/>
+					<Add directory="C:/Users/ruffo/.platformio/lib/CppLinq/src"/>
+					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/SPIFFS/src"/>
+					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/FS/src"/>
+					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/lib/Configuration"/>
+					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src"/>
+					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src"/>
+					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/tools/sdk/include/config"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/tools/sdk/include/app_trace"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/tools/sdk/include/app_update"/>
@@ -247,6 +251,7 @@
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/tools/sdk/include/fb_gfx"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/cores/esp32"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/variants/doitESP32devkitV1"/>
+					<Add directory="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/arduinoFFT/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/ArduinoOTA/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/AsyncUDP/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/AzureIoT/src"/>
@@ -262,7 +267,6 @@
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/Preferences/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/SD/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/SD_MMC/src"/>
-					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/SimpleBLE/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/Ticker/src"/>
 					<Add directory="C:/Users/ruffo/.platformio/packages/framework-arduinoespressif32/libraries/Update/src"/>
@@ -300,6 +304,498 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/.clang-format">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/.gitattributes">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/.gitignore">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/.mbedignore">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/.piopm">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/.travis.yml">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/ArduinoJson.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/CHANGELOG.md">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/CMakeLists.txt">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/CONTRIBUTING.md">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/LICENSE.md">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/README.md">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/SUPPORT.md">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/appveyor.yml">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/banner.svg">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/component.mk">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/examples/JsonConfigFile/JsonConfigFile.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/examples/JsonFilterExample/JsonFilterExample.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/examples/JsonGeneratorExample/JsonGeneratorExample.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/examples/JsonHttpClient/JsonHttpClient.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/examples/JsonParserExample/JsonParserExample.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/examples/JsonServer/JsonServer.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/examples/JsonUdpBeacon/JsonUdpBeacon.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/examples/MsgPackParser/MsgPackParser.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/examples/ProgmemExample/ProgmemExample.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/examples/StringExample/StringExample.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/keywords.txt">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/library.json">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/library.properties">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Array/ArrayFunctions.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Array/ArrayImpl.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Array/ArrayIterator.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Array/ArrayRef.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Array/ArrayShortcuts.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Array/ElementProxy.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Array/Utilities.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Collection/CollectionData.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Collection/CollectionImpl.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Configuration.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Deserialization/DeserializationError.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Deserialization/Filter.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Deserialization/NestingLimit.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Deserialization/Reader.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Deserialization/Readers/ArduinoStreamReader.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Deserialization/Readers/ArduinoStringReader.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Deserialization/Readers/FlashReader.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Deserialization/Readers/IteratorReader.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Deserialization/Readers/RamReader.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Deserialization/Readers/StdStreamReader.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Deserialization/Readers/VariantReader.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Deserialization/deserialize.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Document/BasicJsonDocument.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Document/DynamicJsonDocument.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Document/JsonDocument.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Document/StaticJsonDocument.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Json/EscapeSequence.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Json/JsonDeserializer.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Json/JsonSerializer.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Json/Latch.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Json/PrettyJsonSerializer.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Json/TextFormatter.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Json/Utf16.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Json/Utf8.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Memory/Alignment.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Memory/MemoryPool.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Misc/SerializedValue.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Misc/Visitable.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/MsgPack/MsgPackDeserializer.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/MsgPack/MsgPackSerializer.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/MsgPack/endianess.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/MsgPack/ieee754.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Namespace.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Numbers/Float.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Numbers/FloatParts.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Numbers/FloatTraits.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Numbers/Integer.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Numbers/arithmeticCompare.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Numbers/convertNumber.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Numbers/parseNumber.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Object/MemberProxy.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Object/ObjectFunctions.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Object/ObjectImpl.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Object/ObjectIterator.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Object/ObjectRef.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Object/ObjectShortcuts.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Object/Pair.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/alias_cast.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/assert.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/attributes.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/ctype.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/limits.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/math.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/mpl/max.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/pgmspace.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/pgmspace_generic.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/preprocessor.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/safe_strcmp.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/static_array.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/conditional.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/declval.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/enable_if.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/integral_constant.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_array.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_base_of.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_class.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_const.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_convertible.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_enum.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_floating_point.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_integral.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_pointer.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_same.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_signed.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_unsigned.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/make_unsigned.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/remove_const.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/remove_reference.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/type_identity.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Polyfills/utility.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Serialization/CountingDecorator.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Serialization/Writer.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Serialization/Writers/ArduinoStringWriter.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Serialization/Writers/DummyWriter.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Serialization/Writers/PrintWriter.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Serialization/Writers/StaticStringWriter.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Serialization/Writers/StdStreamWriter.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Serialization/Writers/StdStringWriter.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Serialization/measure.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Serialization/serialize.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/StringStorage/StringCopier.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/StringStorage/StringMover.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/StringStorage/StringStorage.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Strings/ArduinoStringAdapter.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Strings/ConstRamStringAdapter.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Strings/FlashStringAdapter.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Strings/FlashStringIterator.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Strings/IsString.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Strings/IsWriteableString.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Strings/RamStringAdapter.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Strings/SizedFlashStringAdapter.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Strings/SizedRamStringAdapter.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Strings/StdStringAdapter.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Strings/StoragePolicy.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Strings/String.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Strings/StringAdapters.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Variant/SlotFunctions.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Variant/VariantAs.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Variant/VariantAsImpl.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Variant/VariantCompare.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Variant/VariantContent.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Variant/VariantData.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Variant/VariantFunctions.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Variant/VariantImpl.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Variant/VariantOperators.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Variant/VariantRef.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Variant/VariantShortcuts.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Variant/VariantSlot.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/Variant/VariantTo.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/compatibility.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/ArduinoJson/version.hpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ArduinoJson/src/CMakeLists.txt">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
 		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/AsyncTCP/.github/scripts/install-arduino-core-esp32.sh">
 			<Option target="Z_DUMMY_TARGET"/>
 		</Unit>
@@ -598,6 +1094,339 @@
 			<Option target="Z_DUMMY_TARGET"/>
 		</Unit>
 		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/ESPAsyncTCP/ssl/server.key">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/.gitattributes">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/.github/FUNDING.yml">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/.github/ISSUE_TEMPLATE/all-others.md">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/.github/ISSUE_TEMPLATE/bug_report.md">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/.github/ISSUE_TEMPLATE/feature_request.md">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/.gitignore">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/.piopm">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/ReadMe.md">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/DotStarTest/DotStarTest.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/NeoPixelBrightness/NeoPixelBrightness.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/NeoPixelGamma/NeoPixelGamma.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/NeoPixelTest/NeoPixelTest.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/animations/NeoPixelAnimation/NeoPixelAnimation.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/animations/NeoPixelCylon/NeoPixelCylon.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/animations/NeoPixelFunFadeInOut/NeoPixelFunFadeInOut.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/animations/NeoPixelFunLoop/NeoPixelFunLoop.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/animations/NeoPixelFunRandomChange/NeoPixelFunRandomChange.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/animations/NeoPixelRotateLoop/NeoPixelRotateLoop.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/bitmaps/NeoPixelBitmap/NeoPixelBitmap.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/bitmaps/NeoPixelBitmap/Strings.bmp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/bitmaps/NeoPixelBitmap/StringsW.bmp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/bitmaps/NeoPixelBufferCylon/Cylon.pdn">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/bitmaps/NeoPixelBufferCylon/CylonGrb.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/bitmaps/NeoPixelBufferCylon/CylonGrbw.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/bitmaps/NeoPixelBufferCylon/NeoPixelBufferCylon.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/bitmaps/NeoPixelBufferShader/NeoPixelBufferShader.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/bitmaps/NeoPixelDibTest/NeoPixelDibTest.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/sevensegment/NeoSegmentBus/NeoSegmentBus.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/sevensegment/NeoSegmentFade/NeoSegmentFade.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/topologies/NeoPixelMosaicDump/NeoPixelMosaicDump.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/topologies/NeoPixelMosaicTest/NeoPixelMosaicTest.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/topologies/NeoPixelRingTopologyTest/NeoPixelRingTopologyTest.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/topologies/NeoPixelTilesDump/NeoPixelTilesDump.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/topologies/NeoPixelTilesTest/NeoPixelTilesTest.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/topologies/NeoPixelTopologyDump/NeoPixelTopologyDump.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/examples/topologies/NeoPixelTopologyTest/NeoPixelTopologyTest.ino">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/extras/curves/circular.png">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/extras/curves/cubic.png">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/extras/curves/different.png">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/extras/curves/exponential.png">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/extras/curves/gamma.png">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/extras/curves/pronounced.png">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/extras/curves/quadratic.png">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/extras/curves/quintic.png">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/extras/curves/sinusoidal.png">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/keywords.txt">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/library.json">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/library.properties">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/NeoPixelAnimator.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/NeoPixelBrightnessBus.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/NeoPixelBus.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/NeoPixelSegmentBus.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/DotStarColorFeatures.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/DotStarGenericMethod.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Esp32_i2s.c">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Esp32_i2s.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HsbColor.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HsbColor.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HslColor.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HslColor.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColor.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColor.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNameStrings.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNameStrings.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorNames.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/HtmlColorShortNames.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Layouts.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Lpd8806ColorFeatures.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Lpd8806GenericMethod.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoArmMethod.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoAvrMethod.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoBitmapFile.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoBuffer.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoBufferContext.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoBufferMethods.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoColorFeatures.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoDib.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEase.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp32I2sMethod.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp32RmtMethod.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp32RmtMethod.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp8266DmaMethod.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp8266UartMethod.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEsp8266UartMethod.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoEspBitBangMethod.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoGamma.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoGamma.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoHueBlend.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoMosaic.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoNrf52xMethod.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAnimator.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoPixelAvr.c">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoRingTopology.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoSegmentFeatures.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoSettings.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoSpriteSheet.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoTiles.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoTm1814ColorFeatures.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/NeoTopology.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/P9813ColorFeatures.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/P9813GenericMethod.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbColor.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbColor.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbwColor.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/RgbwColor.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/SegmentDigit.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/SegmentDigit.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/TwoWireBitBangImple.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/TwoWireBitBangImpleAvr.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/TwoWireSpiImple.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/NeoPixelBus/src/internal/Ws2801GenericMethod.h">
 			<Option target="Z_DUMMY_TARGET"/>
 		</Unit>
 		<Unit filename="C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/.pio/libdeps/doit-esp-prog-debug/arduinoFFT/.gitignore">
