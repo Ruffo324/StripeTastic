@@ -1,11 +1,11 @@
-#include "FileService.h"
+#include "FileSystem.h"
 #include "SPIFFS.h"
 #include <ArduinoLinq.hpp>
 #include <Configuration.h>
 
 namespace Services
 {
-    FileService::FileService()
+    FileSystem::FileSystem()
     {
         _logger = Logger::GetInstance();
 
@@ -16,7 +16,7 @@ namespace Services
         }
     }
 
-    void FileService::ScanFileSystem()
+    void FileSystem::ScanFileSystem()
     {
         File root = SPIFFS.open("/");
         File file;
@@ -30,7 +30,7 @@ namespace Services
             showFileServiceOverview();
     }
 
-    void FileService::showFileServiceOverview()
+    void FileSystem::showFileServiceOverview()
     {
         auto totalMb = humanizeBytes(SPIFFS.totalBytes());
         auto usedMb = humanizeBytes(SPIFFS.usedBytes());
@@ -53,7 +53,7 @@ namespace Services
         _logger->LogTable(_loggerTag, data, true);
     }
 
-    String FileService::fileTypeByExtension(String file)
+    String FileSystem::fileTypeByExtension(String file)
     {
         const String unknown = "text/plain";
 
@@ -83,7 +83,7 @@ namespace Services
         return unknown;
     }
 
-    String FileService::humanizeBytes(size_t byte)
+    String FileSystem::humanizeBytes(size_t byte)
     {
         vector<String> sizes = {"kb", "mb", "gb", "tb", "pt"};
         double converted = byte;
@@ -93,7 +93,7 @@ namespace Services
         return "NaN";
     }
 
-    FileList FileService::GetStaticFiles()
+    FileList FileSystem::GetStaticFiles()
     {
         return _files;
     }

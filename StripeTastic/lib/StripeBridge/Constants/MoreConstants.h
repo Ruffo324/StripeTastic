@@ -33,7 +33,5 @@ namespace StripeBridge
         // static int delaxMin = 1;  // Minimale Verzögerung
         //
         // static int CHANNEL = 34;    // Channel für FFT - Defult MircoEingang
-        static int DC_OFFSET = 447; // Offset für Miro bzw Aux -> bedeutet 0 da zum positiven und "negativen" Ausgelenkt werden muss
-
     } // namespace Constants
 } // namespace StripeBridge

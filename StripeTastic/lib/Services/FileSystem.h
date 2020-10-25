@@ -1,6 +1,6 @@
 #pragma once
+#include "../Logger/Logger.h"
 #include <Arduino.h>
-#include <Logger.h>
 
 #include "SPIFFS.h"
 
@@ -17,10 +17,10 @@ namespace Services
     };
 
     typedef vector<file_fileService> FileList;
-    class FileService
+    class FileSystem
     {
     public:
-        FileService();
+        FileSystem();
         void ScanFileSystem();
         FileList GetStaticFiles();
 

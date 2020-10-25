@@ -1,7 +1,7 @@
+#include "../Logger/Logger.h"
+#include "../Looper/Looper.h"
 #include <Configuration.h>
 #include <DNSServer.h>
-#include <Logger.h>
-#include <LoopService.h>
 #include <WifiService.h>
 
 #include <ESPAsyncWebServer.h>
@@ -14,7 +14,7 @@ namespace Services
     WifiService::WifiService()
     {
         _logger = Logger::GetInstance();
-        _loopService = LoopService::GetInstance();
+        _loopService = Looper::GetInstance();
 
         setHostname();
     }

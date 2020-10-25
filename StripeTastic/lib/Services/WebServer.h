@@ -1,17 +1,17 @@
 #pragma once
+#include "../Logger/Logger.h"
 #include "ArduinoJson.h"
 #include "AsyncJson.h"
 #include "ESPAsyncWebServer.h"
-#include "FileService.h"
+#include "FileSystem.h"
 #include <Arduino.h>
-#include <Logger.h>
 
 namespace Services
 {
-    class WebService
+    class WebServer
     {
     public:
-        WebService();
+        WebServer();
         void Start();
         void Stop();
         void RebuildFileRoutes(FileList fileList);

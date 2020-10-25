@@ -2,33 +2,34 @@
 //#define CONFIG_ASYNC_TCP_RUNNING_CORE 0 //any available core
 //#define CONFIG_ASYNC_TCP_USE_WDT 0      //if enabled, adds between 33us and 200us per event
 
-#include <Configuration.h>
-#include <Services.h>
-#include <StripeBridge.h>
-#include <StripeInstance.h>
+#include "../lib/StripeBridge/StripeBridge.h"
+#include "../lib/StripeBridge/StripeInstance.h"
+#include "../lib/Configuration/Configuration.h"
+#include "../lib/Services/WifiService.h"
+#include "../lib/Services/WebServer.h"
 
 auto logger = Services::Logger::GetInstance();
 Services::WifiService *_wifiService;
-Services::LoopService *_loopService;
-Services::FileService *_fileService;
-Services::WebService *_webService;
+Services::Looper *_loopService;
+Services::FileSystem *_fileService;
+Services::WebServer *_webService;
 
 void setupServices()
 {
     // Setup loop service.
-    _loopService = Services::LoopService::GetInstance();
+    _loopService = Services::Looper::GetInstance();
 
-    // Initialize FileService.
-    _fileService = new Services::FileService();
+    // Initialize FileSystem.
+    _fileService = new Services::FileSystem();
     _fileService->ScanFileSystem();
 
     // WifiService, accespoint (later from config)
     _wifiService = new Services::WifiService();
     _wifiService->Connect("***REMOVED***", "***REMOVED***");
 
-    // WebService, route static files.
+    // WebServer, route static files.
     auto staticFiles = _fileService->GetStaticFiles();
-    _webService = new Services::WebService();
+    _webService = new Services::WebServer();
     _webService->RebuildFileRoutes(staticFiles);
     _webService->Start();
 }
@@ -47,11 +48,11 @@ void setup()
     StripeBridge::StripeBridge::EnvironmentSetup();
 
     // Led stripe one
-    const int stripeOnePin = 23, stripeOnePixel = 280;
+    const int stripeOnePin = 23, stripeOnePixel = 300;
     _stripeOne = new StripeBridge::StripeInstance<NeoEsp32I2s1800KbpsMethod>(stripeOnePin, stripeOnePixel, _webService);
 
     // Led stripe two
-    const int stripeTwoPin = 21, stripeTwoPixel = 280;
+    const int stripeTwoPin = 21, stripeTwoPixel = 300;
     _stripeTwo = new StripeBridge::StripeInstance<NeoEsp32I2s0800KbpsMethod>(stripeTwoPin, stripeTwoPixel, _webService);
 
     // Register REST listener for both stripes.

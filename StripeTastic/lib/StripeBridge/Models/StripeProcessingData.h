@@ -1,12 +1,12 @@
 #pragma once
 
+#include "../Enums/ColorModes.h"
+#include "../Enums/EffectDirections.h"
+#include "../Enums/Effects.h"
+#include "../Enums/OperationModes.h"
+#include "ArduinoJson.h"
 #include <Arduino.h>
 #include <NeoPixelBrightnessBus.h>
-#include "Enums/OperationModes.h"
-#include "Enums/ColorModes.h"
-#include "Enums/Effects.h"
-#include "Enums/EffectDirections.h"
-#include "ArduinoJson.h"
 
 namespace StripeBridge
 {

@@ -5,7 +5,7 @@
 
 namespace Services
 {
-    class LoopService
+    class Looper
     {
     public:
         struct Registration
@@ -14,14 +14,14 @@ namespace Services
             long LastCalled;
             std::function<void()> Function;
         };
-        static LoopService *GetInstance();
+        static Looper *GetInstance();
         void InvokeLoop();
         void Register(String key, std::function<void()> function, int intervalMs = 0);
         void Unregister(String key);
 
     private:
-        LoopService();
-        static LoopService *_instance;
+        Looper();
+        static Looper *_instance;
         std::map<String, Registration> _registrations;
     };
 } // namespace Services

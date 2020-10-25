@@ -1,7 +1,7 @@
+#include "../Logger/Logger.h"
+#include "../Looper/Looper.h"
 #include <Arduino.h>
 #include <DNSServer.h>
-#include <Logger.h>
-#include <LoopService.h>
 #include <WiFi.h>
 #include <functional>
 
@@ -35,7 +35,7 @@ namespace Services
     private:
         const String _loggerTag = "WiFi";
         bool _accesPointMode;
-        LoopService *_loopService;
+        Looper *_loopService;
         Logger *_logger;
         DNSServer _dnsServer;
         void setHostname();

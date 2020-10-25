@@ -1,11 +1,13 @@
 #pragma once
 
-#include <type_traits>
-#include <NeoPixelBrightnessBus.h>
-#include "Models/StripeProcessingData.h"
-#include "Models/StripeInformation.h"
+#include "../Logger/Logger.h"
+#include "../Looper/Looper.h"
 #include "Models/StripeEffectsData.h"
-#include "Services.h"
+#include "Models/StripeInformation.h"
+#include "Models/StripeProcessingData.h"
+#include <NeoPixelBrightnessBus.h>
+#include <WebServer.h>
+#include <type_traits>
 
 namespace StripeBridge
 {
@@ -17,10 +19,11 @@ namespace StripeBridge
                       "TRmtMethod must be one of the 'NeoEsp32I2sXYZKbpsMethod' types.");
 
         const String _loggerTag = "STRIPE";
+
     private:
         Services::Logger *_logger;
-        Services::LoopService *_loopService;
-        Services::WebService *_webService;
+        Services::Looper *_loopService;
+        Services::WebServer *_webService;
 
         NeoPixelBrightnessBus<NeoGrbFeature, TRmtMethod> _stripeBus;
         std::vector<long> _pixels;
@@ -28,7 +31,8 @@ namespace StripeBridge
         Models::StripeProcessingData _processingData;
         Models::StripeEffectsData _effectsData;
         String _loopRegistrationKey;
-        bool _processingDataChanged;
+        bool _processingDataChanged{};
+        int _dcOffset = 447;
 
         void Initialize();
         // TODO: Re-initialize, to change pixel count at runtime.
@@ -72,7 +76,7 @@ namespace StripeBridge
         void fillup4();
 
     public:
-        StripeInstance(int pin, int pixelCount, Services::WebService *webService);
+        StripeInstance(int pin, int pixelCount, Services::WebServer *webService);
         /// Updates the stripe processing data struct.
         void UpdateProcessingData(Models::StripeProcessingData processingData);
     };

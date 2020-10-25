@@ -1,8 +1,8 @@
 #pragma once
 
+#include "../Constants/MoreConstants.h"
 #include <Arduino.h>
 #include <NeoPixelBrightnessBus.h>
-#include "Constants/MoreConstants.h"
 
 namespace StripeBridge
 {

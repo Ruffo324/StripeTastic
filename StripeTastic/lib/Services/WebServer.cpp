@@ -1,11 +1,11 @@
-#include <Configuration.h>
-#include "WebService.h"
+#include "WebServer.h"
 #include "ArduinoJson.h"
 #include "AsyncJson.h"
+#include <Configuration.h>
 
 namespace Services
 {
-    void WebService::RebuildFileRoutes(FileList fileList)
+    void WebServer::RebuildFileRoutes(FileList fileList)
     {
         if (_webServer.removeHandler(&_serverEvents))
             _logger->Logln(_loggerTag, "event handler removed.");
@@ -21,7 +21,7 @@ namespace Services
         _webServer.addHandler(&_serverEvents);
     }
 
-    void WebService::RegisterRestCall(String eventPath, std::function<void(JsonObject data)> function)
+    void WebServer::RegisterRestCall(String eventPath, std::function<void(JsonObject data)> function)
     {
         AsyncCallbackJsonWebHandler *handler = new AsyncCallbackJsonWebHandler(eventPath, [function](AsyncWebServerRequest *request, JsonVariant json) {
             JsonObject jsonObj = json.as<JsonObject>();
@@ -33,12 +33,12 @@ namespace Services
         _webServer.addHandler(handler);
     }
 
-    void WebService::SendEvent(String eventName, String data)
+    void WebServer::SendEvent(String eventName, String data)
     {
         _serverEvents.send(data.c_str(), eventName.c_str());
     }
 
-    void WebService::Unregister(String eventPath)
+    void WebServer::Unregister(String eventPath)
     {
         auto position = _registeredJsonRequests.find(eventPath);
         if (position != _registeredJsonRequests.end())
@@ -48,24 +48,24 @@ namespace Services
         }
     }
 
-    void WebService::Start()
+    void WebServer::Start()
     {
         _webServer.begin();
     }
 
-    void WebService::Stop()
+    void WebServer::Stop()
     {
         _webServer.end();
     }
 
-    WebService::WebService()
+    WebServer::WebServer()
         : _webServer(Configuration::DefaultWebServerPort), _serverEvents("/events") // TODO: Create const for "/events"
     {
         _logger->Logger::GetInstance();
         _logger->Logln(_loggerTag, "Webserver started with port " + String(Configuration::DefaultWebServerPort) + ".");
     }
 
-    void WebService::addFileRoute(String requestPath, String path, String mimeType)
+    void WebServer::addFileRoute(String requestPath, String path, String mimeType)
     {
         _webServer.on(requestPath.c_str(), HTTP_GET, [path, mimeType](AsyncWebServerRequest *request) {
             request->send(SPIFFS, path, mimeType);

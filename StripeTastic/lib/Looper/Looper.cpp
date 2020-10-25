@@ -1,19 +1,19 @@
-#include "LoopService.h"
+#include "Looper.h"
 
 namespace Services
 {
-    LoopService *LoopService::_instance = 0;
+    Looper *Looper::_instance = 0;
 
-    LoopService::LoopService()
+    Looper::Looper()
     {
     }
 
-    LoopService *LoopService::GetInstance()
+    Looper *Looper::GetInstance()
     {
-        return _instance == 0 ? _instance = new LoopService() : _instance;
+        return _instance == 0 ? _instance = new Looper() : _instance;
     }
 
-    void LoopService::InvokeLoop()
+    void Looper::InvokeLoop()
     {
         for (auto &item : _registrations)
         {
@@ -29,7 +29,7 @@ namespace Services
         }
     }
 
-    void LoopService::Register(String key, std::function<void()> function, int intervalMs)
+    void Looper::Register(String key, std::function<void()> function, int intervalMs)
     {
         Registration newRegistration;
         newRegistration.Function = function;
@@ -39,7 +39,7 @@ namespace Services
         _registrations[key] = newRegistration;
     }
 
-    void LoopService::Unregister(String key)
+    void Looper::Unregister(String key)
     {
         auto position = _registrations.find(key);
         if (position != _registrations.end())

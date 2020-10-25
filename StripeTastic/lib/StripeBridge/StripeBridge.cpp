@@ -1,5 +1,5 @@
 #include "StripeBridge.h"
-#include "Services.h"
+#include "../Logger/Logger.h"
 #include "Configuration.h"
 
 namespace StripeBridge
@@ -9,6 +9,7 @@ namespace StripeBridge
     bool StripeBridge::_environmentSetupDone = false;
     int StripeBridge::_totalStripeInstances = 0;
 
+    // TODO: Re-structure as StripeFactory.!
     void StripeBridge::EnvironmentSetup()
     {
         pinMode(Configuration::GPIOMicrophonePin, INPUT);
