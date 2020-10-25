@@ -1,9 +1,11 @@
+# Language: Cpp
 BasedOnStyle: LLVM
+Standard: "c++17"
 UseTab: Never
 IndentWidth: 4
 TabWidth: 4
 BreakBeforeBraces: Allman
-AllowShortIfStatementsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: "false"
 IndentCaseLabels: false
 ColumnLimit: 0
 AccessModifierOffset: -4

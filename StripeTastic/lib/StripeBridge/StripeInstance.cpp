@@ -1,6 +1,6 @@
 #include "StripeInstance.h"
 #include "../Configuration/Configuration.h"
-#include "Colors/Colors.cpp"
+#include "Colors.h"
 #include "StripeBridge.h"
 #include <Arduino.h>
 
