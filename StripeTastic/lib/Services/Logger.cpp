@@ -1,13 +1,13 @@
-#include <Arduino.h>
 #include "Logger.h"
 #include "ArduinoLinq.hpp"
+#include <Arduino.h>
 
 namespace Services
 {
     using namespace std;
     Logger *Logger::_instance = 0;
 
-    Logger::Logger()
+    Logger::Logger() : _listeners(0)
     {
     }
 
