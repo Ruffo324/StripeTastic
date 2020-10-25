@@ -1,5 +1,0 @@
-C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/cmake-build-default/CMakeFiles/Production.dir
-C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/cmake-build-default/CMakeFiles/edit_cache.dir
-C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/cmake-build-default/CMakeFiles/Debug.dir
-C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/cmake-build-default/CMakeFiles/Z_DUMMY_TARGET.dir
-C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/cmake-build-default/CMakeFiles/rebuild_cache.dir

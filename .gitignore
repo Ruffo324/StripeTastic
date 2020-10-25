@@ -52,3 +52,7 @@ Mkfile.old
 dkms.conf
 **/node_modules/
 StripeTastic/.idea
+StripeTastic/cmake-build-doit-production
+StripeTastic/cmake-build-debug
+StripeTastic/cmake-build-doit-esp-prog-debug
+StripeTastic/cmake-build-default
