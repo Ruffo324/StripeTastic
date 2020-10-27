@@ -60,5 +60,8 @@ dkms.conf
 .pio
 StripeTastic/.vscode
 StripeTasticPWA/obj/**
-.gitignore
 .vs
+.vscode
+StripeTastic.Client/obj
+StripeTastic.Client/bin
+StripeTastic.Firmware/data
