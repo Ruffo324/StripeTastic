@@ -57,5 +57,8 @@ dkms.conf
 # StripeTastic/cmake-build-doit-esp-prog-debug
 # StripeTastic/cmake-build-default
 # StripeTastic/cmake-build-*
-StripeTastic/.pio
+.pio
 StripeTastic/.vscode
+StripeTasticPWA/obj/**
+.gitignore
+.vs

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeTasticPWA", "StripeTasticPWA.csproj", "{2F51ED62-0ED7-4023-9553-60A6AE5D82C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F51ED62-0ED7-4023-9553-60A6AE5D82C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F51ED62-0ED7-4023-9553-60A6AE5D82C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F51ED62-0ED7-4023-9553-60A6AE5D82C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F51ED62-0ED7-4023-9553-60A6AE5D82C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA13D3CE-B73C-4261-A207-21C0C02EDE33}
+	EndGlobalSection
+EndGlobal
