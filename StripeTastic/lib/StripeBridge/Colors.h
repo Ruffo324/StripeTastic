@@ -7,23 +7,23 @@ namespace StripeBridge
     namespace Colors
     {
         /// No color, no light, just off.
-        static inline auto const Off = RgbColor(0, 0, 0);
+        static auto const Off = RgbColor(0, 0, 0);
 
-        static inline auto const Red = RgbColor(255, 0, 0);
-        static inline auto const Green = RgbColor(0, 255, 0);
-        static inline auto const Blue = RgbColor(0, 0, 255);
-        static inline auto const White = RgbColor(200, 200, 200);
-        static inline auto const Pink = RgbColor(239, 79, 117);
-        static inline auto const Yellow = RgbColor(255, 241, 82);
-        static inline auto const Orange = RgbColor(255, 130, 1);
-        static inline auto const Teal = RgbColor(0, 200, 200);
-        static inline auto const Lila = RgbColor(200, 0, 200);
-        static inline auto const Cyan = RgbColor(75, 196, 213);
+        static auto const Red = RgbColor(255, 0, 0);
+        static auto const Green = RgbColor(0, 255, 0);
+        static auto const Blue = RgbColor(0, 0, 255);
+        static auto const White = RgbColor(200, 200, 200);
+        static auto const Pink = RgbColor(239, 79, 117);
+        static auto const Yellow = RgbColor(255, 241, 82);
+        static auto const Orange = RgbColor(255, 130, 1);
+        static auto const Teal = RgbColor(0, 200, 200);
+        static auto const Lila = RgbColor(200, 0, 200);
+        static auto const Cyan = RgbColor(75, 196, 213);
 
         /**
          * Set of random colors.
          */
-        static inline std::vector<RgbColor> const RandomColors = {
+        static std::vector<RgbColor> const RandomColors = {
             Red,
             Green,
             Blue,
@@ -35,7 +35,7 @@ namespace StripeBridge
             Lila,
             Cyan,
         };
-        
+
         /// Gives u a random color from the RandomColors vector.
         RgbColor GetRandomColor()
         {
