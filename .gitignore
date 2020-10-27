@@ -65,3 +65,36 @@ StripeTasticPWA/obj/**
 StripeTastic.Client/obj
 StripeTastic.Client/bin
 StripeTastic.Firmware/data
+#Junk Files
+*.DS_Store
+[Tt]humbs.db
+
+#Visual Studio Files
+
+*.user
+*.suo
+*.exe
+*.pdb
+*.aps
+*_i.c
+*_p.c
+*.ncb
+*.tlb
+*.tlh
+*.cache
+*.Cache
+*.ncb
+*.ilk
+*.log
+*.lib
+*.sbr
+*.sdf
+ipch/
+*.dbmdl
+*.csproj.user
+*.cache
+*.swp
+*.vspscc
+*.vssscc
+*.bak.*
+*.bak

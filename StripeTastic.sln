@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeTastic.Client", "StripeTastic.Client\StripeTastic.Client.csproj", "{7B09DF86-D6CD-4713-AA91-E8F254B0674A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StripeTastic.Client", "StripeTastic.Client\StripeTastic.Client.csproj", "{7B09DF86-D6CD-4713-AA91-E8F254B0674A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
