@@ -25,7 +25,7 @@ void setupServices()
 
     // WifiService, accespoint (later from config)
     _wifiService = new Services::WifiService();
-    _wifiService->Connect("SlowWormWiFi", "5681411200215091");
+    _wifiService->Connect("***REMOVED***", "***REMOVED***");
 
     // WebServer, route static files.
     auto staticFiles = _fileService->GetStaticFiles();
