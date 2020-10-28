@@ -2,11 +2,12 @@
 
 #include "../Logger/Logger.h"
 #include "../Looper/Looper.h"
+#include "../WebServer/WebServer.h"
+
 #include "Models/StripeEffectsData.h"
 #include "Models/StripeInformation.h"
 #include "Models/StripeProcessingData.h"
 #include <NeoPixelBrightnessBus.h>
-#include <WebServer.h>
 #include <type_traits>
 
 namespace StripeBridge

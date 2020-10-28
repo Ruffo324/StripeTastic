@@ -2,11 +2,11 @@
 //#define CONFIG_ASYNC_TCP_RUNNING_CORE 0 //any available core
 //#define CONFIG_ASYNC_TCP_USE_WDT 0      //if enabled, adds between 33us and 200us per event
 
-#include "../lib/StripeBridge/StripeBridge.h"
-#include "../lib/StripeBridge/StripeInstance.h"
 #include "../lib/Configuration/Configuration.h"
 #include "../lib/Services/WifiService.h"
-#include "../lib/Services/WebServer.h"
+#include "../lib/StripeBridge/StripeBridge.h"
+#include "../lib/StripeBridge/StripeInstance.h"
+#include "../lib/WebServer/WebServer.h"
 
 auto logger = Services::Logger::GetInstance();
 Services::WifiService *_wifiService;
@@ -19,18 +19,12 @@ void setupServices()
     // Setup loop service.
     _loopService = Services::Looper::GetInstance();
 
-    // Initialize FileSystem.
-    _fileService = new Services::FileSystem();
-    _fileService->ScanFileSystem();
-
     // WifiService, accespoint (later from config)
     _wifiService = new Services::WifiService();
     _wifiService->Connect("***REMOVED***", "***REMOVED***");
 
     // WebServer, route static files.
-    auto staticFiles = _fileService->GetStaticFiles();
     _webService = new Services::WebServer();
-    _webService->RebuildFileRoutes(staticFiles);
     _webService->Start();
 }
 

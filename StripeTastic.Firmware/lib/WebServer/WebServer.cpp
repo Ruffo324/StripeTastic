@@ -2,25 +2,11 @@
 #include "ArduinoJson.h"
 #include "AsyncJson.h"
 #include <Configuration.h>
+#include <Lit
 
 namespace Services
 {
-    void WebServer::RebuildFileRoutes(FileList fileList)
-    {
-        if (_webServer.removeHandler(&_serverEvents))
-            _logger->Logln(_loggerTag, "event handler removed.");
-
-        _webServer.reset();
-        for (auto &&file : fileList)
-        {
-            if (file.path.endsWith(Configuration::IndexPageName))
-                addFileRoute("/", file.path, file.type);
-
-            addFileRoute(file.path, file.path, file.type);
-        }
-        _webServer.addHandler(&_serverEvents);
-    }
-
+    // TODO: Think about renaming "WebServer" to something like "ClientCommunicator".
     void WebServer::RegisterRestCall(String eventPath, std::function<void(JsonObject data)> function)
     {
         AsyncCallbackJsonWebHandler *handler = new AsyncCallbackJsonWebHandler(eventPath, [function](AsyncWebServerRequest *request, JsonVariant json) {
@@ -48,6 +34,20 @@ namespace Services
         }
     }
 
+    void WebServer::Initialize()
+    {
+
+        if (_webServer.removeHandler(&_serverEvents))
+            _logger->Logln(_loggerTag, "Event handler removed.");
+
+        _webServer.reset();
+
+LittleFS
+        server.serveStatic("/", SPIFFS, "/wwwroot/");
+
+        _webServer.addHandler(&_serverEvents);
+    }
+
     void WebServer::Start()
     {
         _webServer.begin();
@@ -58,17 +58,11 @@ namespace Services
         _webServer.end();
     }
 
+    // TODO: Create const for "/events"
     WebServer::WebServer()
-        : _webServer(Configuration::DefaultWebServerPort), _serverEvents("/events") // TODO: Create const for "/events"
+        : _webServer(Configuration::DefaultWebServerPort), _serverEvents("/events"), _webdavServer("/dav")
     {
         _logger->Logger::GetInstance();
         _logger->Logln(_loggerTag, "Webserver started with port " + String(Configuration::DefaultWebServerPort) + ".");
-    }
-
-    void WebServer::addFileRoute(String requestPath, String path, String mimeType)
-    {
-        _webServer.on(requestPath.c_str(), HTTP_GET, [path, mimeType](AsyncWebServerRequest *request) {
-            request->send(SPIFFS, path, mimeType);
-        });
     }
 } // namespace Services
