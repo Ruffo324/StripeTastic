@@ -1,0 +1,30 @@
+{
+  "name": "stripe-tastic",
+  "version": "1.0.0",
+  "description": "Led stripe control web interface",
+  "main": "app.js",
+  "scripts": {
+    "test": "#"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ruffo324/StripeTastic.git"
+  },
+  "keywords": [
+    "esp32",
+    "stripe",
+    "led"
+  ],
+  "author": "Christian Groothoff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ruffo324/StripeTastic/issues"
+  },
+  "homepage": "https://github.com/Ruffo324/StripeTastic#readme",
+  "dependencies": {
+    "@types/jquery": "^3.5.4",
+    "@types/jquery.window": "^5.0.29",
+    "@types/sizzle": "^2.3.2",
+    "tsc": "^1.20150623.0"
+  }
+}

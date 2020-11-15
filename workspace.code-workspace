@@ -1,0 +1,11 @@
+{
+  "folders": [
+	{
+		"path": "StripeTastic.Firmware"
+	},
+	{
+		"path": "StripeTastic.Client"
+	}
+],
+  "settings": {}
+}
