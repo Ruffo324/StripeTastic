@@ -73,46 +73,47 @@ define("Modules/NavigationModule", ["require", "exports", "Utils/Utils"], functi
         }
     })(NavigationModule = exports.NavigationModule || (exports.NavigationModule = {}));
 });
+define("Constants/EventNames", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.EventNames = void 0;
+    /**
+     * The event names for the communication with the web client.
+     * Ensure that the values are identical to "source\Constants\EventNames.ts"!
+     */
+    var EventNames;
+    (function (EventNames) {
+        EventNames["DeviceSettings"] = "DeviceSettings";
+    })(EventNames = exports.EventNames || (exports.EventNames = {}));
+});
 define("Modules/ServerEventListener", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.ServerEventListener = void 0;
     var ServerEventListener;
     (function (ServerEventListener) {
-        ;
         function Listen() {
             setupEventSource();
             listenToEvents();
         }
         ServerEventListener.Listen = Listen;
+        function AddListener(eventName, eventCallback) {
+            ServerEventListener.eventSource.addEventListener(eventName, (e) => {
+                try {
+                    let eventData = JSON.parse(e.data);
+                    eventCallback(eventData);
+                }
+                catch (error) {
+                    console.error(error);
+                }
+            });
+        }
+        ServerEventListener.AddListener = AddListener;
         function listenToEvents() {
             ServerEventListener.eventSource.addEventListener('message', function (e) {
                 console.debug(e); // debug
                 // var data = JSON.parse(e.data);
                 // console.log(data);
-            }, false);
-            ServerEventListener.eventSource.addEventListener('PixelData', function (e) {
-                // console.debug(e); // Debug
-                var pixelData = JSON.parse(e.data);
-                // console.debug(pixelData);
-                // var $element = $('#stripe_23');
-                // if(!$element.length)
-                var parentId = `#stripe_${pixelData.Pin}`;
-                var parentContainer = $(parentId);
-                if (!parentContainer.length)
-                    parentContainer = $(`<div id="stripe_${pixelData.Pin}"></div>`).appendTo('#stripe_container');
-                var timeoutForEachPixel = (1000 / pixelData.Pixels.length);
-                for (let i = 0; i < pixelData.Pixels.length; i++) {
-                    let color = pixelData.Pixels[i].toString(16);
-                    let pixelClass = `${parentId} > .pixel-${i}`;
-                    let pixelElement = $(pixelClass);
-                    if (!pixelElement.length)
-                        pixelElement = $(`<div class="pixel pixel-${i}"></div>`).appendTo(parentContainer);
-                    let timeoutForThisPixel = timeoutForEachPixel * i;
-                    setTimeout(() => pixelElement.css('background-color', color == "0" ? "transparent" : `#${color}`), timeoutForThisPixel);
-                }
-                // $("#debug-pixel-data").append(e.data);
-                //            let pixelData: SetPixelColorData = JSON.parse(e.data);
             }, false);
             ServerEventListener.eventSource.addEventListener('open', function (e) {
                 // Connection was opened.
@@ -121,6 +122,7 @@ define("Modules/ServerEventListener", ["require", "exports"], function (require,
             ServerEventListener.eventSource.addEventListener('error', function (e) {
                 if (this.readyState == EventSource.CLOSED) {
                     console.debug("Connection closed!");
+                    return;
                 }
                 console.error(e);
             }, false);
@@ -133,22 +135,104 @@ define("Modules/ServerEventListener", ["require", "exports"], function (require,
             else {
                 // Result to xhr polling :(
                 console.error("HTML 5 not supported by browser!"); // TODO: Just don't allow outdated browsers.
+                alert("Use a modern Browser.");
             }
         }
     })(ServerEventListener = exports.ServerEventListener || (exports.ServerEventListener = {}));
 });
-define("app", ["require", "exports", "Modules/NavigationModule", "Modules/ServerEventListener"], function (require, exports, NavigationModule_1, ServerEventListener_1) {
+define("Models/DeviceSettings", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    // Load and Bind all required modules.
+});
+define("Modules/DeviceSettingsHandler", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.DeviceSettingsHandler = void 0;
+    var DeviceSettingsHandler;
+    (function (DeviceSettingsHandler) {
+        var currentSettings;
+        function RequestDeviceSettings() {
+        }
+        DeviceSettingsHandler.RequestDeviceSettings = RequestDeviceSettings;
+    })(DeviceSettingsHandler = exports.DeviceSettingsHandler || (exports.DeviceSettingsHandler = {}));
+});
+define("app", ["require", "exports", "Modules/NavigationModule", "Modules/ServerEventListener", "Modules/DeviceSettingsHandler"], function (require, exports, NavigationModule_1, ServerEventListener_1, DeviceSettingsHandler_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    // Load, Bind and setup all required modules.
     $(() => {
         NavigationModule_1.NavigationModule.Bind();
         ServerEventListener_1.ServerEventListener.Listen();
+        DeviceSettingsHandler_1.DeviceSettingsHandler.RequestDeviceSettings();
     });
 });
 define("Models/IStripeProcessingData", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+});
+define("Modules/AlertHandler", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.AlertHandler = void 0;
+    var AlertHandler;
+    (function (AlertHandler) {
+        var alertCounter = 0;
+        const toastContainer = $("#toast-container");
+        const toastTemplate = `
+	<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+		<div class="toast-header">
+			<strong class="mr-auto">Bootstrap</strong>
+			<small>11 mins ago</small>
+			<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+			<div class="toast-body">
+			Hello, world! This is a toast message.
+		</div>
+	  </div>`;
+        function innerAlert(type, message) {
+            const showAlertFor = 1 * 1000;
+            var alertId = `ah-alert-${alertCounter++}`;
+            var newAlert = $("body#ah-container").append(`<div class="ah-alert" id="${alertId}">`);
+            newAlert.toggleClass("visible");
+            setTimeout(() => {
+                newAlert.toggleClass("visible");
+            }, showAlertFor);
+        }
+        function Primary(message) {
+            innerAlert("primary", message);
+        }
+        AlertHandler.Primary = Primary;
+        function Secondary(message) {
+            innerAlert("secondary", message);
+        }
+        AlertHandler.Secondary = Secondary;
+        function Success(message) {
+            innerAlert("success", message);
+        }
+        AlertHandler.Success = Success;
+        function Danger(message) {
+            innerAlert("danger", message);
+        }
+        AlertHandler.Danger = Danger;
+        function Warning(message) {
+            innerAlert("warning", message);
+        }
+        AlertHandler.Warning = Warning;
+        function Info(message) {
+            innerAlert("info", message);
+        }
+        AlertHandler.Info = Info;
+        function Light(message) {
+            innerAlert("light", message);
+        }
+        AlertHandler.Light = Light;
+        function Dark(message) {
+            innerAlert("dark", message);
+        }
+        AlertHandler.Dark = Dark;
+    })(AlertHandler = exports.AlertHandler || (exports.AlertHandler = {}));
 });
 // TODO: Rewrite the commented code below..
 /**
