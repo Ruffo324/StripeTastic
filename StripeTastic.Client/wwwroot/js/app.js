@@ -156,20 +156,6 @@ define("Modules/DeviceSettingsHandler", ["require", "exports"], function (requir
         DeviceSettingsHandler.RequestDeviceSettings = RequestDeviceSettings;
     })(DeviceSettingsHandler = exports.DeviceSettingsHandler || (exports.DeviceSettingsHandler = {}));
 });
-define("app", ["require", "exports", "Modules/NavigationModule", "Modules/ServerEventListener", "Modules/DeviceSettingsHandler"], function (require, exports, NavigationModule_1, ServerEventListener_1, DeviceSettingsHandler_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    // Load, Bind and setup all required modules.
-    $(() => {
-        NavigationModule_1.NavigationModule.Bind();
-        ServerEventListener_1.ServerEventListener.Listen();
-        DeviceSettingsHandler_1.DeviceSettingsHandler.RequestDeviceSettings();
-    });
-});
-define("Models/IStripeProcessingData", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-});
 define("Modules/AlertHandler", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -177,20 +163,6 @@ define("Modules/AlertHandler", ["require", "exports"], function (require, export
     var AlertHandler;
     (function (AlertHandler) {
         var alertCounter = 0;
-        const toastContainer = $("#toast-container");
-        const toastTemplate = `
-	<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-		<div class="toast-header">
-			<strong class="mr-auto">Bootstrap</strong>
-			<small>11 mins ago</small>
-			<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
-			</div>
-			<div class="toast-body">
-			Hello, world! This is a toast message.
-		</div>
-	  </div>`;
         function innerAlert(type, message) {
             const showAlertFor = 1 * 1000;
             var alertId = `ah-alert-${alertCounter++}`;
@@ -233,6 +205,21 @@ define("Modules/AlertHandler", ["require", "exports"], function (require, export
         }
         AlertHandler.Dark = Dark;
     })(AlertHandler = exports.AlertHandler || (exports.AlertHandler = {}));
+});
+define("app", ["require", "exports", "Modules/NavigationModule", "Modules/ServerEventListener", "Modules/DeviceSettingsHandler", "Modules/AlertHandler"], function (require, exports, NavigationModule_1, ServerEventListener_1, DeviceSettingsHandler_1, AlertHandler_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    // Load, Bind and setup all required modules.
+    $(() => {
+        setInterval(() => AlertHandler_1.AlertHandler.Danger("test"), 3000);
+        NavigationModule_1.NavigationModule.Bind();
+        ServerEventListener_1.ServerEventListener.Listen();
+        DeviceSettingsHandler_1.DeviceSettingsHandler.RequestDeviceSettings();
+    });
+});
+define("Models/IStripeProcessingData", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
 });
 // TODO: Rewrite the commented code below..
 /**
