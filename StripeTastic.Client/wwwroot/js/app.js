@@ -164,12 +164,16 @@ define("Modules/AlertHandler", ["require", "exports"], function (require, export
     (function (AlertHandler) {
         var alertCounter = 0;
         function innerAlert(type, message) {
-            const showAlertFor = 1 * 1000;
+            const showAlertFor = 10 * 1000;
             var alertId = `ah-alert-${alertCounter++}`;
-            var newAlert = $("body#ah-container").append(`<div class="ah-alert" id="${alertId}">`);
+            console.debug(`alertId: ${alertId}`); // debug
+            // Create alert element.
+            $("#ah-container").append(`<div class="ah-alert ah-alert-${type}" id="${alertId}">${message}</div>`);
+            let newAlert = $(`#${alertId}`);
             newAlert.toggleClass("visible");
             setTimeout(() => {
                 newAlert.toggleClass("visible");
+                console.debug(`alertId: ${alertId} visible.`);
             }, showAlertFor);
         }
         function Primary(message) {
@@ -211,7 +215,18 @@ define("app", ["require", "exports", "Modules/NavigationModule", "Modules/Server
     Object.defineProperty(exports, "__esModule", { value: true });
     // Load, Bind and setup all required modules.
     $(() => {
-        setInterval(() => AlertHandler_1.AlertHandler.Danger("test"), 3000);
+        setInterval(function alertTestFunc() {
+            const maxWaitMs = 15 * 1000;
+            setTimeout(() => AlertHandler_1.AlertHandler.Primary(Date.now().toLocaleString()), Math.random() * maxWaitMs);
+            setTimeout(() => AlertHandler_1.AlertHandler.Secondary(Date.now().toLocaleString()), Math.random() * maxWaitMs);
+            setTimeout(() => AlertHandler_1.AlertHandler.Success(Date.now().toLocaleString()), Math.random() * maxWaitMs);
+            setTimeout(() => AlertHandler_1.AlertHandler.Danger(Date.now().toLocaleString()), Math.random() * maxWaitMs);
+            setTimeout(() => AlertHandler_1.AlertHandler.Warning(Date.now().toLocaleString()), Math.random() * maxWaitMs);
+            setTimeout(() => AlertHandler_1.AlertHandler.Info(Date.now().toLocaleString()), Math.random() * maxWaitMs);
+            setTimeout(() => AlertHandler_1.AlertHandler.Light(Date.now().toLocaleString()), Math.random() * maxWaitMs);
+            setTimeout(() => AlertHandler_1.AlertHandler.Dark(Date.now().toLocaleString()), Math.random() * maxWaitMs);
+            return alertTestFunc;
+        }(), Math.random() * 60000); // Debug.
         NavigationModule_1.NavigationModule.Bind();
         ServerEventListener_1.ServerEventListener.Listen();
         DeviceSettingsHandler_1.DeviceSettingsHandler.RequestDeviceSettings();

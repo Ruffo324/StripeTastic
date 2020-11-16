@@ -1,8 +1,48 @@
+/*************************************************************************
+ * Global variables.
+ *************************************************************************/
+
+:root {
+  /* Margin */
+  --margin-default: 16px;
+
+  /* Padding */
+  --padding-small: 8px;
+  --padding-default: 16px;
+
+  /* Colors */
+  --color-primary: #00aeff;
+  --color-secondary: #46b8fa;
+  --color-success: #5de073;
+  --color-danger: #ff7300;
+  --color-warning: #ffd000;
+  --color-info: #6495ce;
+  --color-light: #ffffff;
+  --color-dark: #252525;
+
+  /* Transitions */
+
+  /* Shadows */
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --shadow-3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  --shadow-4: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  --shadow-5: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+/*************************************************************************
+ * HTML overrides.
+ *************************************************************************/
 html {
   font-family: Helvetica;
   display: inline-block;
   margin: 0px auto;
   text-align: center;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
 }
 
 h1 {
@@ -13,41 +53,58 @@ h1 {
 p {
   font-size: 1.5rem;
 }
-
-.button {
-  display: inline-block;
-  background-color: #008cba;
-  border: none;
-  border-radius: 4px;
-  color: white;
-  padding: 16px 40px;
-  text-decoration: none;
-  font-size: 30px;
-  margin: 2px;
-  cursor: pointer;
-}
-
-.button2 {
-  background-color: #f44336;
-}
+/*************************************************************************
+ * Alerts
+ *************************************************************************/
 
 #ah-container {
-  width: 200px;
-  height: 200px;
+  --width: 30vw;
   display: block;
+  left: calc(100vw - (var(--width) + var(--margin-default)));
   position: absolute;
   z-index: 9999;
-  background: #f44336;
+  text-align: left;
+  /* margin-right: var(--margin-default); */
+}
+
+#ah-container > .ah-alert {
+  /* // TODO: Css var for transition time. */
+  /* display: inline; */
+  position: absolute;
+  margin-top: var(--margin-default);
+  width: var(--width);
+  /* height: 30px; */
   transition: all 500ms;
-  opacity: 1;
+  opacity: 0;
+  padding: var(--padding-small);
+  box-shadow: var(--shadow-4);
 }
-
-#ah-container.ah-alert {
-  float: left;
-  width: 100%;
-  min-height: 30px;
-}
-
-#ah-container.ah-alert.visible {
+#ah-container > .ah-alert.visible {
+  position: relative;
   opacity: 1;
+  transition: all 500ms;
+}
+#ah-container > .ah-alert-primary {
+  background: var(--color-primary);
+}
+#ah-container > .ah-alert-secondary {
+  background: var(--color-secondary);
+}
+#ah-container > .ah-alert-success {
+  background: var(--color-success);
+}
+#ah-container > .ah-alert-danger {
+  background: var(--color-danger);
+}
+#ah-container > .ah-alert-warning {
+  background: var(--color-warning);
+}
+#ah-container > .ah-alert-info {
+  background: var(--color-info);
+}
+#ah-container > .ah-alert-light {
+  background: var(--color-light);
+}
+#ah-container > .ah-alert-dark {
+  background: var(--color-dark);
 }
