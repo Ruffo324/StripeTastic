@@ -165,6 +165,7 @@ define("Modules/AlertHandler", ["require", "exports"], function (require, export
         var alertCounter = 0;
         function innerAlert(type, message) {
             const showAlertFor = 10 * 1000;
+            const destroyAfterMs = 5 * 1000;
             var alertId = `ah-alert-${alertCounter++}`;
             console.debug(`alertId: ${alertId}`); // debug
             // Create alert element.
@@ -174,6 +175,9 @@ define("Modules/AlertHandler", ["require", "exports"], function (require, export
             setTimeout(() => {
                 newAlert.toggleClass("visible");
                 console.debug(`alertId: ${alertId} visible.`);
+                setTimeout(() => {
+                    newAlert.remove();
+                }, destroyAfterMs);
             }, showAlertFor);
         }
         function Primary(message) {
@@ -226,7 +230,7 @@ define("app", ["require", "exports", "Modules/NavigationModule", "Modules/Server
             setTimeout(() => AlertHandler_1.AlertHandler.Light(Date.now().toLocaleString()), Math.random() * maxWaitMs);
             setTimeout(() => AlertHandler_1.AlertHandler.Dark(Date.now().toLocaleString()), Math.random() * maxWaitMs);
             return alertTestFunc;
-        }(), Math.random() * 60000); // Debug.
+        }(), Math.random() * 30000); // Debug.
         NavigationModule_1.NavigationModule.Bind();
         ServerEventListener_1.ServerEventListener.Listen();
         DeviceSettingsHandler_1.DeviceSettingsHandler.RequestDeviceSettings();

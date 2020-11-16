@@ -16,7 +16,7 @@ $(() => {
         setTimeout(() => AlertHandler.Light(Date.now().toLocaleString()), Math.random() * maxWaitMs);
         setTimeout(() => AlertHandler.Dark(Date.now().toLocaleString()), Math.random() * maxWaitMs);
         return alertTestFunc;
-    }(), Math.random() * 60000); // Debug.
+    }(), Math.random() * 30000); // Debug.
 
 
     NavigationModule.Bind();

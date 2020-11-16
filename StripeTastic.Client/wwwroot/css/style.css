@@ -4,6 +4,7 @@
 
 :root {
   /* Margin */
+  --margin-small: 8px;
   --margin-default: 16px;
 
   /* Padding */
@@ -69,21 +70,22 @@ p {
 
 #ah-container > .ah-alert {
   /* // TODO: Css var for transition time. */
-  /* display: inline; */
-  position: absolute;
-  margin-top: var(--margin-default);
   width: var(--width);
-  /* height: 30px; */
   transition: all 500ms;
-  opacity: 0;
-  padding: var(--padding-small);
-  box-shadow: var(--shadow-4);
+  /* opacity: 0; */
+  height: 0;
+  overflow: hidden;
 }
 #ah-container > .ah-alert.visible {
   position: relative;
+  padding: var(--padding-small);
+  margin-bottom: var(--margin-small);
+  height: unset;
+  box-shadow: var(--shadow-2);
   opacity: 1;
   transition: all 500ms;
 }
+
 #ah-container > .ah-alert-primary {
   background: var(--color-primary);
 }
