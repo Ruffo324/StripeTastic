@@ -18,8 +18,11 @@
   --color-danger: #ff7300;
   --color-warning: #ffd000;
   --color-info: #6495ce;
-  --color-light: #ffffff;
+  --color-light: #e2e2e2;
   --color-dark: #252525;
+
+  --text-color-dark: #222222;
+  --text-color-light: #f0f0f0;
 
   /* Transitions */
 
@@ -63,9 +66,9 @@ p {
   display: block;
   left: calc(100vw - (var(--width) + var(--margin-default)));
   position: absolute;
+  top: var(--margin-small);
   z-index: 9999;
   text-align: left;
-  /* margin-right: var(--margin-default); */
 }
 
 #ah-container > .ah-alert {
@@ -109,4 +112,5 @@ p {
 }
 #ah-container > .ah-alert-dark {
   background: var(--color-dark);
+  color: var(--text-color-light);
 }

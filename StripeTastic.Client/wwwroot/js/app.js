@@ -86,7 +86,63 @@ define("Constants/EventNames", ["require", "exports"], function (require, export
         EventNames["DeviceSettings"] = "DeviceSettings";
     })(EventNames = exports.EventNames || (exports.EventNames = {}));
 });
-define("Modules/ServerEventListener", ["require", "exports"], function (require, exports) {
+define("Modules/AlertProvider", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.AlertProvider = void 0;
+    var AlertProvider;
+    (function (AlertProvider) {
+        var alertCounter = 0;
+        function innerAlert(type, message) {
+            const showAlertFor = 10 * 1000;
+            const destroyAfterMs = 5 * 1000;
+            var alertId = `ah-alert-${alertCounter++}`;
+            // Create alert element.
+            $("#ah-container").append(`<div class="ah-alert ah-alert-${type}" id="${alertId}">${message}</div>`);
+            let newAlert = $(`#${alertId}`);
+            newAlert.toggleClass("visible");
+            setTimeout(() => {
+                newAlert.toggleClass("visible");
+                setTimeout(() => {
+                    newAlert.remove();
+                }, destroyAfterMs);
+            }, showAlertFor);
+        }
+        function Primary(message) {
+            innerAlert("primary", message);
+        }
+        AlertProvider.Primary = Primary;
+        function Secondary(message) {
+            innerAlert("secondary", message);
+        }
+        AlertProvider.Secondary = Secondary;
+        function Success(message) {
+            innerAlert("success", message);
+        }
+        AlertProvider.Success = Success;
+        function Danger(message) {
+            innerAlert("danger", message);
+        }
+        AlertProvider.Danger = Danger;
+        function Warning(message) {
+            innerAlert("warning", message);
+        }
+        AlertProvider.Warning = Warning;
+        function Info(message) {
+            innerAlert("info", message);
+        }
+        AlertProvider.Info = Info;
+        function Light(message) {
+            innerAlert("light", message);
+        }
+        AlertProvider.Light = Light;
+        function Dark(message) {
+            innerAlert("dark", message);
+        }
+        AlertProvider.Dark = Dark;
+    })(AlertProvider = exports.AlertProvider || (exports.AlertProvider = {}));
+});
+define("Modules/ServerEventListener", ["require", "exports", "Modules/AlertProvider"], function (require, exports, AlertProvider_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.ServerEventListener = void 0;
@@ -104,6 +160,7 @@ define("Modules/ServerEventListener", ["require", "exports"], function (require,
                     eventCallback(eventData);
                 }
                 catch (error) {
+                    AlertProvider_1.AlertProvider.Danger(error);
                     console.error(error);
                 }
             });
@@ -116,15 +173,14 @@ define("Modules/ServerEventListener", ["require", "exports"], function (require,
                 // console.log(data);
             }, false);
             ServerEventListener.eventSource.addEventListener('open', function (e) {
-                // Connection was opened.
-                console.debug("Now lisetn to esp events.");
+                AlertProvider_1.AlertProvider.Info("Connection to device established.");
             }, false);
             ServerEventListener.eventSource.addEventListener('error', function (e) {
                 if (this.readyState == EventSource.CLOSED) {
-                    console.debug("Connection closed!");
+                    AlertProvider_1.AlertProvider.Warning("Connection closed!");
                     return;
                 }
-                console.error(e);
+                AlertProvider_1.AlertProvider.Danger(e.message);
             }, false);
         }
         function setupEventSource() {
@@ -156,81 +212,11 @@ define("Modules/DeviceSettingsHandler", ["require", "exports"], function (requir
         DeviceSettingsHandler.RequestDeviceSettings = RequestDeviceSettings;
     })(DeviceSettingsHandler = exports.DeviceSettingsHandler || (exports.DeviceSettingsHandler = {}));
 });
-define("Modules/AlertHandler", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.AlertHandler = void 0;
-    var AlertHandler;
-    (function (AlertHandler) {
-        var alertCounter = 0;
-        function innerAlert(type, message) {
-            const showAlertFor = 10 * 1000;
-            const destroyAfterMs = 5 * 1000;
-            var alertId = `ah-alert-${alertCounter++}`;
-            console.debug(`alertId: ${alertId}`); // debug
-            // Create alert element.
-            $("#ah-container").append(`<div class="ah-alert ah-alert-${type}" id="${alertId}">${message}</div>`);
-            let newAlert = $(`#${alertId}`);
-            newAlert.toggleClass("visible");
-            setTimeout(() => {
-                newAlert.toggleClass("visible");
-                console.debug(`alertId: ${alertId} visible.`);
-                setTimeout(() => {
-                    newAlert.remove();
-                }, destroyAfterMs);
-            }, showAlertFor);
-        }
-        function Primary(message) {
-            innerAlert("primary", message);
-        }
-        AlertHandler.Primary = Primary;
-        function Secondary(message) {
-            innerAlert("secondary", message);
-        }
-        AlertHandler.Secondary = Secondary;
-        function Success(message) {
-            innerAlert("success", message);
-        }
-        AlertHandler.Success = Success;
-        function Danger(message) {
-            innerAlert("danger", message);
-        }
-        AlertHandler.Danger = Danger;
-        function Warning(message) {
-            innerAlert("warning", message);
-        }
-        AlertHandler.Warning = Warning;
-        function Info(message) {
-            innerAlert("info", message);
-        }
-        AlertHandler.Info = Info;
-        function Light(message) {
-            innerAlert("light", message);
-        }
-        AlertHandler.Light = Light;
-        function Dark(message) {
-            innerAlert("dark", message);
-        }
-        AlertHandler.Dark = Dark;
-    })(AlertHandler = exports.AlertHandler || (exports.AlertHandler = {}));
-});
-define("app", ["require", "exports", "Modules/NavigationModule", "Modules/ServerEventListener", "Modules/DeviceSettingsHandler", "Modules/AlertHandler"], function (require, exports, NavigationModule_1, ServerEventListener_1, DeviceSettingsHandler_1, AlertHandler_1) {
+define("app", ["require", "exports", "Modules/NavigationModule", "Modules/ServerEventListener", "Modules/DeviceSettingsHandler"], function (require, exports, NavigationModule_1, ServerEventListener_1, DeviceSettingsHandler_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // Load, Bind and setup all required modules.
     $(() => {
-        setInterval(function alertTestFunc() {
-            const maxWaitMs = 15 * 1000;
-            setTimeout(() => AlertHandler_1.AlertHandler.Primary(Date.now().toLocaleString()), Math.random() * maxWaitMs);
-            setTimeout(() => AlertHandler_1.AlertHandler.Secondary(Date.now().toLocaleString()), Math.random() * maxWaitMs);
-            setTimeout(() => AlertHandler_1.AlertHandler.Success(Date.now().toLocaleString()), Math.random() * maxWaitMs);
-            setTimeout(() => AlertHandler_1.AlertHandler.Danger(Date.now().toLocaleString()), Math.random() * maxWaitMs);
-            setTimeout(() => AlertHandler_1.AlertHandler.Warning(Date.now().toLocaleString()), Math.random() * maxWaitMs);
-            setTimeout(() => AlertHandler_1.AlertHandler.Info(Date.now().toLocaleString()), Math.random() * maxWaitMs);
-            setTimeout(() => AlertHandler_1.AlertHandler.Light(Date.now().toLocaleString()), Math.random() * maxWaitMs);
-            setTimeout(() => AlertHandler_1.AlertHandler.Dark(Date.now().toLocaleString()), Math.random() * maxWaitMs);
-            return alertTestFunc;
-        }(), Math.random() * 30000); // Debug.
         NavigationModule_1.NavigationModule.Bind();
         ServerEventListener_1.ServerEventListener.Listen();
         DeviceSettingsHandler_1.DeviceSettingsHandler.RequestDeviceSettings();

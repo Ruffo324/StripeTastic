@@ -1,12 +1,10 @@
-
-export module AlertHandler {
+export module AlertProvider {
 	var alertCounter = 0;
 
 	function innerAlert(type: string, message: string) {
 		const showAlertFor = 10 * 1000;
 		const destroyAfterMs = 5 * 1000;
 		var alertId = `ah-alert-${alertCounter++}`;
-		console.debug(`alertId: ${alertId}`); // debug
 
 		// Create alert element.
 		$("#ah-container").append(`<div class="ah-alert ah-alert-${type}" id="${alertId}">${message}</div>`);
@@ -15,7 +13,6 @@ export module AlertHandler {
 		newAlert.toggleClass("visible");
 		setTimeout(() => {
 			newAlert.toggleClass("visible");
-			console.debug(`alertId: ${alertId} visible.`);
 			setTimeout(() => {
 				newAlert.remove();
 			}, destroyAfterMs);

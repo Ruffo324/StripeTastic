@@ -1,4 +1,5 @@
 import { EventNames } from "../Constants/EventNames";
+import { AlertProvider } from "./AlertProvider";
 
 export module ServerEventListener {
     export var eventSource: EventSource;
@@ -14,6 +15,7 @@ export module ServerEventListener {
                 let eventData: TResultData = JSON.parse(e.data);
                 eventCallback(eventData);
             } catch (error) {
+                AlertProvider.Danger(error);
                 console.error(error);
             }
         });
@@ -27,16 +29,15 @@ export module ServerEventListener {
         }, false);
 
         eventSource.addEventListener('open', function (e) {
-            // Connection was opened.
-            console.debug("Now lisetn to esp events.");
+            AlertProvider.Info("Connection to device established.");
         }, false);
 
-        eventSource.addEventListener('error', function (e) {
+        eventSource.addEventListener('error', function (e: ErrorEvent) {
             if (this.readyState == EventSource.CLOSED) {
-                console.debug("Connection closed!");
+                AlertProvider.Warning("Connection closed!");
                 return;
             }
-            console.error(e);
+            AlertProvider.Danger(e.message);
         }, false);
 
     }
