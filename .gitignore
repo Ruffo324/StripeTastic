@@ -98,3 +98,4 @@ ipch/
 *.vssscc
 *.bak.*
 *.bak
+StripeTastic.Client/.idea
