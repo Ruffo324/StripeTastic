@@ -1,9 +1,11 @@
 import { UrlManipulation } from "../Utils/Utils";
+import {App} from "../app";
+
 
 export module NavigationModule {
     const defaultPage: string = "./pages/led-config.html";
 
-    export function Bind(): void {
+   export function Initialize(): void {
 
         $(".nav-link").on("click", (element) => {
             let clickedItem = $(element.target);
@@ -30,3 +32,4 @@ export module NavigationModule {
         $(`.nav-link[data-page-file-name="${pageFile}"]`).parent().addClass("active");
     }
 }
+App.InjectAppStart(() => NavigationModule.Initialize());

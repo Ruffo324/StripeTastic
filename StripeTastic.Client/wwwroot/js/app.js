@@ -41,14 +41,14 @@ define("Utils/Utils", ["require", "exports"], function (require, exports) {
         UrlManipulation.SetGetParameter = SetGetParameter;
     })(UrlManipulation = exports.UrlManipulation || (exports.UrlManipulation = {}));
 });
-define("Modules/NavigationModule", ["require", "exports", "Utils/Utils"], function (require, exports, Utils_1) {
+define("Modules/NavigationModule", ["require", "exports", "Utils/Utils", "app"], function (require, exports, Utils_1, app_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.NavigationModule = void 0;
     var NavigationModule;
     (function (NavigationModule) {
         const defaultPage = "./pages/led-config.html";
-        function Bind() {
+        function Initialize() {
             $(".nav-link").on("click", (element) => {
                 let clickedItem = $(element.target);
                 let targetPage = clickedItem.data("page-file-name");
@@ -56,7 +56,7 @@ define("Modules/NavigationModule", ["require", "exports", "Utils/Utils"], functi
             });
             LoadPageFromUrl(); // Load url by checking the current link.
         }
-        NavigationModule.Bind = Bind;
+        NavigationModule.Initialize = Initialize;
         function LoadPageFromUrl() {
             const pageParameterValue = Utils_1.UrlManipulation.GetParameter("page");
             if (typeof pageParameterValue === "undefined")
@@ -72,6 +72,7 @@ define("Modules/NavigationModule", ["require", "exports", "Utils/Utils"], functi
             $(`.nav-link[data-page-file-name="${pageFile}"]`).parent().addClass("active");
         }
     })(NavigationModule = exports.NavigationModule || (exports.NavigationModule = {}));
+    app_1.App.InjectAppStart(() => NavigationModule.Initialize());
 });
 define("Constants/EventNames", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -142,7 +143,7 @@ define("Modules/AlertProvider", ["require", "exports"], function (require, expor
         AlertProvider.Dark = Dark;
     })(AlertProvider = exports.AlertProvider || (exports.AlertProvider = {}));
 });
-define("Modules/DeviceCommunicator", ["require", "exports", "app", "Modules/AlertProvider"], function (require, exports, app_1, AlertProvider_1) {
+define("Modules/DeviceCommunicator", ["require", "exports", "app", "Modules/AlertProvider"], function (require, exports, app_2, AlertProvider_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.DeviceCommunicator = void 0;
@@ -150,12 +151,9 @@ define("Modules/DeviceCommunicator", ["require", "exports", "app", "Modules/Aler
     (function (DeviceCommunicator) {
         const _deviceEventSource = '/events';
         let _eventSource;
-        app_1.App.InjectAppStart(() => Initialize());
         function GetEventSource() {
             try {
-                if (typeof (_eventSource) === "undefined")
-                    _eventSource = new EventSource(_deviceEventSource);
-                return _eventSource;
+                return (_eventSource !== null && _eventSource !== void 0 ? _eventSource : (_eventSource = new EventSource(_deviceEventSource)));
             }
             catch (error) {
                 const message = "Unable to setup event source. Please use an up to date server!";
@@ -193,7 +191,9 @@ define("Modules/DeviceCommunicator", ["require", "exports", "app", "Modules/Aler
                 AlertProvider_1.AlertProvider.Danger(e.message);
             }, false);
         }
+        DeviceCommunicator.Initialize = Initialize;
     })(DeviceCommunicator = exports.DeviceCommunicator || (exports.DeviceCommunicator = {}));
+    app_2.App.InjectAppStart(() => DeviceCommunicator.Initialize());
 });
 define("Models/DeviceSettings", ["require", "exports"], function (require, exports) {
     "use strict";

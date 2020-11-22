@@ -7,14 +7,9 @@ export module DeviceCommunicator {
 	const _deviceEventSource: string = '/events';
 	let _eventSource: EventSource;
 
-	App.InjectAppStart(() => Initialize());
-
 	function GetEventSource(): EventSource {
 		try {
-			if(typeof(_eventSource) === "undefined")
-				_eventSource = new EventSource(_deviceEventSource);
-
-			return _eventSource;
+			return (_eventSource ??= new EventSource(_deviceEventSource));
 		} catch (error) {
 			const message = "Unable to setup event source. Please use an up to date server!";
 			alert(message);
@@ -35,7 +30,7 @@ export module DeviceCommunicator {
 		});
 	}
 
-	function Initialize() {
+	export function Initialize() {
 		let eventSource = GetEventSource();
 		eventSource.addEventListener('message', function (e) {
 			AlertProvider.Secondary(JSON.stringify(e));
@@ -55,3 +50,4 @@ export module DeviceCommunicator {
 
 	}
 }
+App.InjectAppStart(() => DeviceCommunicator.Initialize());
