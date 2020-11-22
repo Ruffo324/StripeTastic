@@ -142,19 +142,30 @@ define("Modules/AlertProvider", ["require", "exports"], function (require, expor
         AlertProvider.Dark = Dark;
     })(AlertProvider = exports.AlertProvider || (exports.AlertProvider = {}));
 });
-define("Modules/ServerEventListener", ["require", "exports", "Modules/AlertProvider"], function (require, exports, AlertProvider_1) {
+define("Modules/DeviceCommunicator", ["require", "exports", "app", "Modules/AlertProvider"], function (require, exports, app_1, AlertProvider_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.ServerEventListener = void 0;
-    var ServerEventListener;
-    (function (ServerEventListener) {
-        function Listen() {
-            setupEventSource();
-            listenToEvents();
+    exports.DeviceCommunicator = void 0;
+    var DeviceCommunicator;
+    (function (DeviceCommunicator) {
+        const _deviceEventSource = '/events';
+        let _eventSource;
+        app_1.App.InjectAppStart(() => Initialize());
+        function GetEventSource() {
+            try {
+                if (typeof (_eventSource) === "undefined")
+                    _eventSource = new EventSource(_deviceEventSource);
+                return _eventSource;
+            }
+            catch (error) {
+                const message = "Unable to setup event source. Please use an up to date server!";
+                alert(message);
+                throw new Error(message);
+            }
         }
-        ServerEventListener.Listen = Listen;
         function AddListener(eventName, eventCallback) {
-            ServerEventListener.eventSource.addEventListener(eventName, (e) => {
+            let eventSource = GetEventSource();
+            eventSource.addEventListener(eventName, (e) => {
                 try {
                     let eventData = JSON.parse(e.data);
                     eventCallback(eventData);
@@ -165,17 +176,16 @@ define("Modules/ServerEventListener", ["require", "exports", "Modules/AlertProvi
                 }
             });
         }
-        ServerEventListener.AddListener = AddListener;
-        function listenToEvents() {
-            ServerEventListener.eventSource.addEventListener('message', function (e) {
-                console.debug(e); // debug
-                // var data = JSON.parse(e.data);
-                // console.log(data);
+        DeviceCommunicator.AddListener = AddListener;
+        function Initialize() {
+            let eventSource = GetEventSource();
+            eventSource.addEventListener('message', function (e) {
+                AlertProvider_1.AlertProvider.Secondary(JSON.stringify(e));
             }, false);
-            ServerEventListener.eventSource.addEventListener('open', function (e) {
+            eventSource.addEventListener('open', function (_) {
                 AlertProvider_1.AlertProvider.Info("Connection to device established.");
             }, false);
-            ServerEventListener.eventSource.addEventListener('error', function (e) {
+            eventSource.addEventListener('error', function (e) {
                 if (this.readyState == EventSource.CLOSED) {
                     AlertProvider_1.AlertProvider.Warning("Connection closed!");
                     return;
@@ -183,22 +193,17 @@ define("Modules/ServerEventListener", ["require", "exports", "Modules/AlertProvi
                 AlertProvider_1.AlertProvider.Danger(e.message);
             }, false);
         }
-        function setupEventSource() {
-            var eventUrl = '/events';
-            if (!!window.EventSource) {
-                ServerEventListener.eventSource = new EventSource(eventUrl);
-            }
-            else {
-                // Result to xhr polling :(
-                console.error("HTML 5 not supported by browser!"); // TODO: Just don't allow outdated browsers.
-                alert("Use a modern Browser.");
-            }
-        }
-    })(ServerEventListener = exports.ServerEventListener || (exports.ServerEventListener = {}));
+    })(DeviceCommunicator = exports.DeviceCommunicator || (exports.DeviceCommunicator = {}));
 });
 define("Models/DeviceSettings", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ConnectionMode = void 0;
+    var ConnectionMode;
+    (function (ConnectionMode) {
+        ConnectionMode[ConnectionMode["AdHoc"] = 0] = "AdHoc";
+        ConnectionMode[ConnectionMode["Router"] = 1] = "Router";
+    })(ConnectionMode = exports.ConnectionMode || (exports.ConnectionMode = {}));
 });
 define("Modules/DeviceSettingsHandler", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -212,14 +217,34 @@ define("Modules/DeviceSettingsHandler", ["require", "exports"], function (requir
         DeviceSettingsHandler.RequestDeviceSettings = RequestDeviceSettings;
     })(DeviceSettingsHandler = exports.DeviceSettingsHandler || (exports.DeviceSettingsHandler = {}));
 });
-define("app", ["require", "exports", "Modules/NavigationModule", "Modules/ServerEventListener", "Modules/DeviceSettingsHandler"], function (require, exports, NavigationModule_1, ServerEventListener_1, DeviceSettingsHandler_1) {
+define("app", ["require", "exports", "Modules/AlertProvider"], function (require, exports, AlertProvider_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.App = void 0;
+    var App;
+    (function (App) {
+        var invokeActions = [];
+        var appStartedOnce = false;
+        function InjectAppStart(invokeAction) {
+            invokeActions.push(invokeAction);
+        }
+        App.InjectAppStart = InjectAppStart;
+        function AppStart() {
+            if (appStartedOnce) {
+                AlertProvider_2.AlertProvider.Danger("AppStart is only allowed to be called once!");
+                throw new Error("AppStart is only allowed to be called once!");
+            }
+            appStartedOnce = true;
+            invokeActions.forEach(a => a());
+        }
+        App.AppStart = AppStart;
+    })(App = exports.App || (exports.App = {}));
     // Load, Bind and setup all required modules.
     $(() => {
-        NavigationModule_1.NavigationModule.Bind();
-        ServerEventListener_1.ServerEventListener.Listen();
-        DeviceSettingsHandler_1.DeviceSettingsHandler.RequestDeviceSettings();
+        App.AppStart();
+        //     NavigationModule.Bind();
+        // DeviceCommunicator.Listen();
+        // DeviceSettingsHandler.RequestDeviceSettings();
     });
 });
 define("Models/IStripeProcessingData", ["require", "exports"], function (require, exports) {
