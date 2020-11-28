@@ -1,5 +1,6 @@
-import {UrlManipulation} from "../Utils/Utils";
-import {App} from "../app";
+import { UrlManipulation } from "../Utils/Utils";
+import { App } from "../app";
+import { AlertProvider } from "./AlertProvider";
 
 
 export module NavigationModule {
@@ -14,7 +15,11 @@ export module NavigationModule {
             loadPage(targetPage);
         });
 
+        if (App.Debug)
+            setInterval(() => LoadPageFromUrl(), 1000); // Debug
+
         LoadPageFromUrl(); // Load url by checking the current link.
+        AlertProvider.Debug(`NavigationModule - initialized.`);
     }
 
     export function LoadPageFromUrl(): void {

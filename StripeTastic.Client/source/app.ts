@@ -1,8 +1,10 @@
-import {AlertProvider} from "./Modules/AlertProvider";
-import {NavigationModule} from "./Modules/NavigationModule";
-import {DeviceCommunicator} from "./Modules/DeviceCommunicator";
+import { AlertProvider } from "./Modules/AlertProvider";
+import { NavigationModule } from "./Modules/NavigationModule";
+import { DeviceCommunicator } from "./Modules/DeviceCommunicator";
+import { DeviceSettingsHandler } from "./Modules/DeviceSettingsHandler";
 
 export module App {
+    export const Debug: boolean = true;
     const invokeActions = [];
     let appStartedOnce = false;
 
@@ -23,6 +25,7 @@ export module App {
 
 App.InjectAppStart(() => NavigationModule.Initialize());
 App.InjectAppStart(() => DeviceCommunicator.Initialize());
+App.InjectAppStart(() => DeviceSettingsHandler.Initialize());
 
 
 // Load, Bind and setup all required modules.

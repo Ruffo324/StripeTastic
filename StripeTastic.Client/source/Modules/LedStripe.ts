@@ -48,17 +48,6 @@
 // }
 
  function simpleRestRequest(path, data) {
-    $.ajax({
-        type: 'POST',
-        url: path,
-        dataType: 'json',
-        contentType: 'application/json',
-        processData: false,
-        data: data,
-        success: function (resp) {
-            console.log(resp);
-        }
-    });
 }
 
  function hexToRgb(hex) {

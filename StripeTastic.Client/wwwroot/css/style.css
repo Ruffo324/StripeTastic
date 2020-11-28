@@ -114,3 +114,9 @@ p {
   background: var(--color-dark);
   color: var(--text-color-light);
 }
+
+#ah-container > .ah-alert-debug {
+  color: var(--text-color-light);
+  background: var(--color-secondary);
+  opacity: 80%;
+}

@@ -1,3 +1,5 @@
+import { App } from "../app";
+
 export module AlertProvider {
     var alertCounter = 0;
 
@@ -51,5 +53,9 @@ export module AlertProvider {
         innerAlert("dark", message);
     }
 
-
+    /** TODO: Disable in production. */
+    export function Debug(message: string) {
+        if (App.Debug)
+            innerAlert("debug", message);
+    }
 }
