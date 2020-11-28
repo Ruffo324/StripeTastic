@@ -261,7 +261,18 @@ define("Modules/DeviceSettingsHandler", ["require", "exports", "Constants/EventN
             Settings form dom id's:
             #container-device-settings
             #device-settings-connection-mode
+    
+    
             .wifi-settings-card
+            #card-wifi-settings-adhoc
+                .device-settings-adhoc-ssid
+                .device-settings-adhoc-password
+                .device-settings-adhoc-channel
+                
+            #card-wifi-settings-router
+                .device-settings-router-ssid
+                .device-settings-router-password
+                .device-settings-router-channel
         */
     })(DeviceSettingsHandler = exports.DeviceSettingsHandler || (exports.DeviceSettingsHandler = {}));
 });
