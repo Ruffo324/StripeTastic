@@ -2,7 +2,10 @@
   "compilerOptions": {
     "module": "amd",
     "target": "es6",
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "sourceMap": true,
     // "mapRoot": "file:///C:/_Files/1_Programming/3_GitHub/StripeTastic/StripeTastic/data_src/",
     "outFile": "../wwwroot/js/app.js",
@@ -12,5 +15,7 @@
     "emitDecoratorMetadata": true
   },
   "compileOnSave": true,
-  "typeRoots": ["./node_modules/@types"]
+  "typeRoots": [
+    "./node_modules/@types"
+  ]
 }

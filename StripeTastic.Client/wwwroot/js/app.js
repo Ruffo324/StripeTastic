@@ -1,92 +1,3 @@
-define("Utils/Utils", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.UrlManipulation = void 0;
-    /**
-     * Contains util function's for url manipulation.
-     */
-    var UrlManipulation;
-    (function (UrlManipulation) {
-        /**
-         * Return the value of the url get parameter.
-         * @param parameterName The name of the wanted get parameter.
-         * @returns {string} The value of the get parameter or undefined.
-         */
-        function GetParameter(parameterName) {
-            var getValues = {};
-            location.search.substr(1).split("&").forEach(item => { getValues[item.split("=")[0]] = item.split("=")[1]; });
-            return getValues[parameterName];
-        }
-        UrlManipulation.GetParameter = GetParameter;
-        /**
-         * Sets the value for a get url parameter.
-         * Leave value empty, to delete a get parameter.
-         * @param parameterName Name of the get parameter.
-         * @param value Value of the get parameter.
-         */
-        function SetGetParameter(parameterName, value) {
-            var getValues = {};
-            location.search.substr(1).split("&").forEach(item => { getValues[item.split("=")[0]] = item.split("=")[1]; });
-            getValues[parameterName] = [value];
-            let newSearch = "";
-            Object.keys(getValues).forEach((key) => {
-                if (getValues.hasOwnProperty(key) && key !== "" && getValues[key] !== "") {
-                    newSearch += `&${key}=${getValues[key]}`;
-                }
-            });
-            if (newSearch.length > 0)
-                newSearch = newSearch.substr(1);
-            history.pushState({}, "", `?${newSearch}`);
-        }
-        UrlManipulation.SetGetParameter = SetGetParameter;
-    })(UrlManipulation = exports.UrlManipulation || (exports.UrlManipulation = {}));
-});
-define("Modules/NavigationModule", ["require", "exports", "Utils/Utils", "app"], function (require, exports, Utils_1, app_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.NavigationModule = void 0;
-    var NavigationModule;
-    (function (NavigationModule) {
-        const defaultPage = "./pages/led-config.html";
-        function Initialize() {
-            $(".nav-link").on("click", (element) => {
-                let clickedItem = $(element.target);
-                let targetPage = clickedItem.data("page-file-name");
-                loadPage(targetPage);
-            });
-            LoadPageFromUrl(); // Load url by checking the current link.
-        }
-        NavigationModule.Initialize = Initialize;
-        function LoadPageFromUrl() {
-            const pageParameterValue = Utils_1.UrlManipulation.GetParameter("page");
-            if (typeof pageParameterValue === "undefined")
-                loadPage(defaultPage);
-            else
-                loadPage(pageParameterValue);
-        }
-        NavigationModule.LoadPageFromUrl = LoadPageFromUrl;
-        function loadPage(pageFile) {
-            Utils_1.UrlManipulation.SetGetParameter("page", pageFile);
-            $("#container-page").load(pageFile);
-            $(".nav-item").removeClass("active");
-            $(`.nav-link[data-page-file-name="${pageFile}"]`).parent().addClass("active");
-        }
-    })(NavigationModule = exports.NavigationModule || (exports.NavigationModule = {}));
-    app_1.App.InjectAppStart(() => NavigationModule.Initialize());
-});
-define("Constants/EventNames", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.EventNames = void 0;
-    /**
-     * The event names for the communication with the web client.
-     * Ensure that the values are identical to "source\Constants\EventNames.ts"!
-     */
-    var EventNames;
-    (function (EventNames) {
-        EventNames["DeviceSettings"] = "DeviceSettings";
-    })(EventNames = exports.EventNames || (exports.EventNames = {}));
-});
 define("Modules/AlertProvider", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -143,7 +54,99 @@ define("Modules/AlertProvider", ["require", "exports"], function (require, expor
         AlertProvider.Dark = Dark;
     })(AlertProvider = exports.AlertProvider || (exports.AlertProvider = {}));
 });
-define("Modules/DeviceCommunicator", ["require", "exports", "app", "Modules/AlertProvider"], function (require, exports, app_2, AlertProvider_1) {
+define("Utils/Utils", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.UrlManipulation = void 0;
+    /**
+     * Contains util function's for url manipulation.
+     */
+    var UrlManipulation;
+    (function (UrlManipulation) {
+        /**
+         * Return the value of the url get parameter.
+         * @param parameterName The name of the wanted get parameter.
+         * @returns {string} The value of the get parameter or undefined.
+         */
+        function GetParameter(parameterName) {
+            const getValues = {};
+            location.search.substr(1).split("&").forEach(item => {
+                getValues[item.split("=")[0]] = item.split("=")[1];
+            });
+            return getValues[parameterName];
+        }
+        UrlManipulation.GetParameter = GetParameter;
+        /**
+         * Sets the value for a get url parameter.
+         * Leave value empty, to delete a get parameter.
+         * @param parameterName Name of the get parameter.
+         * @param value Value of the get parameter.
+         */
+        function SetGetParameter(parameterName, value) {
+            const getValues = {};
+            location.search.substr(1).split("&").forEach(item => {
+                getValues[item.split("=")[0]] = item.split("=")[1];
+            });
+            getValues[parameterName] = [value];
+            let newSearch = "";
+            Object.keys(getValues).forEach((key) => {
+                if (getValues.hasOwnProperty(key) && key !== "" && getValues[key] !== "") {
+                    newSearch += `&${key}=${getValues[key]}`;
+                }
+            });
+            if (newSearch.length > 0)
+                newSearch = newSearch.substr(1);
+            history.pushState({}, "", `?${newSearch}`);
+        }
+        UrlManipulation.SetGetParameter = SetGetParameter;
+    })(UrlManipulation = exports.UrlManipulation || (exports.UrlManipulation = {}));
+});
+define("Modules/NavigationModule", ["require", "exports", "Utils/Utils"], function (require, exports, Utils_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.NavigationModule = void 0;
+    var NavigationModule;
+    (function (NavigationModule) {
+        const defaultPage = "./pages/led-config.html";
+        function Initialize() {
+            $(".nav-link").on("click", (element) => {
+                let clickedItem = $(element.target);
+                let targetPage = clickedItem.data("page-file-name");
+                loadPage(targetPage);
+            });
+            LoadPageFromUrl(); // Load url by checking the current link.
+        }
+        NavigationModule.Initialize = Initialize;
+        function LoadPageFromUrl() {
+            const pageParameterValue = Utils_1.UrlManipulation.GetParameter("page");
+            if (typeof pageParameterValue === "undefined")
+                loadPage(defaultPage);
+            else
+                loadPage(pageParameterValue);
+        }
+        NavigationModule.LoadPageFromUrl = LoadPageFromUrl;
+        function loadPage(pageFile) {
+            Utils_1.UrlManipulation.SetGetParameter("page", pageFile);
+            $("#container-page").load(pageFile);
+            $(".nav-item").removeClass("active");
+            $(`.nav-link[data-page-file-name="${pageFile}"]`).parent().addClass("active");
+        }
+    })(NavigationModule = exports.NavigationModule || (exports.NavigationModule = {}));
+});
+define("Constants/EventNames", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.EventNames = void 0;
+    /**
+     * The event names for the communication with the web client.
+     * Ensure that the values are identical to "source\Constants\EventNames.ts"!
+     */
+    var EventNames;
+    (function (EventNames) {
+        EventNames["DeviceSettings"] = "DeviceSettings";
+    })(EventNames = exports.EventNames || (exports.EventNames = {}));
+});
+define("Modules/DeviceCommunicator", ["require", "exports", "Modules/AlertProvider"], function (require, exports, AlertProvider_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.DeviceCommunicator = void 0;
@@ -193,38 +196,15 @@ define("Modules/DeviceCommunicator", ["require", "exports", "app", "Modules/Aler
         }
         DeviceCommunicator.Initialize = Initialize;
     })(DeviceCommunicator = exports.DeviceCommunicator || (exports.DeviceCommunicator = {}));
-    app_2.App.InjectAppStart(() => DeviceCommunicator.Initialize());
 });
-define("Models/DeviceSettings", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.ConnectionMode = void 0;
-    var ConnectionMode;
-    (function (ConnectionMode) {
-        ConnectionMode[ConnectionMode["AdHoc"] = 0] = "AdHoc";
-        ConnectionMode[ConnectionMode["Router"] = 1] = "Router";
-    })(ConnectionMode = exports.ConnectionMode || (exports.ConnectionMode = {}));
-});
-define("Modules/DeviceSettingsHandler", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.DeviceSettingsHandler = void 0;
-    var DeviceSettingsHandler;
-    (function (DeviceSettingsHandler) {
-        var currentSettings;
-        function RequestDeviceSettings() {
-        }
-        DeviceSettingsHandler.RequestDeviceSettings = RequestDeviceSettings;
-    })(DeviceSettingsHandler = exports.DeviceSettingsHandler || (exports.DeviceSettingsHandler = {}));
-});
-define("app", ["require", "exports", "Modules/AlertProvider"], function (require, exports, AlertProvider_2) {
+define("app", ["require", "exports", "Modules/AlertProvider", "Modules/NavigationModule", "Modules/DeviceCommunicator"], function (require, exports, AlertProvider_2, NavigationModule_1, DeviceCommunicator_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.App = void 0;
     var App;
     (function (App) {
-        var invokeActions = [];
-        var appStartedOnce = false;
+        const invokeActions = [];
+        let appStartedOnce = false;
         function InjectAppStart(invokeAction) {
             invokeActions.push(invokeAction);
         }
@@ -239,26 +219,52 @@ define("app", ["require", "exports", "Modules/AlertProvider"], function (require
         }
         App.AppStart = AppStart;
     })(App = exports.App || (exports.App = {}));
+    App.InjectAppStart(() => NavigationModule_1.NavigationModule.Initialize());
+    App.InjectAppStart(() => DeviceCommunicator_1.DeviceCommunicator.Initialize());
     // Load, Bind and setup all required modules.
-    $(() => {
-        App.AppStart();
-        //     NavigationModule.Bind();
-        // DeviceCommunicator.Listen();
-        // DeviceSettingsHandler.RequestDeviceSettings();
-    });
+    $(() => App.AppStart());
+});
+define("Models/DeviceSettings", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.AudioSource = exports.ConnectionMode = void 0;
+    var ConnectionMode;
+    (function (ConnectionMode) {
+        ConnectionMode[ConnectionMode["AdHoc"] = 0] = "AdHoc";
+        ConnectionMode[ConnectionMode["Router"] = 1] = "Router";
+        ConnectionMode[ConnectionMode["Both"] = 2] = "Both";
+    })(ConnectionMode = exports.ConnectionMode || (exports.ConnectionMode = {}));
+    var AudioSource;
+    (function (AudioSource) {
+        AudioSource[AudioSource["AuxInput"] = 0] = "AuxInput";
+        AudioSource[AudioSource["Microphone"] = 1] = "Microphone";
+        AudioSource[AudioSource["NetzworkStream"] = 2] = "NetzworkStream";
+    })(AudioSource = exports.AudioSource || (exports.AudioSource = {}));
 });
 define("Models/IStripeProcessingData", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
+define("Modules/DeviceSettingsHandler", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.DeviceSettingsHandler = void 0;
+    var DeviceSettingsHandler;
+    (function (DeviceSettingsHandler) {
+        var currentSettings;
+        function RequestDeviceSettings() {
+        }
+        DeviceSettingsHandler.RequestDeviceSettings = RequestDeviceSettings;
+    })(DeviceSettingsHandler = exports.DeviceSettingsHandler || (exports.DeviceSettingsHandler = {}));
+});
 // TODO: Rewrite the commented code below..
 /**
 
-// Prefill textareas..
-$("#stripe1").val(JSON.stringify(defaultProcessing, null, 2));
-$("#stripe2").val(JSON.stringify(defaultProcessing, null, 2));
+ // Prefill textareas..
+ $("#stripe1").val(JSON.stringify(defaultProcessing, null, 2));
+ $("#stripe2").val(JSON.stringify(defaultProcessing, null, 2));
 
-$("#updateStripe1").click(() => {
+ $("#updateStripe1").click(() => {
     let jsonStr = $("#stripe1").val();
     if (!IsJsonString(jsonStr)) {
         console.error("invalid data.");
@@ -268,7 +274,7 @@ $("#updateStripe1").click(() => {
     console.log("send");
 });
 
-$("#updateStripe2").click(() => {
+ $("#updateStripe2").click(() => {
     let jsonStr = $("#stripe2").val();
     if (!IsJsonString(jsonStr)) {
         console.error("invalid data.");
@@ -278,7 +284,7 @@ $("#updateStripe2").click(() => {
     console.log("send");
 });
 
-function IsJsonString(str) {
+ function IsJsonString(str) {
     try {
         var json = JSON.parse(str);
         return (typeof json === 'object');
@@ -287,20 +293,20 @@ function IsJsonString(str) {
     }
 }
 
-// function changeStroboSpeed(speed) {
+ // function changeStroboSpeed(speed) {
 //     simpleRestRequest("/effects/strobe/speed", JSON.stringify({ 'speed': speed }));
 //     $("#value-strobo-speed").html(`${speed}/s`);
 // }
 
-// function changeColor(colorHex) {
+ // function changeColor(colorHex) {
 //     let rgbColor = hexToRgb(colorHex);
 //     simpleRestRequest("/effects/color", JSON.stringify({ 'red': rgbColor.red, 'green': rgbColor.green, 'blue': rgbColor.blue }));
 // }
-// function strobeOnOff() {
+ // function strobeOnOff() {
 //     simpleRestRequest("/effects/strobe/on", JSON.stringify({ 'on': $('#strobo-on-off').is(":checked") }));
 // }
 
-function simpleRestRequest(path, data) {
+ function simpleRestRequest(path, data) {
     $.ajax({
         type: 'POST',
         url: path,
@@ -314,7 +320,7 @@ function simpleRestRequest(path, data) {
     });
 }
 
-function hexToRgb(hex) {
+ function hexToRgb(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
         red: parseInt(result[1], 16),
@@ -322,7 +328,7 @@ function hexToRgb(hex) {
         blue: parseInt(result[3], 16)
     } : null;
 }
- */ 
+ */
 define("Utils/Cookies", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });

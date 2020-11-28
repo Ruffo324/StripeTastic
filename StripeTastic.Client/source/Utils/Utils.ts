@@ -9,8 +9,10 @@ export module UrlManipulation {
      * @returns {string} The value of the get parameter or undefined.
      */
     export function GetParameter(parameterName: string): string {
-        var getValues: {} = {};
-        location.search.substr(1).split("&").forEach(item => { getValues[item.split("=")[0]] = item.split("=")[1] });
+        const getValues: {} = {};
+        location.search.substr(1).split("&").forEach(item => {
+            getValues[item.split("=")[0]] = item.split("=")[1]
+        });
         return getValues[parameterName];
     }
 
@@ -21,8 +23,10 @@ export module UrlManipulation {
      * @param value Value of the get parameter.
      */
     export function SetGetParameter(parameterName: string, value?: string): void {
-        var getValues: {} = {};
-        location.search.substr(1).split("&").forEach(item => { getValues[item.split("=")[0]] = item.split("=")[1] });
+        const getValues: {} = {};
+        location.search.substr(1).split("&").forEach(item => {
+            getValues[item.split("=")[0]] = item.split("=")[1]
+        });
         getValues[parameterName] = [value];
 
         let newSearch: string = "";

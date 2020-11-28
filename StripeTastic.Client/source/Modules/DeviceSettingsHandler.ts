@@ -1,9 +1,9 @@
-import { IDeviceSettings } from "../Models/DeviceSettings";
+import {IDeviceSettings} from "../Models/DeviceSettings";
 
 export module DeviceSettingsHandler {
-	var currentSettings: IDeviceSettings;
+    var currentSettings: IDeviceSettings;
 
-	export function RequestDeviceSettings(): void {
+    export function RequestDeviceSettings(): void {
 
-	}
+    }
 }

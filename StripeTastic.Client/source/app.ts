@@ -1,11 +1,10 @@
-import { NavigationModule } from "./Modules/NavigationModule";
-import { DeviceCommunicator } from "./Modules/DeviceCommunicator";
-import { DeviceSettingsHandler } from "./Modules/DeviceSettingsHandler";
-import { AlertProvider } from "./Modules/AlertProvider";
+import {AlertProvider} from "./Modules/AlertProvider";
+import {NavigationModule} from "./Modules/NavigationModule";
+import {DeviceCommunicator} from "./Modules/DeviceCommunicator";
 
 export module App {
-    var invokeActions = [];
-    var appStartedOnce = false;
+    const invokeActions = [];
+    let appStartedOnce = false;
 
     export function InjectAppStart(invokeAction: Function): void {
         invokeActions.push(invokeAction)
@@ -21,11 +20,10 @@ export module App {
     }
 }
 
-// Load, Bind and setup all required modules.
-$(() => {
-    App.AppStart();
-    //     NavigationModule.Bind();
-    // DeviceCommunicator.Listen();
 
-    // DeviceSettingsHandler.RequestDeviceSettings();
-});
+App.InjectAppStart(() => NavigationModule.Initialize());
+App.InjectAppStart(() => DeviceCommunicator.Initialize());
+
+
+// Load, Bind and setup all required modules.
+$(() => App.AppStart());
