@@ -152,15 +152,17 @@ define("Constants/EventNames", ["require", "exports"], function (require, export
      */
     var EventNames;
     (function (EventNames) {
-        EventNames["DeviceSettings"] = "DeviceSettings";
+        EventNames["RequestDeviceSettings"] = "RequestDeviceSettings";
+        EventNames["UpdateDeviceSettings"] = "UpdateDeviceSettings";
+        EventNames["RequestWiFiScan"] = "RequestWiFiScan";
     })(EventNames = exports.EventNames || (exports.EventNames = {}));
 });
-define("Modules/DeviceCommunicator", ["require", "exports", "Modules/AlertProvider"], function (require, exports, AlertProvider_2) {
+define("Modules/Communication", ["require", "exports", "Modules/AlertProvider"], function (require, exports, AlertProvider_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.DeviceCommunicator = void 0;
-    var DeviceCommunicator;
-    (function (DeviceCommunicator) {
+    exports.Communication = void 0;
+    var Communication;
+    (function (Communication) {
         const _deviceEventSource = '/events';
         let _eventSource;
         function GetEventSource() {
@@ -187,7 +189,7 @@ define("Modules/DeviceCommunicator", ["require", "exports", "Modules/AlertProvid
                 }
             });
         }
-        DeviceCommunicator.AddListener = AddListener;
+        Communication.AddListener = AddListener;
         function SendRequest(eventName, data) {
             AlertProvider_2.AlertProvider.Debug(`DeviceCommunication - RequestSend: ${eventName}`);
             $.ajax({
@@ -202,7 +204,7 @@ define("Modules/DeviceCommunicator", ["require", "exports", "Modules/AlertProvid
                 }
             });
         }
-        DeviceCommunicator.SendRequest = SendRequest;
+        Communication.SendRequest = SendRequest;
         function Initialize() {
             let eventSource = GetEventSource();
             eventSource.addEventListener('message', function (e) {
@@ -220,10 +222,10 @@ define("Modules/DeviceCommunicator", ["require", "exports", "Modules/AlertProvid
             }, false);
             AlertProvider_2.AlertProvider.Debug(`DeviceCommunicator initialized.`);
         }
-        DeviceCommunicator.Initialize = Initialize;
-    })(DeviceCommunicator = exports.DeviceCommunicator || (exports.DeviceCommunicator = {}));
+        Communication.Initialize = Initialize;
+    })(Communication = exports.Communication || (exports.Communication = {}));
 });
-define("Models/DeviceSettings", ["require", "exports"], function (require, exports) {
+define("Models/IDeviceSettings", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.AudioSource = exports.ConnectionMode = void 0;
@@ -240,24 +242,30 @@ define("Models/DeviceSettings", ["require", "exports"], function (require, expor
         AudioSource[AudioSource["NetzworkStream"] = 2] = "NetzworkStream";
     })(AudioSource = exports.AudioSource || (exports.AudioSource = {}));
 });
-define("Modules/DeviceSettingsHandler", ["require", "exports", "Constants/EventNames", "Modules/AlertProvider", "Modules/DeviceCommunicator"], function (require, exports, EventNames_1, AlertProvider_3, DeviceCommunicator_1) {
+define("Modules/DeviceSettingsHandler", ["require", "exports", "Constants/EventNames", "Modules/AlertProvider", "Modules/Communication"], function (require, exports, EventNames_1, AlertProvider_3, Communication_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.DeviceSettingsHandler = void 0;
     var DeviceSettingsHandler;
     (function (DeviceSettingsHandler) {
         function RequestDeviceSettings() {
-            DeviceCommunicator_1.DeviceCommunicator.SendRequest(EventNames_1.EventNames.DeviceSettings);
+            Communication_1.Communication.SendRequest(EventNames_1.EventNames.RequestDeviceSettings);
         }
         DeviceSettingsHandler.RequestDeviceSettings = RequestDeviceSettings;
         function Initialize() {
-            DeviceCommunicator_1.DeviceCommunicator.AddListener(EventNames_1.EventNames.DeviceSettings, (data) => DeviceSettingsHandler.DeviceSettings = data);
+            Communication_1.Communication.AddListener(EventNames_1.EventNames.RequestDeviceSettings, (data) => DeviceSettingsHandler.DeviceSettings = data);
             AlertProvider_3.AlertProvider.Debug(`DeviceSettingsHandler initialized.`);
         }
         DeviceSettingsHandler.Initialize = Initialize;
+        /**
+            Settings form dom id's:
+            #container-device-settings
+            #device-settings-connection-mode
+            .wifi-settings-card
+        */
     })(DeviceSettingsHandler = exports.DeviceSettingsHandler || (exports.DeviceSettingsHandler = {}));
 });
-define("app", ["require", "exports", "Modules/AlertProvider", "Modules/NavigationModule", "Modules/DeviceCommunicator", "Modules/DeviceSettingsHandler"], function (require, exports, AlertProvider_4, NavigationModule_1, DeviceCommunicator_2, DeviceSettingsHandler_1) {
+define("app", ["require", "exports", "Modules/AlertProvider", "Modules/NavigationModule", "Modules/Communication", "Modules/DeviceSettingsHandler"], function (require, exports, AlertProvider_4, NavigationModule_1, Communication_2, DeviceSettingsHandler_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.App = void 0;
@@ -281,12 +289,16 @@ define("app", ["require", "exports", "Modules/AlertProvider", "Modules/Navigatio
         App.AppStart = AppStart;
     })(App = exports.App || (exports.App = {}));
     App.InjectAppStart(() => NavigationModule_1.NavigationModule.Initialize());
-    App.InjectAppStart(() => DeviceCommunicator_2.DeviceCommunicator.Initialize());
+    App.InjectAppStart(() => Communication_2.Communication.Initialize());
     App.InjectAppStart(() => DeviceSettingsHandler_1.DeviceSettingsHandler.Initialize());
     // Load, Bind and setup all required modules.
     $(() => App.AppStart());
 });
 define("Models/IStripeProcessingData", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+});
+define("Models/IWiFiScanResult", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });

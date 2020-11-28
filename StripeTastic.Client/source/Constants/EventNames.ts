@@ -3,5 +3,8 @@
  * Ensure that the values are identical to "source\Constants\EventNames.h"!
  */
 export enum EventNames {
-    DeviceSettings = "DeviceSettings"
+    RequestDeviceSettings = "RequestDeviceSettings",
+    UpdateDeviceSettings = "UpdateDeviceSettings",
+    RequestWiFiScan = "RequestWiFiScan",
+
 }

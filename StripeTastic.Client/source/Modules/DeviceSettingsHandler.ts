@@ -1,17 +1,24 @@
 import { EventNames } from "../Constants/EventNames";
-import { IDeviceSettings } from "../Models/DeviceSettings";
+import { IDeviceSettings } from "../Models/IDeviceSettings";
 import { AlertProvider } from "./AlertProvider";
-import { DeviceCommunicator } from "./DeviceCommunicator";
+import { Communication } from "./Communication";
 
 export module DeviceSettingsHandler {
     export var DeviceSettings: IDeviceSettings;
 
     export function RequestDeviceSettings(): void {
-        DeviceCommunicator.SendRequest(EventNames.DeviceSettings);
+        Communication.SendRequest(EventNames.RequestDeviceSettings);
     }
 
     export function Initialize() {
-        DeviceCommunicator.AddListener<IDeviceSettings>(EventNames.DeviceSettings, (data) => DeviceSettings = data);
+        Communication.AddListener<IDeviceSettings>(EventNames.RequestDeviceSettings, (data) => DeviceSettings = data);
         AlertProvider.Debug(`DeviceSettingsHandler initialized.`);
     }
+
+    /**
+        Settings form dom id's:
+        #container-device-settings
+        #device-settings-connection-mode
+        .wifi-settings-card
+    */
 }

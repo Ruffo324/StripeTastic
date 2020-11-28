@@ -1,6 +1,6 @@
 import { AlertProvider } from "./Modules/AlertProvider";
 import { NavigationModule } from "./Modules/NavigationModule";
-import { DeviceCommunicator } from "./Modules/DeviceCommunicator";
+import { Communication } from "./Modules/Communication";
 import { DeviceSettingsHandler } from "./Modules/DeviceSettingsHandler";
 
 export module App {
@@ -24,7 +24,7 @@ export module App {
 
 
 App.InjectAppStart(() => NavigationModule.Initialize());
-App.InjectAppStart(() => DeviceCommunicator.Initialize());
+App.InjectAppStart(() => Communication.Initialize());
 App.InjectAppStart(() => DeviceSettingsHandler.Initialize());
 
 

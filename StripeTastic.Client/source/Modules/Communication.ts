@@ -1,7 +1,7 @@
 import { EventNames } from "../Constants/EventNames";
 import { AlertProvider } from "./AlertProvider";
 
-export module DeviceCommunicator {
+export module Communication {
     const _deviceEventSource: string = '/events';
     let _eventSource: EventSource;
 
@@ -11,7 +11,7 @@ export module DeviceCommunicator {
         } catch (error) {
             const message = "Unable to setup event source. Please use an up to date server!";
             AlertProvider.Danger(message);
-            throw new Error(message);
+            throw new Error(message)
         }
     }
 
